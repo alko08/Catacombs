@@ -102,7 +102,7 @@ public class inventoryScript : MonoBehaviour
     // Function for adding books to inventory.
     public void addBook(string bookName)
     {
-        if (bookName == "test_pickup") {
+        if (bookName.Contains("test_pickup")) {
             inventoryList.Add(new Book() 
                 { m_name = "testBook", 
                   m_sprite = book1 });
