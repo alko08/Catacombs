@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
-    private string sceneName;
 
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
@@ -14,8 +13,7 @@ public class GameHandler : MonoBehaviour {
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
 
-    void Awake (){
-        // pauseMenuUI = GameObject.FindWithTag("PauseMenu");
+    void Awake (){ 
         SetLevel (volumeLevel);
         GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
         if (sliderTemp != null){
@@ -41,6 +39,7 @@ public class GameHandler : MonoBehaviour {
     }
 
     void Pause(){
+        Screen.lockCursor = false;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameisPaused = true;
@@ -50,6 +49,9 @@ public class GameHandler : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameisPaused = false;
+        if (SceneManager.GetActiveScene().name != "MainMenu") {
+            Screen.lockCursor = true;
+        }
     }
 
     public void SetLevel (float sliderValue){

@@ -82,6 +82,7 @@ public class inventoryScript : MonoBehaviour
     {
         // Opening UI elements.
         inventoryUI.SetActive(true);
+        Screen.lockCursor = false;
         for (int i = 0; i < inventoryList.Count; i++) {
             displayItem(inventoryList[i], i);
         }
@@ -96,6 +97,7 @@ public class inventoryScript : MonoBehaviour
     void doClose()
     {
         inventoryUI.SetActive(false);
+        Screen.lockCursor = true;
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
     }
 
