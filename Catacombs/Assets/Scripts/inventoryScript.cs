@@ -58,7 +58,7 @@ public class inventoryScript : MonoBehaviour
         
         for (int i = 0; i < numItems_UI; i++) {
             currItemName = "item" + i.ToString();
-            Debug.Log("Processing " + currItemName);
+            // Debug.Log("Processing " + currItemName);
             itemsUI.Add(GameObject.Find(currItemName));
             itemsUI[i].SetActive(false);
         }
@@ -131,5 +131,26 @@ public class inventoryScript : MonoBehaviour
         } else {
             Debug.Log("index out of range.");
         }
+    }
+
+    public void removeBook(string bookName)
+    {
+        if (bookName == "Battery") {
+            inventoryList.Remove(new Book()
+                { m_name = "Battery", 
+                  m_sprite = battery });
+        } else {
+            Debug.Log("Cant remove:" + bookName);
+        }
+        
+        if (isOpen) {
+            doOpen();
+        }
+    }
+
+    public bool containsBattery() {
+        return inventoryList.Contains(new Book()
+                { m_name = "Battery", 
+                  m_sprite = battery });
     }
 }

@@ -10,10 +10,12 @@ public class FlashLight : MonoBehaviour
     public AudioSource clickSound;
     private TextMeshProUGUI textMeshPro;
     public float charge;
+    inventoryScript inventory;
 
     // // Start is called before the first frame update
     void Start()
     {
+        inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         textMeshPro = GameObject.FindWithTag("FlashlightCharge").GetComponent<TextMeshProUGUI>();
         charge = 1f;
         isOn = false;
@@ -37,10 +39,15 @@ public class FlashLight : MonoBehaviour
 
         textMeshPro.SetText(Mathf.CeilToInt(charge*100) + "%");
         if (Mathf.CeilToInt(charge*100) <= 0) {
-            charge = 0f;
-            lightSource.SetActive(false);
-            clickSound.Play();
-            isOn = false; 
+            if (inventory.containsBattery()) {
+                charge = 1f;
+                inventory.removeBook("Battery");
+            } else {
+                charge = 0f;
+                lightSource.SetActive(false);
+                clickSound.Play();
+                isOn = false; 
+            }
         }
     }
 
@@ -48,6 +55,7 @@ public class FlashLight : MonoBehaviour
     void FixedUpdate()
     {
         if (isOn) {
+            // charge -= .01f;
             charge -= .0001f;
         }
     }
