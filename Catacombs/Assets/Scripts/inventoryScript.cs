@@ -33,6 +33,7 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book0;
     public Texture2D book1;
     public Texture2D book2;
+    public Texture2D battery;
 
     /*********************************************************************\
         FUNCTIONS
@@ -108,6 +109,10 @@ public class inventoryScript : MonoBehaviour
             inventoryList.Add(new Book() 
                 { m_name = "testBook", 
                   m_sprite = book1 });
+        } else if (bookName.Contains("battery")) {
+            inventoryList.Add(new Book() 
+                { m_name = "Battery", 
+                  m_sprite = battery });
         }
 
         if (isOpen) {
