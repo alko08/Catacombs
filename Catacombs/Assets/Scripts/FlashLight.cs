@@ -8,13 +8,13 @@ public class FlashLight : MonoBehaviour
     private bool isOn;
     public GameObject lightSource;
     public AudioSource clickSound;
-    private TextMeshPro textMeshPro;
+    private TextMeshProUGUI textMeshPro;
     public float charge;
 
     // // Start is called before the first frame update
     void Start()
     {
-        textMeshPro = transform.Find("Text").GetComponent<TextMeshPro>();
+        textMeshPro = GameObject.FindWithTag("FlashlightCharge").GetComponent<TextMeshProUGUI>();
         charge = 1f;
         isOn = false;
         lightSource.SetActive(false);
@@ -36,13 +36,19 @@ public class FlashLight : MonoBehaviour
         }
 
         textMeshPro.SetText(Mathf.CeilToInt(charge*100) + "%");
+        if (Mathf.CeilToInt(charge*100) <= 0) {
+            charge = 0f;
+            lightSource.SetActive(false);
+            clickSound.Play();
+            isOn = false; 
+        }
     }
 
     // FixedUpdate gets called once per tick (basically).
     void FixedUpdate()
     {
         if (isOn) {
-            charge -= .01f;
+            charge -= .0001f;
         }
     }
 }
