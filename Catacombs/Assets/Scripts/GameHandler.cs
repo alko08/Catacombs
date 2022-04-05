@@ -36,6 +36,11 @@ public class GameHandler : MonoBehaviour {
                 Pause();
             }
         }
+        if (SceneManager.GetActiveScene().name != "MainMenu" && 
+        SceneManager.GetActiveScene().name != "LoseScene" && 
+        SceneManager.GetActiveScene().name != "WinScene") {
+            Screen.lockCursor = true;
+        }
     }
 
     void Pause(){
@@ -49,7 +54,9 @@ public class GameHandler : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameisPaused = false;
-        if (SceneManager.GetActiveScene().name != "MainMenu") {
+        if (SceneManager.GetActiveScene().name != "MainMenu" && 
+        SceneManager.GetActiveScene().name != "LoseScene" && 
+        SceneManager.GetActiveScene().name != "WinScene") {
             Screen.lockCursor = true;
         }
     }

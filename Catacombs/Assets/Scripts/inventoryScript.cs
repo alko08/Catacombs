@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// For library win condition
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class inventoryScript : MonoBehaviour
 {
@@ -38,6 +41,9 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book2;
     public Texture2D battery;
 
+    private int testTotal;
+    public TextMeshProUGUI goalTextMeshPro;
+
     /*********************************************************************\
         FUNCTIONS
     \*********************************************************************/
@@ -51,6 +57,7 @@ public class inventoryScript : MonoBehaviour
         initiateItemsUI();
 
         inventoryUI.SetActive(false);
+        testTotal = 0;
     }
 
     // This function should grab all the item GameObjects in the UI and store
@@ -137,6 +144,11 @@ public class inventoryScript : MonoBehaviour
             inventoryList.Add(new Book() 
                 { m_name = "testBook", 
                   m_sprite = book1 });
+            testTotal++;
+            goalTextMeshPro.SetText(testTotal + " / 10");
+            if (testTotal >= 10) {
+                SceneManager.LoadScene("WinScene");
+            }
         }
 
         if (isOpen) {
