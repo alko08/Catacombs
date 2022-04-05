@@ -21,6 +21,9 @@ public class inventoryScript : MonoBehaviour
     public bool isOpen;
     public GameObject inventoryUI;  // Refers to the parent containing all
                                     // inventory elements.
+    public bool firstBookFound; // Communicates with mission01 script to
+                                // update dialogueBox.
+    public bool purpleBookFound; // Same as above.
     
     // List for storing item data.
     public List<Book> inventoryList = new List<Book>();
@@ -44,6 +47,7 @@ public class inventoryScript : MonoBehaviour
     {
         isOpen = false;
         inventoryUI = GameObject.Find("inventoryUI");
+        firstBookFound = false;
         initiateItemsUI();
 
         inventoryUI.SetActive(false);
@@ -105,14 +109,30 @@ public class inventoryScript : MonoBehaviour
     // Function for adding books to inventory.
     public void addBook(string bookName)
     {
-        if (bookName.Contains("test_pickup")) {
+        if (bookName.Contains("pickup_green")) {
             inventoryList.Add(new Book() 
-                { m_name = "testBook", 
+                { m_name = "GreenBook", 
                   m_sprite = book1 });
+            
+            if (firstBookFound == false) {
+                firstBookFound = true;
+            }
         } else if (bookName.Contains("battery")) {
             inventoryList.Add(new Book() 
                 { m_name = "Battery", 
                   m_sprite = battery });
+        } else if (bookName.Contains("pickup_hint")) {
+            inventoryList.Add(new Book()
+                { m_name = "BrownBook",
+                  m_sprite = book0});
+        } else if (bookName.Contains("pickup_purple")) {
+            inventoryList.Add(new Book()
+                { m_name = "PurpleBook",
+                  m_sprite = book2});
+            
+            if (purpleBookFound == false) {
+                purpleBookFound = true;
+            }
         }
 
         if (isOpen) {

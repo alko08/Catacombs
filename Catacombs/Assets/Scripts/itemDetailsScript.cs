@@ -13,6 +13,7 @@ public class itemDetailsScript : MonoBehaviour
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemBio;
     public GameObject itemImage;
+    public bool bookOpenTrigger;
     
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class itemDetailsScript : MonoBehaviour
         itemName = GameObject.Find("details_name").GetComponent<TextMeshProUGUI>();
         itemBio = GameObject.Find("details_bio").GetComponent<TextMeshProUGUI>();
         itemImage = GameObject.Find("details_image");
+
+        bookOpenTrigger = false;
     }
 
     // Function to change the details screen.
@@ -36,6 +39,13 @@ public class itemDetailsScript : MonoBehaviour
             = gameObject.GetComponent<RawImage>().texture;
 
         itemBio.text = findItemBio(this.name);
+
+        // Update bookOpenTrigger.
+        if ( (this.name == "GreenBook") && (bookOpenTrigger == false) ) {
+            Debug.Log("GreenBook Open");
+            GameObject.Find("MissionManager").GetComponent<mission_01>().bookTextTrigger2 = true;
+            bookOpenTrigger = true;
+        }
     }
 
     // Function that returns an item bio depending on the name of the item. As
@@ -52,8 +62,14 @@ public class itemDetailsScript : MonoBehaviour
             bio = "Charges the flashlight to full when it dies.";
             
             return bio;
+        } else if (itemName == "GreenBook") {
+            bio = "Welcome to Tisch. If you can't remember how or when you " +
+                  "got here, do not fret. The purple journal will explain " +
+                  "everything.";
         } else {
             return "ITEM UNKNOWN";
         }
+
+        return bio;
     }
 }
