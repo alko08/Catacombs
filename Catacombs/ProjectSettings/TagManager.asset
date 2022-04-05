@@ -8,6 +8,7 @@ TagManager:
   - PauseMenu
   - PauseMenuSlider
   - FlashlightCharge
+  - SprintCharge
   layers:
   - Default
   - TransparentFX

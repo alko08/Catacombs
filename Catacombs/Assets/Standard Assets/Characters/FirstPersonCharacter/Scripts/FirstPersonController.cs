@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -27,6 +28,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private AudioSource OutOfBreath;           // the sound played when character touches back on ground.
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -42,6 +44,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        private Slider sprintBarSlider;
+        private float sprintBar;
+
         // Use this for initialization
         private void Start()
         {
@@ -55,6 +60,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+            sprintBarSlider = GameObject.FindWithTag("SprintCharge").GetComponent<Slider>();
+            sprintBar = 200f;
         }
 
 
@@ -82,6 +90,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
 
                 m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+                sprintBarSlider.value = sprintBar/200f;
             }
         }
 
@@ -96,6 +106,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+            if (!m_IsWalking && sprintBar > 0) {
+                sprintBar -= 1f;
+                m_RunSpeed = 8f;
+            } else if (!m_IsWalking) {
+                sprintBar = 0f;
+                if(m_RunSpeed != 4f) {
+                    m_RunSpeed = 4f;
+                    OutOfBreath.Play();
+                }
+            } else if (sprintBar < 200f) {
+                sprintBar += .3f;
+            } else {
+                sprintBar = 200f;
+            }
+
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
