@@ -4999,11 +4999,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 0
   inventoryUI: {fileID: 0}
+  firstBookFound: 0
+  purpleBookFound: 0
   itemsUI: []
   book0: {fileID: 2800000, guid: 6cd9bc5a8f85c4497a245e9f014c5438, type: 3}
   book1: {fileID: 2800000, guid: f93fcb30770ea47d18d192c4195332ce, type: 3}
   book2: {fileID: 2800000, guid: 46baa691d9d754195b59d23f2403968c, type: 3}
-  battery: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
+  battery: {fileID: 2800000, guid: 92943308300958d4598b0a79b4772b2e, type: 3}
 --- !u!114 &2110901255
 MonoBehaviour:
   m_ObjectHideFlags: 0

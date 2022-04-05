@@ -133,6 +133,10 @@ public class inventoryScript : MonoBehaviour
             if (purpleBookFound == false) {
                 purpleBookFound = true;
             }
+        } else if (bookName.Contains("test_pickup")) {
+            inventoryList.Add(new Book() 
+                { m_name = "testBook", 
+                  m_sprite = book1 });
         }
 
         if (isOpen) {
@@ -159,6 +163,7 @@ public class inventoryScript : MonoBehaviour
             inventoryList.Remove(new Book()
                 { m_name = "Battery", 
                   m_sprite = battery });
+            itemsUI[inventoryList.Count].SetActive(false);
         } else {
             Debug.Log("Cant remove:" + bookName);
         }
