@@ -36,10 +36,10 @@ public class GameHandler : MonoBehaviour {
                 Pause();
             }
         }
-        if (SceneManager.GetActiveScene().name != "MainMenu" && 
-        SceneManager.GetActiveScene().name != "LoseScene" && 
-        SceneManager.GetActiveScene().name != "WinScene") {
-            Screen.lockCursor = true;
+        if (SceneManager.GetActiveScene().name == "MainMenu" ||
+        SceneManager.GetActiveScene().name == "LoseScene" || 
+        SceneManager.GetActiveScene().name == "WinScene") {
+            Screen.lockCursor = false;
         }
     }
 
