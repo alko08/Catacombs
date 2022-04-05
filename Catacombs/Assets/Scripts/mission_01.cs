@@ -10,7 +10,7 @@ public class mission_01 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameUI = GameObject.find("prefab_UI");
+        gameUI = GameObject.Find("prefab_UI");
         timer = 120;
     }
 
