@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 // For library win condition
 using TMPro;
@@ -26,6 +27,7 @@ public class inventoryScript : MonoBehaviour
                                     // inventory elements.
     public bool firstBookFound; // Communicates with mission01 script to
                                 // update dialogueBox.
+    public bool firstBookRead; // Same as above.
     public bool purpleBookFound; // Same as above.
     
     // List for storing item data.
@@ -39,6 +41,7 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book0;
     public Texture2D book1;
     public Texture2D book2;
+    public Texture2D book3;
     public Texture2D battery;
 
     private int testTotal;
@@ -53,8 +56,11 @@ public class inventoryScript : MonoBehaviour
     {
         isOpen = false;
         inventoryUI = GameObject.Find("inventoryUI");
-        firstBookFound = false;
         initiateItemsUI();
+
+        firstBookFound  = false;
+        firstBookRead   = false;
+        purpleBookFound = false;
 
         inventoryUI.SetActive(false);
         testTotal = 0;
@@ -118,7 +124,7 @@ public class inventoryScript : MonoBehaviour
     {
         if (bookName.Contains("pickup_green")) {
             inventoryList.Add(new Book() 
-                { m_name = "GreenBook", 
+                { m_name = "Green Book", 
                   m_sprite = book1 });
             
             if (firstBookFound == false) {
@@ -130,11 +136,11 @@ public class inventoryScript : MonoBehaviour
                   m_sprite = battery });
         } else if (bookName.Contains("pickup_hint")) {
             inventoryList.Add(new Book()
-                { m_name = "BrownBook",
+                { m_name = "A Hint",
                   m_sprite = book0});
         } else if (bookName.Contains("pickup_purple")) {
             inventoryList.Add(new Book()
-                { m_name = "PurpleBook",
+                { m_name = "Journal",
                   m_sprite = book2});
             
             if (purpleBookFound == false) {
@@ -142,8 +148,8 @@ public class inventoryScript : MonoBehaviour
             }
         } else if (bookName.Contains("test_pickup")) {
             inventoryList.Add(new Book() 
-                { m_name = "testBook", 
-                  m_sprite = book1 });
+                { m_name = randomBookName(), 
+                  m_sprite = book3 });
             testTotal++;
             goalTextMeshPro.SetText(testTotal + " / 10");
             if (testTotal >= 10) {
@@ -189,5 +195,26 @@ public class inventoryScript : MonoBehaviour
         return inventoryList.Contains(new Book()
                 { m_name = "Battery", 
                   m_sprite = battery });
+    }
+
+    string randomBookName()
+    {
+        System.Random rnd = new System.Random();
+        int index = rnd.Next(3);
+        string text = "";
+
+        if (index == 0) {
+            text = "Rats";
+        }
+
+        else if (index == 1) {
+            text = "A Poem";
+        }
+
+        else if (index == 2) {
+            text = "The Wretch";
+        }
+
+        return text;
     }
 }

@@ -41,6 +41,7 @@ public class mission_01 : MonoBehaviour
         if (bookTextTrigger3 == true) {
             print_BookDialogue3();
         } else if (bookTextTrigger2 == true) {
+            // Debug.Log("bookTextTrigger2 == true");
             print_BookDialogue2();
         } else if (bookTextTrigger1 == true) {
             print_BookDialogue1();
@@ -50,6 +51,7 @@ public class mission_01 : MonoBehaviour
     void updateBookTextTriggers()
     {
         bookTextTrigger1 = GameObject.Find("EventSystem").GetComponent<inventoryScript>().firstBookFound;
+        // bookTextTrigger2 = GameObject.Find("EventSystem").GetComponent<inventoryScript>().firstBookRead;
         bookTextTrigger3 = GameObject.Find("EventSystem").GetComponent<inventoryScript>().purpleBookFound;
     }
 

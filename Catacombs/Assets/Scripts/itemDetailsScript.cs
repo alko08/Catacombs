@@ -41,10 +41,8 @@ public class itemDetailsScript : MonoBehaviour
         itemBio.text = findItemBio(this.name);
 
         // Update bookOpenTrigger.
-        if ( (this.name == "GreenBook") && (bookOpenTrigger == false) ) {
-            Debug.Log("GreenBook Open");
-            GameObject.Find("MissionManager").GetComponent<mission_01>().bookTextTrigger2 = true;
-            bookOpenTrigger = true;
+        if ( (this.name == "Green Book") && (bookOpenTrigger == false) ) {
+            activateBookTrigger();
         }
     }
 
@@ -56,20 +54,56 @@ public class itemDetailsScript : MonoBehaviour
 
         if (itemName.Contains("testBook")) {
             bio = "Nothing to see here. Just a test.";
-            
-            return bio;
-        } else if (itemName.Contains("Battery")) {
+        } 
+        
+        else if (itemName.Contains("Battery")) {
             bio = "Charges the flashlight to full when it dies.";
-            
-            return bio;
-        } else if (itemName.Contains("GreenBook")) {
+        } 
+        
+        else if (itemName.Contains("Green Book")) {
             bio = "Welcome to Tisch. If you can't remember how or when you " +
-                  "got here, do not fret. The purple journal will explain " +
+                  "got here, don't worry. The purple journal will explain " +
                   "everything.";
-        } else {
-            return "ITEM UNKNOWN";
+        } 
+        
+        else if (itemName.Contains("A Hint")) {
+            bio = "If journal is what you seek, search the opposite corner" +
+                  "of the library.";
+        } 
+
+        else if (itemName.Contains("Journal")) {
+            bio = "We had no choice. You had learned too much. We suggest " +
+                  "that you leave before you uncover our secrets again.";
+        }
+
+        else if (itemName.Contains("Rats")) {
+            bio = "There are rats in the walls. There are rats in the walls." +
+                  "There are rats in the walls. There are rats in the walls.";
+        }
+
+        else if (itemName.Contains("A Poem")) {
+            bio = "In the dark, I seem alone.\n" + "But there's " +
+                  "a monster, my light has shown.";
+        }
+
+        else if (itemName.Contains("The Wretch")) {
+            bio = "There is a monster that lurks between the shelves. It " +
+                  "is called the wretch. It hungers for human flesh, and " +
+                  "fears light";
+        }
+        
+        else {
+            bio = "ITEM UNKNOWN";
         }
 
         return bio;
+    }
+
+    // Function that lets mission_01 know when to print the 2nd dialogue text.
+    void activateBookTrigger()
+    {
+        Debug.Log("GreenBook Open");
+        GameObject.Find("missionManager").GetComponent<mission_01>().bookTextTrigger2 = true;
+        bookOpenTrigger = true;
     }
 }
