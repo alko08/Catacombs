@@ -44,8 +44,12 @@ public class itemDetailsScript : MonoBehaviour
     {
         string bio;
 
-        if (itemName == "testBook") {
+        if (itemName.Contains("testBook")) {
             bio = "Nothing to see here. Just a test.";
+            
+            return bio;
+        } else if (itemName.Contains("Battery")) {
+            bio = "Charges the flashlight to full when it dies.";
             
             return bio;
         } else {
