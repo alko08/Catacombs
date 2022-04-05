@@ -56,7 +56,7 @@ public class FlashLight : MonoBehaviour
     {
         if (isOn) {
             // charge -= .01f;
-            charge -= .0001f;
+            charge -= .0002f;
         }
     }
 }
