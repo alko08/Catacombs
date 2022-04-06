@@ -122,14 +122,12 @@ public class inventoryScript : MonoBehaviour
     {
         // Opening UI elements.
         inventoryUI.SetActive(true);
-        Screen.lockCursor = false;
         for (int i = 0; i < inventoryList.Count; i++) {
             displayItem(inventoryList[i], i);
         }
 
         // Disabling out-of-UI controls and unlocking cursor. 
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
-        Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
@@ -137,10 +135,8 @@ public class inventoryScript : MonoBehaviour
     void doOpen_select()
     {
         selectorUI.SetActive(true);
-        Screen.lockCursor = false;
 
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
-        Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
@@ -148,14 +144,16 @@ public class inventoryScript : MonoBehaviour
     void doClose_select()
     {
         selectorUI.SetActive(false);
-        Screen.lockCursor = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
     }
 
     void doClose()
     {
         inventoryUI.SetActive(false);
-        Screen.lockCursor = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
     }
 
