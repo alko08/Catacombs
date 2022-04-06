@@ -22,9 +22,18 @@ public class inventoryScript : MonoBehaviour
     }
     
     // Declaring Variables.
+    
+    // Inventory UI vars. 
     public bool isOpen;
+
     public GameObject inventoryUI;  // Refers to the parent containing all
                                     // inventory elements.
+
+    // Selector UI vars.
+    public bool isOpen_select;
+    public GameObject selectorUI;
+
+    // Book bools.
     public bool firstBookFound; // Communicates with mission01 script to
                                 // update dialogueBox.
     public bool firstBookRead; // Same as above.
@@ -44,6 +53,7 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book3;
     public Texture2D battery;
 
+    // Other.
     private int testTotal;
     public TextMeshProUGUI goalTextMeshPro;
 
@@ -57,6 +67,10 @@ public class inventoryScript : MonoBehaviour
         isOpen = false;
         inventoryUI = GameObject.Find("inventoryUI");
         initiateItemsUI();
+
+        isOpen_select = false;
+        selectorUI = GameObject.Find("selectorUI");
+        selectorUI.SetActive(false);
 
         firstBookFound  = false;
         firstBookRead   = false;
@@ -93,6 +107,14 @@ public class inventoryScript : MonoBehaviour
             }
 
             isOpen = !isOpen;
+
+            // if (!isOpen_select) {
+            //     doOpen_select();
+            // } else {
+            //     doClose_select();
+            // }
+
+            // isOpen = !isOpen;
         }
     }
 
@@ -110,6 +132,24 @@ public class inventoryScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+    }
+
+    void doOpen_select()
+    {
+        selectorUI.SetActive(true);
+        Screen.lockCursor = false;
+
+        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
+    void doClose_select()
+    {
+        selectorUI.SetActive(false);
+        Screen.lockCursor = true;
+        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
     }
 
     void doClose()
