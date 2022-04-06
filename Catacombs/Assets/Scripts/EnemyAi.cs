@@ -41,7 +41,7 @@ public class EnemyAi : MonoBehaviour
         // playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange) {
-            Debug.Log("Patrolling");
+            // Debug.Log("Patrolling");
             Patroling();
 
             // hunting.SetActive(false);
@@ -51,7 +51,7 @@ public class EnemyAi : MonoBehaviour
             //     warning.SetActive(false);
             // }
         } else {
-            Debug.Log("Chaseing");
+            // Debug.Log("Chaseing");
             ChasePlayer();
         }
             

@@ -13,30 +13,54 @@ public class pickupScript : MonoBehaviour
     
     // Creating variable to store inventoryScript.
     inventoryScript inventory;
+    bool nearPlayer;
+    GameObject player;
 
     // Start by storing values in variables.
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        nearPlayer = false;
         m_Renderer = GetComponent<MeshRenderer>();
         defaultTexture = m_Renderer.material.color;
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
     }
+
+    void Update()
+    {
+        float dist = Vector3.Distance(player.transform.position, transform.position);
+        nearPlayer = dist < 3f;
+    }
     
     // Have color change when mousing over and not mousing over object. If
     // the player clicks the object, they'll pick it up. 
-    void OnMouseOver()
-    {
-        if (inventory.isOpen == false) {
-            m_Renderer.material.color = greenTexture;
+    // void OnMouseOver()
+    // {
+    //     if (inventory.isOpen == false) {
+    //         m_Renderer.material.color = greenTexture;
 
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+    //         if (Input.GetKeyDown(KeyCode.Mouse0)) {
+    //             doPickup();
+    //         }
+    //     }
+    // }
+
+    // void OnMouseExit()
+    // {
+    //     m_Renderer.material.color = defaultTexture;
+    // }
+    void HitByRay() {
+        if (!nearPlayer) {
+            ExitByRay();
+        }else if (inventory.isOpen == false) {
+            m_Renderer.material.color = greenTexture;
+            if (Input.GetKeyDown(KeyCode.Mouse0) && nearPlayer) {
                 doPickup();
             }
         }
     }
 
-    void OnMouseExit()
-    {
+    void ExitByRay() {
         m_Renderer.material.color = defaultTexture;
     }
 

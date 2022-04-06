@@ -39,12 +39,14 @@ public class GameHandler : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "MainMenu" ||
         SceneManager.GetActiveScene().name == "LoseScene" || 
         SceneManager.GetActiveScene().name == "WinScene") {
-            Screen.lockCursor = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
     void Pause(){
-        Screen.lockCursor = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameisPaused = true;
@@ -57,7 +59,8 @@ public class GameHandler : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "MainMenu" && 
         SceneManager.GetActiveScene().name != "LoseScene" && 
         SceneManager.GetActiveScene().name != "WinScene") {
-            Screen.lockCursor = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
         }
     }
 
