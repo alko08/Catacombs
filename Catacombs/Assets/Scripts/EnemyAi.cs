@@ -41,8 +41,17 @@ public class EnemyAi : MonoBehaviour
         // playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange) {
+            Debug.Log("Patrolling");
             Patroling();
+
+            // hunting.SetActive(false);
+            // if (playerInWarningRange) {
+            //     warning.SetActive(true);
+            // } else {
+            //     warning.SetActive(false);
+            // }
         } else {
+            Debug.Log("Chaseing");
             ChasePlayer();
         }
             
@@ -74,19 +83,31 @@ public class EnemyAi : MonoBehaviour
     private void SearchWalkPoint()
     {
         //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        // float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        // float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        // walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
+        // if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        //     walkPointSet = true;
+        float radius = walkPointRange;
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1)) {
+            finalPosition = hit.position;            
+        }
+        walkPointSet = true;
+        walkPoint = finalPosition;
     }
 
     private void ChasePlayer()
     {
         hunting.SetActive(true);
         warning.SetActive(false);
+        walkPointSet = false;
+        // Debug.Log(player.position + "");
         agent.SetDestination(player.position);
     }
 
