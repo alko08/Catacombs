@@ -47,10 +47,12 @@ public class FlashLight : MonoBehaviour
                 lightSource.SetActive(true);
                 clickSound.Play();
                 isOn = true;
+                RenderSettings.fogDensity = 0.04f;
             } else {
                 lightSource.SetActive(false);
                 clickSound.Play();
-                isOn = false; 
+                isOn = false;
+                RenderSettings.fogDensity = 0.08f;
             }
         }
 
@@ -97,7 +99,7 @@ public class FlashLight : MonoBehaviour
     // FixedUpdate gets called once per tick (basically).
     void FixedUpdate()
     {
-        if (isOn) {
+        if (isOn && Time.timeScale != 0) {
             // charge -= .01f;
             charge -= .0002f;
         }
