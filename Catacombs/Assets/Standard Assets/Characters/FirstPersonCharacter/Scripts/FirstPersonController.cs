@@ -12,8 +12,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
+        [SerializeField] private bool m_IsCrouched;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
+        [SerializeField] private float m_CrouchSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -26,6 +28,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
         [SerializeField] private float m_StepInterval;
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
+        [SerializeField] private AudioClip[] m_FootstepSoundsCrouch;
+        [SerializeField] private AudioClip[] m_FootstepSoundsWalk;
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
         [SerializeField] private AudioSource OutOfBreath;           // the sound played when character touches back on ground.
@@ -47,9 +51,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Slider sprintBarSlider;
         private float sprintBar;
 
+        private CharacterController playerController;
+
         // Use this for initialization
         private void Start()
         {
+            playerController = GetComponent<CharacterController>();
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -183,11 +190,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_NextStep = m_StepCycle + m_StepInterval;
 
-            PlayFootStepAudio();
+            PlayFootStepAudio(speed);
         }
 
 
-        private void PlayFootStepAudio()
+        private void PlayFootStepAudio(float speed)
         {
             if (!m_CharacterController.isGrounded)
             {
@@ -195,12 +202,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             // pick & play a random footstep sound from the array,
             // excluding sound at index 0
-            int n = Random.Range(1, m_FootstepSounds.Length);
-            m_AudioSource.clip = m_FootstepSounds[n];
-            m_AudioSource.PlayOneShot(m_AudioSource.clip);
-            // move picked sound to index 0 so it's not picked next time
-            m_FootstepSounds[n] = m_FootstepSounds[0];
-            m_FootstepSounds[0] = m_AudioSource.clip;
+            if (speed < 4f) {
+                int n = Random.Range(1, m_FootstepSoundsCrouch.Length);
+                m_AudioSource.clip = m_FootstepSoundsCrouch[n];
+                m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                // move picked sound to index 0 so it's not picked next time
+                m_FootstepSoundsCrouch[n] = m_FootstepSoundsCrouch[0];
+                m_FootstepSoundsCrouch[0] = m_AudioSource.clip;
+            } else if (speed < 8f) {
+                int n = Random.Range(1, m_FootstepSoundsWalk.Length);
+                m_AudioSource.clip = m_FootstepSoundsWalk[n];
+                m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                // move picked sound to index 0 so it's not picked next time
+                m_FootstepSoundsWalk[n] = m_FootstepSoundsWalk[0];
+                m_FootstepSoundsWalk[0] = m_AudioSource.clip;
+            } else {
+                int n = Random.Range(1, m_FootstepSounds.Length);
+                m_AudioSource.clip = m_FootstepSounds[n];
+                m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                // move picked sound to index 0 so it's not picked next time
+                m_FootstepSounds[n] = m_FootstepSounds[0];
+                m_FootstepSounds[0] = m_AudioSource.clip;
+            }
         }
 
 
@@ -240,9 +263,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            m_IsCrouched = Input.GetKey(KeyCode.LeftControl) || 
+                Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.C);
 #endif
             // set the desired speed to be walking or running
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            if (m_IsCrouched && m_IsWalking) {
+                speed = m_CrouchSpeed;
+                playerController.height = 2.5f/2f;
+            } else {
+                speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+                playerController.height = 2.5f;
+            }
+            
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:

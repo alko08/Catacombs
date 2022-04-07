@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114386913375398758}
   - component: {fileID: 54275937503739054}
   - component: {fileID: 82249406116954962}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FPSController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.8
+  m_Height: 2.5
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.2
@@ -67,8 +67,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsWalking: 0
+  m_IsCrouched: 0
   m_WalkSpeed: 4
   m_RunSpeed: 8
+  m_CrouchSpeed: 2
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 6
   m_StickToGroundForce: 10
@@ -176,6 +178,12 @@ MonoBehaviour:
   m_FootstepSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  m_FootstepSoundsCrouch:
+  - {fileID: 8300000, guid: a638b4c9f4970ce4fa32164c14613ccb, type: 3}
+  - {fileID: 8300000, guid: f3616fec070850e4aaa69b9b12937d22, type: 3}
+  m_FootstepSoundsWalk:
+  - {fileID: 8300000, guid: 3b83ab34c9de017458572a3ef0f2706c, type: 3}
+  - {fileID: 8300000, guid: 3250180ebadf32f4b98fbfa4e1c39bb0, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
   OutOfBreath: {fileID: 2191918613960654048}
@@ -304,7 +312,7 @@ GameObject:
   - component: {fileID: 81728176105487214}
   - component: {fileID: 124442746469960742}
   - component: {fileID: 3193313455003369522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -407,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5883865150658047363}
   - component: {fileID: 1198572561726574020}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7559539116858745523}
   - component: {fileID: 2191918613960654048}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OutOfBreath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8463188334929358525}
   - component: {fileID: 2573608480916717562}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flashlight_Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 503797382390821062}
   - component: {fileID: 3902405418501178525}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,9 +864,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.248
       objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: cbd655a75e3def74f83b3f3b45838e9a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: cbd655a75e3def74f83b3f3b45838e9a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cbd655a75e3def74f83b3f3b45838e9a, type: 3}
       propertyPath: m_Name
       value: Flashlight_Art
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbd655a75e3def74f83b3f3b45838e9a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: cbd655a75e3def74f83b3f3b45838e9a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd655a75e3def74f83b3f3b45838e9a, type: 3}

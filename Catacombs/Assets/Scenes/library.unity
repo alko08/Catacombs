@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 1ec66986b040f59458bff7980abb3423, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f459813e6c1592f4e93b154f6e2b3f0c, type: 2}
 --- !u!1 &30010840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5708,10 +5708,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
-    - target: {fileID: 1478332564485222, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1761654711298146, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -5759,6 +5755,10 @@ PrefabInstance:
     - target: {fileID: 4459910588280752, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 143481341568393798, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
+      propertyPath: m_Height
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2090955377284831414, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_Layer
