@@ -50,13 +50,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Slider sprintBarSlider;
         private float sprintBar;
-
-        private CharacterController playerController;
+        public bool hiding;
+        public BoxCollider headChecker;
 
         // Use this for initialization
         private void Start()
         {
-            playerController = GetComponent<CharacterController>();
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -130,6 +129,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             float speed;
             GetInput(out speed);
+            if (!m_CharacterController.enabled) m_CharacterController.enabled = true;
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
@@ -247,6 +247,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
             }
+
+            if ((m_IsCrouched && m_IsWalking) || hiding) {
+                newCameraPosition.y -= .5f;
+                if (hiding && newCameraPosition.y > .45f) newCameraPosition.y = .45f;
+            }
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
@@ -267,12 +272,33 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.C);
 #endif
             // set the desired speed to be walking or running
-            if (m_IsCrouched && m_IsWalking) {
+            if ((m_IsCrouched && m_IsWalking) || hiding) {
                 speed = m_CrouchSpeed;
-                playerController.height = 2.5f/2f;
+                if (m_CharacterController.height != 1f) {
+                    m_CharacterController.height = 1f;
+
+                    headChecker.enabled = true;
+                    
+                    Vector3 newPositon;
+                    newPositon = transform.localPosition;
+                    newPositon.y -= .5f;
+                    transform.localPosition = newPositon;
+                    m_CharacterController.enabled = false;
+                }
+                
             } else {
+                headChecker.enabled = false;
                 speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
-                playerController.height = 2.5f;
+                if (m_CharacterController.height != 2f) {
+                    m_CharacterController.height = 2f;
+
+                    hiding = false;
+                    Vector3 newPositon;
+                    newPositon = transform.localPosition;
+                    newPositon.y += .5f;
+                    transform.localPosition = newPositon;
+                    m_CharacterController.enabled = false;
+                }
             }
             
             m_Input = new Vector2(horizontal, vertical);
@@ -291,7 +317,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
         }
-
 
         private void RotateView()
         {
