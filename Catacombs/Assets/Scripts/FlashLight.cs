@@ -8,16 +8,21 @@ public class FlashLight : MonoBehaviour
     private bool isOn;
     public GameObject lightSource;
     public AudioSource clickSound;
+    public AudioSource beepSound;
     // private TextMeshProUGUI textMeshPro;
     private GameObject chargeBar;
     private GameObject charge00, charge10, charge20, charge30, charge40, 
         charge50, charge60, charge70, charge80, charge90, charge100;
     public float charge;
+    private GameObject beepText;
     inventoryScript inventory;
 
     // // Start is called before the first frame update
     void Start()
     {
+        beepText = GameObject.FindWithTag("LoseBattery");
+        beepText.SetActive(false);
+
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         // textMeshPro = GameObject.FindWithTag("FlashlightCharge").GetComponent<TextMeshProUGUI>();
         chargeBar = GameObject.FindWithTag("FlashlightCharge");
@@ -44,11 +49,12 @@ public class FlashLight : MonoBehaviour
     {
         if(Input.GetButtonDown("Flashlight")) {
             if (!isOn && charge > 0f) {
+                
                 lightSource.SetActive(true);
                 clickSound.Play();
                 isOn = true;
                 RenderSettings.fogDensity = 0.04f;
-            } else {
+            } else if (isOn) {
                 lightSource.SetActive(false);
                 clickSound.Play();
                 isOn = false;
@@ -58,7 +64,13 @@ public class FlashLight : MonoBehaviour
 
         if (Mathf.CeilToInt(charge*100) <= 50) {
             if (inventory.containsBattery()) {
+                LeanTween.cancel(beepText);
+                beepText.SetActive(true);
+                beepText.transform.localScale = Vector3.one;
+                LeanTween.scale(beepText, Vector3.zero, 1.5f).setOnComplete(hideLoseBattery);
+
                 charge += .5f;
+                beepSound.Play();
                 inventory.removeBattery();
             } else if (isOn && Mathf.CeilToInt(charge*100) <= 0) {
                 charge = 0f;
@@ -118,5 +130,9 @@ public class FlashLight : MonoBehaviour
         charge80.SetActive(false);
         charge90.SetActive(false);
         charge100.SetActive(false);
+    }
+
+    void hideLoseBattery() {
+        beepText.SetActive(false);
     }
 }

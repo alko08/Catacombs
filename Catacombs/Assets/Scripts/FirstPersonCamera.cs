@@ -23,7 +23,7 @@ public class FirstPersonCamera : MonoBehaviour
         int layerMask = 1 << 3;
         layerMask = ~layerMask;
         if (Physics.Raycast(ray, out hit, 7, layerMask)) {
-            print("I'm looking at " + hit.transform.name);
+            // print("I'm looking at " + hit.transform.name);
             if (hit.transform.tag == "pickup") {
                 hit.transform.SendMessage("HitByRay");
             }

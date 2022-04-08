@@ -10,6 +10,7 @@ TagManager:
   - FlashlightCharge
   - SprintCharge
   - BatteryCount
+  - LoseBattery
   layers:
   - Default
   - TransparentFX
