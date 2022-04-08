@@ -56,11 +56,11 @@ public class FlashLight : MonoBehaviour
             }
         }
 
-        if (Mathf.CeilToInt(charge*100) <= 0) {
+        if (Mathf.CeilToInt(charge*100) <= 50) {
             if (inventory.containsBattery()) {
-                charge = 1f;
-                inventory.removeBook("Battery");
-            } else {
+                charge += .5f;
+                inventory.removeBattery();
+            } else if (isOn && Mathf.CeilToInt(charge*100) <= 0) {
                 charge = 0f;
                 lightSource.SetActive(false);
                 clickSound.Play();

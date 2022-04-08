@@ -51,7 +51,9 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book1;
     public Texture2D book2;
     public Texture2D book3;
-    public Texture2D battery;
+    // public Texture2D battery;
+    public int batteryCount;
+    private TextMeshProUGUI batteryCountText;
 
     // Other.
     private int testTotal;
@@ -64,6 +66,9 @@ public class inventoryScript : MonoBehaviour
     // Begin by hiding all inventory UI elements.
     void Start()
     {
+        batteryCount = 0;
+        batteryCountText = GameObject.FindWithTag("BatteryCount").GetComponent<TextMeshProUGUI>();
+
         isOpen = false;
         inventoryUI = GameObject.Find("inventoryUI");
         initiateItemsUI();
@@ -169,9 +174,8 @@ public class inventoryScript : MonoBehaviour
                 firstBookFound = true;
             }
         } else if (bookName.Contains("battery")) {
-            inventoryList.Add(new Book() 
-                { m_name = "Battery", 
-                  m_sprite = battery });
+            batteryCount++;
+            batteryCountText.SetText("" + batteryCount);
         } else if (bookName.Contains("pickup_hint")) {
             inventoryList.Add(new Book()
                 { m_name = "A Hint",
@@ -216,10 +220,11 @@ public class inventoryScript : MonoBehaviour
     public void removeBook(string bookName)
     {
         if (bookName == "Battery") {
-            inventoryList.Remove(new Book()
-                { m_name = "Battery", 
-                  m_sprite = battery });
-            itemsUI[inventoryList.Count].SetActive(false);
+        //     inventoryList.Remove(new Book()
+        //         { m_name = "Battery", 
+        //           m_sprite = battery });
+        //     itemsUI[inventoryList.Count].SetActive(false);
+            Debug.Log("Cant remove:" + bookName);
         } else {
             Debug.Log("Cant remove:" + bookName);
         }
@@ -230,9 +235,19 @@ public class inventoryScript : MonoBehaviour
     }
 
     public bool containsBattery() {
-        return inventoryList.Contains(new Book()
-                { m_name = "Battery", 
-                  m_sprite = battery });
+        // return inventoryList.Contains(new Book()
+        //         { m_name = "Battery", 
+        //           m_sprite = battery });
+
+        return batteryCount > 0;
+    }
+
+    public void removeBattery()
+    {
+        if (batteryCount > 0) {
+            batteryCount--;
+            batteryCountText.SetText("" + batteryCount);
+        }
     }
 
     string randomBookName()

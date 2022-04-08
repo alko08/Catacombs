@@ -29,7 +29,7 @@ public class pickupScript : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
-        nearPlayer = dist < 3f;
+        nearPlayer = dist < 5f;
     }
     
     // Have color change when mousing over and not mousing over object. If
