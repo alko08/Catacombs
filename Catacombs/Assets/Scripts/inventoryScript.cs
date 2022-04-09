@@ -75,13 +75,13 @@ public class inventoryScript : MonoBehaviour
 
         isOpen_select = false;
         selectorUI = GameObject.Find("selectorUI");
-        selectorUI.SetActive(false);
 
         firstBookFound  = false;
         firstBookRead   = false;
         purpleBookFound = false;
 
         inventoryUI.SetActive(false);
+        selectorUI.SetActive(false);
         testTotal = 0;
     }
 
@@ -105,21 +105,12 @@ public class inventoryScript : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Inventory")) {
-            if (!isOpen) {
-                doOpen();
+            // Code that opens the selector. 
+            if (!isOpen_select) {
+                doOpen_select();
             } else {
-                doClose();
+                doClose_select();
             }
-
-            isOpen = !isOpen;
-
-            // if (!isOpen_select) {
-            //     doOpen_select();
-            // } else {
-            //     doClose_select();
-            // }
-
-            // isOpen = !isOpen;
         }
     }
 
@@ -135,6 +126,8 @@ public class inventoryScript : MonoBehaviour
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+
+        isOpen = !isOpen;
     }
 
     void doOpen_select()
@@ -144,6 +137,8 @@ public class inventoryScript : MonoBehaviour
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+
+        isOpen_select = !isOpen_select;
     }
 
     void doClose_select()
@@ -152,6 +147,12 @@ public class inventoryScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+
+        isOpen_select = !isOpen_select;
+
+        if (isOpen) {
+            doClose();
+        }
     }
 
     void doClose()
@@ -160,6 +161,8 @@ public class inventoryScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+
+        isOpen = !isOpen;
     }
 
     // Function for adding books to inventory.
@@ -269,5 +272,11 @@ public class inventoryScript : MonoBehaviour
         }
 
         return text;
+    }
+
+    public void SelectToInventory()
+    {
+        doClose_select();
+        doOpen();
     }
 }
