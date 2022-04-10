@@ -1538,7 +1538,6 @@ GameObject:
   - component: {fileID: 385045675718748549}
   - component: {fileID: 4495956231439716505}
   - component: {fileID: 3300680989257783299}
-  - component: {fileID: 992486862066809252}
   m_Layer: 5
   m_Name: MapButton
   m_TagString: Untagged
@@ -1614,32 +1613,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myGlow: {fileID: 6302275368773822558}
   inventory: {fileID: 0}
---- !u!61 &992486862066809252
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4328925559139121574}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &4491217962523929799
 GameObject:
   m_ObjectHideFlags: 0
@@ -8326,7 +8299,6 @@ GameObject:
   - component: {fileID: 2780245910844015702}
   - component: {fileID: 5160344103510544365}
   - component: {fileID: 8867624765918646490}
-  - component: {fileID: 5904333723140161462}
   m_Layer: 5
   m_Name: InventoryButton
   m_TagString: Untagged
@@ -8402,32 +8374,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myGlow: {fileID: 1774058096904820270}
   inventory: {fileID: 0}
---- !u!61 &5904333723140161462
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9131685026044485318}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &3048498390405074702
 PrefabInstance:
   m_ObjectHideFlags: 0
