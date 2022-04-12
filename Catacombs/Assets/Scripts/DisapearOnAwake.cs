@@ -11,7 +11,7 @@ public class DisapearOnAwake : MonoBehaviour
     }
 
     IEnumerator WaitCoroutine() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.25f);
         transform.GetChild(0).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }

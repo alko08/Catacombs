@@ -135,6 +135,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     OutOfBreath.Play();
                 }
             } else if (sprintBar < 200f) {
+                if (desiredMove.magnitude == 0) sprintBar += .6f;
                 sprintBar += .3f;
             } else {
                 sprintBar = 200f;
