@@ -12,6 +12,7 @@ TagManager:
   - BatteryCount
   - LoseBattery
   - Enemy
+  - IgnoreObject
   layers:
   - Default
   - TransparentFX

@@ -26,7 +26,7 @@ public class EnemyAi : MonoBehaviour
 
     //States
     public float sightRange, warningRange, attackRange;
-    public bool playerInSightRange, playerInWarningRange, isOnFloor;
+    public bool playerInSightRange, playerInWarningRange, isOnFloor, seeLight;
     public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
@@ -45,7 +45,7 @@ public class EnemyAi : MonoBehaviour
     {
         //Check for sight and attack range
         playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer);
-        playerInSightRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
+        playerInSightRange = seeLight || (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
 
         if (!isOnFloor || !playerInSightRange) {

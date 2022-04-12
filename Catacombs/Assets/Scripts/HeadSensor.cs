@@ -20,10 +20,14 @@ public class HeadSensor : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        count++;
+        if (other.transform.tag != "IgnoreObject") {
+            count++;
+        }  
     }
 
     void OnTriggerExit(Collider other) {
-        count--;
+        if (other.transform.tag != "IgnoreObject") {
+            count--;
+        }
     }
 }

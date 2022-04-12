@@ -14,8 +14,10 @@ public class FlashLight : MonoBehaviour
     private GameObject charge00, charge10, charge20, charge30, charge40, 
         charge50, charge60, charge70, charge80, charge90, charge100;
     public float charge;
-    private GameObject beepText;
-    inventoryScript inventory;
+    private GameObject beepText, monster;
+    private inventoryScript inventory;
+    private Ray light;
+    private EnemyAi monsterAI;
 
     // // Start is called before the first frame update
     void Start()
@@ -42,6 +44,9 @@ public class FlashLight : MonoBehaviour
         charge = 1f;
         isOn = false;
         lightSource.SetActive(false);
+
+        monster = GameObject.FindWithTag("Enemy");
+        monsterAI = monster.GetComponent<EnemyAi>();
     }
 
     // Update is called once per frame
@@ -114,6 +119,20 @@ public class FlashLight : MonoBehaviour
         if (isOn && Time.timeScale != 0) {
             // charge -= .01f;
             charge -= .0002f;
+        }
+
+        int layerMask = 1 << 3;
+        layerMask = ~layerMask;
+        light.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        light.direction = monster.transform.position - light.origin;
+        RaycastHit rayHit;
+    
+        if (isOn && Physics.Raycast(light, out rayHit, 30f, layerMask)) {
+            // print("I'm looking at " + rayHit.transform.name);
+            Debug.DrawLine(light.origin, rayHit.point, Color.white);
+            monsterAI.seeLight = rayHit.collider.tag == "Enemy";
+        } else {
+            monsterAI.seeLight = false;
         }
     }
 
