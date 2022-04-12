@@ -106,8 +106,10 @@ public class inventoryScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Inventory")) {
             // Code that opens the selector. 
-            if (!isOpen_select) {
+            if ( (!isOpen_select) && (!isOpen) ){
                 doOpen_select();
+            } else if (isOpen) {
+                doClose();
             } else {
                 doClose_select();
             }
