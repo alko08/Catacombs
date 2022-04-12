@@ -859,6 +859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myGlow: {fileID: 0}
   inventory: {fileID: 0}
+  mousingOver: 0
 --- !u!1 &1849767998722213292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,6 +1614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myGlow: {fileID: 6302275368773822558}
   inventory: {fileID: 0}
+  mousingOver: 0
 --- !u!1 &4491217962523929799
 GameObject:
   m_ObjectHideFlags: 0
@@ -8374,6 +8376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myGlow: {fileID: 1774058096904820270}
   inventory: {fileID: 0}
+  mousingOver: 0
 --- !u!1001 &3048498390405074702
 PrefabInstance:
   m_ObjectHideFlags: 0

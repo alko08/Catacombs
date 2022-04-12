@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SelectorGlowScript : MonoBehaviour
+public class SelectorGlowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // Variables
     public GameObject myGlow;
@@ -18,23 +18,25 @@ public class SelectorGlowScript : MonoBehaviour
         mousingOver = false;
     }
 
-    // void Update()
-    // {
-    //     if (mousingOver) {
-    //         Debug.Log("The cursor entered the selectable UI element.");
-    //     }
-    // }
+    void Update()
+    {
+        if ( (mousingOver) && (Input.GetKeyDown(KeyCode.Mouse0)) ) {
+            inventory.SelectToInventory();
+        }
+    }
     
     // While mousing over this object, activate glow. If click is detected,
     // open inventory. 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        mousingOver = true;
         myGlow.SetActive(true);
     }
 
     // When cursor leaves, deactivate glow. 
-    void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
+        mousingOver = false;
         myGlow.SetActive(false);
     }
 }
