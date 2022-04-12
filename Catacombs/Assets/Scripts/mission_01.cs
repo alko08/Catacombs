@@ -10,6 +10,7 @@ public class mission_01 : MonoBehaviour
     private int timer1;
     private int timer2;
     bool waiting;
+    bool trigDone0, trigDone1, trigDone2, trigDone3;
     public TextMeshProUGUI dialogueBox;
     public bool bookTextTrigger1;
     public bool bookTextTrigger2;
@@ -29,6 +30,10 @@ public class mission_01 : MonoBehaviour
         bookTextTrigger2 = false;
         bookTextTrigger3 = false;
         barrier = GameObject.Find("doorBarrier");
+        trigDone0 = false;
+        trigDone1 = false;
+        trigDone2 = false;
+        trigDone3 = false;
     }
 
     // Update is called once per frame
@@ -38,31 +43,46 @@ public class mission_01 : MonoBehaviour
         if (timer1 > 0) {
             timer1--;
         } else {
-            print_OpeningDialogue();
+            if (!trigDone0) {
+                print_OpeningDialogue();
+                if (!waiting) {
+                setDialogueFade();
+                }
+            }
         }
 
         // Dialogue that activates when first book is picked up. 
         updateBookTextTriggers();
-        if ( (bookTextTrigger3 == true) && (!waiting) ) {
+        if ( (bookTextTrigger3 == true) && (!trigDone3) ) {
             print_BookDialogue3();
             barrier.SetActive(false);
 
-            setDialogueFade();
-        } else if (bookTextTrigger2 == true) {
+            if (!waiting) {
+                setDialogueFade();
+            }
+        } else if ( (bookTextTrigger2 == true) && (!trigDone2) ) {
             // Debug.Log("bookTextTrigger2 == true");
             print_BookDialogue2();
 
-            setDialogueFade();
-        } else if (bookTextTrigger1 == true) {
+            if (!waiting) {
+                setDialogueFade();
+            }
+        } else if ( (bookTextTrigger1 == true) && (!trigDone1) ) {
             print_BookDialogue1();
 
-            setDialogueFade();
+            if (!waiting) {
+                setDialogueFade();
+            }
         }
 
         // Timer that causes text to disappear after a bit of time.
         if (timer2 > 0) {
             timer2--;
+            // if (timer2 % 60 == 0) {
+            //     Debug.Log("tick");
+            // }
         } else if (waiting) {
+            setTrigDone();
             dialogueBox.text = "";
             waiting = false;
         }
@@ -77,8 +97,23 @@ public class mission_01 : MonoBehaviour
 
     void setDialogueFade()
     {
-        timer2 = 300;
+        Debug.Log("tickDown invoked");
+        
+        timer2 = 600;
         waiting = true;
+    }
+
+    void setTrigDone()
+    {
+        if (dialogueBox.text == "You: Where am I? How did I get here?") {
+            trigDone0 = true;
+        } else if (dialogueBox.text == "You: A book? I wonder what it says...") {
+            trigDone1 = true;
+        } else if (dialogueBox.text == "You: I need to find that journal.") {
+            trigDone2 = true;
+        } else if (dialogueBox.text == "You: The journal! Let's see what it says...") {
+            trigDone3 = true;
+        }
     }
 
     //                   //

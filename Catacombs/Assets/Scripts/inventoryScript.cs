@@ -193,6 +193,7 @@ public class inventoryScript : MonoBehaviour
             if (purpleBookFound == false) {
                 purpleBookFound = true;
             }
+        
         } else if (bookName.Contains("test_pickup")) {
             inventoryList.Add(new Book() 
                 { m_name = randomBookName(), 
@@ -202,6 +203,27 @@ public class inventoryScript : MonoBehaviour
             if (testTotal >= 20) {
                 SceneManager.LoadScene("WinScene");
             }
+        
+        } else if (bookName.Contains("turn back")) {
+            inventoryList.Add(new Book()
+                { m_name = "Turn Back",
+                  m_sprite = book1 });
+        } else if (bookName.Contains("midas project 1")) {
+            inventoryList.Add(new Book()
+                { m_name = "Midas Project 1",
+                  m_sprite = book0 });
+        } else if (bookName.Contains("midas project 2")) {
+            inventoryList.Add(new Book()
+                { m_name = "Midas Project 2",
+                  m_sprite = book1 });
+        } else if (bookName.Contains("hint2")) {
+            inventoryList.Add(new Book()
+                { m_name = "2nd Hint",
+                  m_sprite = book1 });
+        } else if (bookName.Contains("final warning")) {
+            inventoryList.Add(new Book()
+                { m_name = "A Warning",
+                  m_sprite = book1 });
         }
 
         if (isOpen) {

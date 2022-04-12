@@ -108,6 +108,35 @@ public class itemDetailsScript : MonoBehaviour
         else if (itemName.Contains("The Meldon Archives: Vol 1")) {
             bio = "\n \n \n \n Shark Meldon Returns";
         }
+
+        else if (itemName.Contains("Turn Back")) {
+            bio = "In case our warning was insufficient, know that we've " +
+                  "placed a guardian on this level. Hopefully it will keep " +
+                  "you at bay.";
+        }
+
+        else if (itemName.Contains("Midas Project 1")) {
+            bio = "April 12, 2018. After using over $2 million of student " +
+                  "tuition money, we've finally managed to distill pure " +
+                  "Monaconium. The future of the project looks bright.";
+        }
+
+        else if (itemName.Contains("Midas Project 2")) {
+            bio = "However, several students have begun wondering what their " +
+                  "tuition is being used for here. Some have gotten dangerously" +
+                  "close to finding the truth...";
+        }
+
+        else if (itemName.Contains("2nd Hint")) {
+            bio = "Around a corner and a turn.\n" + 
+                  "More secrets you will learn.";
+        }
+
+        else if (itemName.Contains("A Warning")) {
+            bio = "I thought we asked you to leave. Very well. If you intend " +
+                  "on continuing your pointless search for answers, know that " +
+                  "there are more monsters ahead.";
+        }
         
         else {
             bio = "ITEM UNKNOWN";
