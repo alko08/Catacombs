@@ -636,7 +636,7 @@ Transform:
   - {fileID: 577755954350357307}
   - {fileID: 4988799105434392016}
   m_Father: {fileID: 4491217962694535063}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1626034259122086638
 GameObject:
@@ -2162,12 +2162,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2706052900865182336}
-  - {fileID: 4491217964475815519}
-  - {fileID: 8435515220641637911}
-  - {fileID: 1913432420437369736}
   - {fileID: 5149529234670694899}
+  - {fileID: 4491217964475815519}
+  - {fileID: 1913432420437369736}
   - {fileID: 2309746745103351011}
   - {fileID: 3938272851560641464}
+  - {fileID: 8435515220641637911}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6748,7 +6748,7 @@ RectTransform:
   - {fileID: 4491217963954517260}
   - {fileID: 4491217964464522247}
   m_Father: {fileID: 4491217962694535063}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6926,7 +6926,7 @@ RectTransform:
   - {fileID: 6142078758159714816}
   - {fileID: 7677431018044435450}
   m_Father: {fileID: 4491217962694535063}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7487,7 +7487,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4491217962694535063}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8456,7 +8456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872081007467505945, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6872081007467505945, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
       propertyPath: m_LocalPosition.x
