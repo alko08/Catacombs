@@ -72,12 +72,13 @@ public class itemDetailsScript : MonoBehaviour
         } 
 
         else if (itemName.Contains("Journal")) {
-            bio = "We had no choice. You had learned too much. We suggest " +
-                  "that you leave before you uncover our secrets again.";
+            bio = "We had no choice but to wipe your memory. You simply" +
+                  "learned too much. We suggest that you leave before you" +
+                  "uncover our secrets again.";
         }
 
         else if (itemName.Contains("Rats")) {
-            bio = "There are rats in the walls. There are rats in the walls." +
+            bio = "There are rats in the walls. There are rats in the walls. " +
                   "There are rats in the walls. There are rats in the walls.";
         }
 
@@ -90,6 +91,22 @@ public class itemDetailsScript : MonoBehaviour
             bio = "There is a monster that lurks between the shelves. It " +
                   "is called the wretch. It hungers for human flesh, and " +
                   "fears light";
+        }
+
+        else if (itemName.Contains("Notes 1")) {
+            bio = "I believe that there's something sinister happening " +
+                  "under Tisch. Students have gone missing, and monsters have" +
+                  "begun lurking the halls.";
+        }
+
+        else if (itemName.Contains("Notes 2")) {
+            bio = "I have come down here to investigate those disappearances, " +
+                  "and get to the bottom of what's behind the monsters. Wish " +
+                  "me luck.";
+        }
+
+        else if (itemName.Contains("The Meldon Archives: Vol 1")) {
+            bio = "\n \n \n \n Shark Meldon Returns";
         }
         
         else {

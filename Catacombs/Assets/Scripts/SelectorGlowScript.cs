@@ -21,6 +21,7 @@ public class SelectorGlowScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     void Update()
     {
         if ( (mousingOver) && (Input.GetKeyDown(KeyCode.Mouse0)) ) {
+            myGlow.SetActive(false);
             inventory.SelectToInventory();
         }
     }

@@ -9,6 +9,8 @@ public class FirstPersonCamera : MonoBehaviour
     public bool pickedUp;
     // RaycastHit last;
 
+    // public mission_01 missionScript;
+
     void Start()
     {
         pickedUp = false;
@@ -16,6 +18,8 @@ public class FirstPersonCamera : MonoBehaviour
         cam = GetComponent<Camera>();
         // Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         // Physics.Raycast(transform.position, -Vector3.up, out last);
+
+        // missionScript = GameObject.Find("missionManager").GetComponent<mission_01>();
     }
 
     void Update()
@@ -51,4 +55,15 @@ public class FirstPersonCamera : MonoBehaviour
         // }
             
     }
+
+    // // Function to prevent player from moving past stage while level is
+    // // incomplete. 
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     Debug.Log("Collision detected");
+        
+    //     if (collision.gameObject.name == "doorBarrier") {
+    //         missionScript.print_BarrierText();
+    //     }
+    // }
 }

@@ -258,7 +258,7 @@ public class inventoryScript : MonoBehaviour
     string randomBookName()
     {
         System.Random rnd = new System.Random();
-        int index = rnd.Next(3);
+        int index = rnd.Next(6);
         string text = "";
 
         if (index == 0) {
@@ -271,6 +271,18 @@ public class inventoryScript : MonoBehaviour
 
         else if (index == 2) {
             text = "The Wretch";
+        }
+
+        else if (index == 3) {
+            text = "Notes 1";
+        }
+
+        else if (index == 4) {
+            text = "Notes 2";
+        }
+
+        else if (index == 5) {
+            text = "The Meldon Archives: Vol 1";
         }
 
         return text;
