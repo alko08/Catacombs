@@ -8,6 +8,7 @@ public class EnemyAi : MonoBehaviour
     public NavMeshAgent agent;
 
     private Transform player;
+    private UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
@@ -33,6 +34,7 @@ public class EnemyAi : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
+        FPC = player.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -43,16 +45,10 @@ public class EnemyAi : MonoBehaviour
         playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer);
         // playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange) {
+        if (!playerInSightRange || FPC.hiding) {
             // Debug.Log("Patrolling");
             Patroling();
 
-            // hunting.SetActive(false);
-            // if (playerInWarningRange) {
-            //     warning.SetActive(true);
-            // } else {
-            //     warning.SetActive(false);
-            // }
             if (chase_audio_source.isPlaying) {
                 if (chase_volume > 0.0f) {
                     chase_volume -= (Time.deltaTime / 6);
