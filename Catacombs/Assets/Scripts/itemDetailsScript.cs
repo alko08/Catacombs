@@ -67,19 +67,19 @@ public class itemDetailsScript : MonoBehaviour
         } 
         
         else if (itemName.Contains("A Hint")) {
-            bio = "If journal is what you seek, search the opposite corner" +
+            bio = "If journal is what you seek, search the opposite corner " +
                   "of the library.";
         } 
 
         else if (itemName.Contains("Journal")) {
-            bio = "We had no choice but to wipe your memory. You simply" +
-                  "learned too much. We suggest that you leave before you" +
+            bio = "We had no choice but to wipe your memory. You simply " +
+                  "learned too much. We suggest that you leave before you " +
                   "uncover our secrets again.";
         }
 
         else if (itemName.Contains("Rats")) {
             bio = "There are rats in the walls. There are rats in the walls. " +
-                  "There are rats in the walls. There are rats in the walls.";
+                  "There are rats in the walls. There are rats in the walls. ";
         }
 
         else if (itemName.Contains("A Poem")) {
@@ -95,7 +95,7 @@ public class itemDetailsScript : MonoBehaviour
 
         else if (itemName.Contains("Notes 1")) {
             bio = "I believe that there's something sinister happening " +
-                  "under Tisch. Students have gone missing, and monsters have" +
+                  "under Tisch. Students have gone missing, and monsters have " +
                   "begun lurking the halls.";
         }
 
