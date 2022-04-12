@@ -115,15 +115,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+            float speed;
+            GetInput(out speed);
+
+            if (!m_CharacterController.enabled) m_CharacterController.enabled = true;
+            // always move along the camera forward as it is the direction that it being aimed at
+            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+
             sprinting = !m_IsWalking;
             if (!m_IsWalking && sprintBar > 0) {
-                sprintBar -= 1f;
+                if (desiredMove.magnitude > 0) sprintBar -= 1f;
                 m_RunSpeed = 8f;
             } else if (!m_IsWalking) {
                 sprinting = false;
                 sprintBar = 0f;
                 if(m_RunSpeed != 4f) {
                     m_RunSpeed = 4f;
+                    speed = 4f;
                     OutOfBreath.Play();
                 }
             } else if (sprintBar < 200f) {
@@ -131,12 +139,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             } else {
                 sprintBar = 200f;
             }
-
-            float speed;
-            GetInput(out speed);
-            if (!m_CharacterController.enabled) m_CharacterController.enabled = true;
-            // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
