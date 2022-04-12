@@ -172,7 +172,7 @@ public class inventoryScript : MonoBehaviour
     {
         if (bookName.Contains("pickup_green")) {
             inventoryList.Add(new Book() 
-                { m_name = "Green Book", 
+                { m_name = "Welcome", 
                   m_sprite = book1 });
             
             if (firstBookFound == false) {

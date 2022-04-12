@@ -60,7 +60,7 @@ public class itemDetailsScript : MonoBehaviour
             bio = "Charges the flashlight to full when it dies.";
         } 
         
-        else if (itemName.Contains("Green Book")) {
+        else if (itemName.Contains("Welcome")) {
             bio = "Welcome to Tisch. If you can't remember how or when you " +
                   "got here, don't worry. The purple journal will explain " +
                   "everything.";
