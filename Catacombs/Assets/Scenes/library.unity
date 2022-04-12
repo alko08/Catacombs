@@ -17385,10 +17385,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
-    - target: {fileID: 4436653556537228, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.95
-      objectReference: {fileID: 0}
     - target: {fileID: 4459910588280752, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -17440,10 +17436,6 @@ PrefabInstance:
     - target: {fileID: 2323981165737246490, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3860347657578044398, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3902405418501178525, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_ShadowRadius
