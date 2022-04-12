@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyAi : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, warningRange; //, attackRange;
     public bool playerInSightRange, playerInWarningRange; //, playerInAttackRange;
     public GameObject hunting, warning;
+    public AudioSource chase_audio_source;
+    public float chase_volume = 0.0f;
 
     private void Awake()
     {
@@ -50,9 +53,27 @@ public class EnemyAi : MonoBehaviour
             // } else {
             //     warning.SetActive(false);
             // }
+            if (chase_audio_source.isPlaying) {
+                if (chase_volume > 0.0f) {
+                    chase_volume -= (Time.deltaTime / 6);
+                    chase_audio_source.volume = chase_volume;
+                }
+                else {
+                    chase_audio_source.Stop();
+                }
+            }
         } else {
             // Debug.Log("Chaseing");
             ChasePlayer();
+            if (!chase_audio_source.isPlaying) {
+                chase_audio_source.volume = 0.0f;
+                chase_audio_source.Play();
+            }
+
+            if (chase_volume < 1.0f) {
+                chase_volume += (Time.deltaTime / 3);
+                chase_audio_source.volume = chase_volume;
+            }
         }
             
         // if (playerInSightRange && !playerInAttackRange) 
