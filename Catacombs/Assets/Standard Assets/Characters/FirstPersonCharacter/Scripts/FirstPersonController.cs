@@ -50,12 +50,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Slider sprintBarSlider;
         private float sprintBar;
-        public bool hiding;
+        public bool hiding, sprinting;
         public BoxCollider headChecker;
 
         // Use this for initialization
         private void Start()
         {
+            hiding = false;
+            sprinting = false;
+
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -112,10 +115,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+            sprinting = !m_IsWalking;
             if (!m_IsWalking && sprintBar > 0) {
                 sprintBar -= 1f;
                 m_RunSpeed = 8f;
             } else if (!m_IsWalking) {
+                sprinting = false;
                 sprintBar = 0f;
                 if(m_RunSpeed != 4f) {
                     m_RunSpeed = 4f;

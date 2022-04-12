@@ -41,11 +41,12 @@ public class EnemyAi : MonoBehaviour
     private void Update()
     {
         //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer);
+        playerInSightRange = (Physics.CheckSphere(transform.position, sightRange, whatIsPlayer) && !FPC.hiding) || 
+            (playerInWarningRange && FPC.sprinting);
         // playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange || FPC.hiding) {
+        if (!playerInSightRange) {
             // Debug.Log("Patrolling");
             Patroling();
 
