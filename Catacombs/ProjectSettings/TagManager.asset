@@ -11,6 +11,7 @@ TagManager:
   - SprintCharge
   - BatteryCount
   - LoseBattery
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 1063167480}
   m_Layer: 6
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,6 +339,7 @@ MonoBehaviour:
   attackRange: 10
   playerInSightRange: 0
   playerInWarningRange: 0
+  isOnFloor: 0
   hunting: {fileID: 0}
   warning: {fileID: 0}
   chase_audio_source: {fileID: 0}

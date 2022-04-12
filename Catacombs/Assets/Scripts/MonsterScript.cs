@@ -20,7 +20,7 @@ public class MonsterScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.transform.tag);
+        // Debug.Log(other.transform.tag);
         if (other.transform.tag == "Player" && !FPC.hiding) {
             SceneManager.LoadScene("LoseScene");
         } 
