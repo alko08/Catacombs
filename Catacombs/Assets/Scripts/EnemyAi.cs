@@ -95,7 +95,7 @@ public class EnemyAi : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude <= 3f)
             walkPointSet = false;
     }
     private void SearchWalkPoint()
@@ -124,9 +124,11 @@ public class EnemyAi : MonoBehaviour
     {
         hunting.SetActive(true);
         warning.SetActive(false);
-        walkPointSet = false;
+        
         // Debug.Log(player.position + "");
         agent.SetDestination(player.position);
+        walkPoint = player.position;
+        walkPointSet = true;
     }
 
     // private void AttackPlayer()
