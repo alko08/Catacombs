@@ -82,9 +82,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 4
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!108 &1063167476
 Light:
   m_ObjectHideFlags: 0
@@ -340,6 +340,8 @@ MonoBehaviour:
   playerInWarningRange: 0
   hunting: {fileID: 0}
   warning: {fileID: 0}
+  chase_audio_source: {fileID: 0}
+  chase_volume: 0
 --- !u!1001 &5738584939050963615
 PrefabInstance:
   m_ObjectHideFlags: 0
