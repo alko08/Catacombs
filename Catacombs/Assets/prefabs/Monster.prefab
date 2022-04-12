@@ -336,6 +336,7 @@ MonoBehaviour:
   walkPointRange: 30
   sightRange: 20
   warningRange: 30
+  attackRange: 10
   playerInSightRange: 0
   playerInWarningRange: 0
   hunting: {fileID: 0}

@@ -25,14 +25,17 @@ public class EnemyAi : MonoBehaviour
     // public GameObject projectile;
 
     //States
-    public float sightRange, warningRange; //, attackRange;
+    public float sightRange, warningRange, attackRange;
     public bool playerInSightRange, playerInWarningRange; //, playerInAttackRange;
     public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
+    private Ray sight0, sight1, sight2, sight3;
+    private bool seePlayer;
 
     private void Awake()
     {
+        seePlayer = false;
         player = GameObject.FindWithTag("Player").transform;
         FPC = player.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
         agent = GetComponent<NavMeshAgent>();
@@ -42,9 +45,8 @@ public class EnemyAi : MonoBehaviour
     {
         //Check for sight and attack range
         playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer);
-        playerInSightRange = (Physics.CheckSphere(transform.position, sightRange, whatIsPlayer) && !FPC.hiding) || 
-            (playerInWarningRange && FPC.sprinting);
-        // playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInSightRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
+            (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
 
         if (!playerInSightRange) {
             // Debug.Log("Patrolling");
@@ -75,6 +77,43 @@ public class EnemyAi : MonoBehaviour
             
         // if (playerInSightRange && !playerInAttackRange) 
         // if (playerInAttackRange && playerInSightRange) AttackPlayer();
+    }
+
+    private void FixedUpdate(){
+        sight0.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        sight0.direction = player.transform.position - sight0.origin;
+        sight1.origin = sight0.origin + new Vector3(0f, 1f, 0f);
+        sight1.direction = player.transform.position - sight1.origin;
+        sight2.origin = sight1.origin + new Vector3(0f, 1f, 0f);
+        sight2.direction = player.transform.position - sight2.origin;
+        sight3.origin = sight2.origin + new Vector3(0f, 1f, 0f);
+        sight3.direction = player.transform.position - sight3.origin;
+
+        
+    
+        if (playerInWarningRange) {
+            RaycastHit rayHit0, rayHit1, rayHit2, rayHit3;
+
+            if (Physics.Raycast(sight0, out rayHit0, sightRange)) {
+                Debug.DrawLine(sight0.origin, rayHit0.point, Color.white);
+                seePlayer = rayHit0.collider.tag == "Player";
+            }
+
+            if (!seePlayer && Physics.Raycast(sight1, out rayHit1, sightRange)) {
+                Debug.DrawLine(sight1.origin, rayHit1.point, Color.white);
+                seePlayer = rayHit1.collider.tag == "Player";
+            }
+
+            if (!seePlayer && Physics.Raycast(sight2, out rayHit2, sightRange)) {
+                Debug.DrawLine(sight2.origin, rayHit2.point, Color.white);
+                seePlayer = rayHit2.collider.tag == "Player";
+            }
+            
+            if (!seePlayer && Physics.Raycast(sight3, out rayHit3, sightRange)) {
+                Debug.DrawLine(sight3.origin, rayHit3.point, Color.white);
+                seePlayer = rayHit3.collider.tag == "Player";
+            }
+        }
     }
 
     private void Patroling()
@@ -168,9 +207,11 @@ public class EnemyAi : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, warningRange);
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
