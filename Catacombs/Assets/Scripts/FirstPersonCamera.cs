@@ -6,10 +6,12 @@ public class FirstPersonCamera : MonoBehaviour
 {
     Camera cam;
     Transform last;
+    public bool pickedUp;
     // RaycastHit last;
 
     void Start()
     {
+        pickedUp = false;
         last = this.transform;
         cam = GetComponent<Camera>();
         // Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
@@ -25,14 +27,15 @@ public class FirstPersonCamera : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 7, layerMask)) {
             // print("I'm looking at " + hit.transform.name);
             if (hit.transform.tag == "pickup") {
+                pickedUp = false;
                 hit.transform.SendMessage("HitByRay");
             }
 
-            if (last != hit.transform && last.tag == "pickup") 
+            if (last != hit.transform && last.tag == "pickup" && !pickedUp) 
                 last.SendMessage("ExitByRay");
             last = hit.transform;
         } else {
-            if (last.tag == "pickup") {
+            if (last.tag == "pickup" && !pickedUp) {
                 last.SendMessage("ExitByRay");
                 last = this.transform;
             }

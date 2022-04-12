@@ -15,11 +15,13 @@ public class pickupScript : MonoBehaviour
     inventoryScript inventory;
     bool nearPlayer;
     GameObject player;
+    FirstPersonCamera FPCam;
 
     // Start by storing values in variables.
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        FPCam = player.transform.GetChild(0).gameObject.GetComponent<FirstPersonCamera>();
         nearPlayer = false;
         m_Renderer = GetComponent<MeshRenderer>();
         defaultTexture = m_Renderer.material.color;
@@ -70,6 +72,7 @@ public class pickupScript : MonoBehaviour
     {
         gameObject.SetActive(false);
         inventory.addBook(this.name);
+        FPCam.pickedUp = true;
         Destroy(this);
 
         // if (this.name == "bat_box") {

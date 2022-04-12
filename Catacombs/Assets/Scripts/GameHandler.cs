@@ -28,7 +28,7 @@ public class GameHandler : MonoBehaviour {
 
     void Update (){
         if (Input.GetButtonDown("Cancel")){
-            Debug.Log("Game is Paused:" + GameisPaused);
+            // Debug.Log("Game is Paused:" + GameisPaused);
             if (GameisPaused){
                 Resume();
             }

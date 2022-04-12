@@ -8,11 +8,13 @@ public class pickupScript2 : MonoBehaviour
     inventoryScript inventory;
     bool nearPlayer;
     GameObject player;
+    FirstPersonCamera FPCam;
 
     // Start by storing values in variables.
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        FPCam = player.transform.GetChild(0).gameObject.GetComponent<FirstPersonCamera>();
         nearPlayer = false;
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
     }
@@ -54,6 +56,7 @@ public class pickupScript2 : MonoBehaviour
     {
         gameObject.SetActive(false);
         inventory.addBook(this.name);
+        FPCam.pickedUp = true;
         Destroy(this);
     }
 }
