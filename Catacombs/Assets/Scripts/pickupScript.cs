@@ -20,7 +20,7 @@ public class pickupScript : MonoBehaviour
     // Start by storing values in variables.
     void Start()
     {
-        crosshair = GameObject.FindWithTag("Crosshair");
+        crosshair = GameObject.FindWithTag("Crosshair").transform.GetChild(0).gameObject;
         player = GameObject.FindWithTag("Player");
         FPCam = player.transform.GetChild(0).gameObject.GetComponent<FirstPersonCamera>();
         nearPlayer = false;
