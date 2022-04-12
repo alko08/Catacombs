@@ -14,12 +14,13 @@ public class pickupScript : MonoBehaviour
     // Creating variable to store inventoryScript.
     inventoryScript inventory;
     bool nearPlayer;
-    GameObject player;
+    GameObject player, crosshair;
     FirstPersonCamera FPCam;
 
     // Start by storing values in variables.
     void Start()
     {
+        crosshair = GameObject.FindWithTag("Crosshair");
         player = GameObject.FindWithTag("Player");
         FPCam = player.transform.GetChild(0).gameObject.GetComponent<FirstPersonCamera>();
         nearPlayer = false;
@@ -55,6 +56,7 @@ public class pickupScript : MonoBehaviour
         if (!nearPlayer) {
             ExitByRay();
         }else if (inventory.isOpen == false) {
+            crosshair.SetActive(true);
             m_Renderer.material.color = greenTexture;
             if (Input.GetKeyDown(KeyCode.Mouse0) && nearPlayer) {
                 doPickup();
@@ -63,6 +65,7 @@ public class pickupScript : MonoBehaviour
     }
 
     void ExitByRay() {
+        crosshair.SetActive(false);
         m_Renderer.material.color = defaultTexture;
     }
 
@@ -70,6 +73,7 @@ public class pickupScript : MonoBehaviour
     // the player.
     void doPickup()
     {
+        crosshair.SetActive(false);
         gameObject.SetActive(false);
         inventory.addBook(this.name);
         FPCam.pickedUp = true;

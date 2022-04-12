@@ -13,6 +13,7 @@ TagManager:
   - LoseBattery
   - Enemy
   - IgnoreObject
+  - Crosshair
   layers:
   - Default
   - TransparentFX
