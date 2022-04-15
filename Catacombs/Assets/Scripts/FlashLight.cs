@@ -17,7 +17,7 @@ public class FlashLight : MonoBehaviour
     private GameObject beepText, monster;
     private inventoryScript inventory;
     private Ray light;
-    private EnemyAi monsterAI;
+    // private EnemyAi monsterAI;
 
     // // Start is called before the first frame update
     void Start()
@@ -45,8 +45,8 @@ public class FlashLight : MonoBehaviour
         isOn = false;
         lightSource.SetActive(false);
 
-        monster = GameObject.FindWithTag("Enemy");
-        monsterAI = monster.GetComponent<EnemyAi>();
+        // monster = GameObject.FindWithTag("Enemy");
+        // monsterAI = monster.GetComponent<EnemyAi>();
     }
 
     // Update is called once per frame
@@ -121,19 +121,19 @@ public class FlashLight : MonoBehaviour
             charge -= .0002f;
         }
 
-        int layerMask = 1 << 3;
-        layerMask = ~layerMask;
-        light.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        light.direction = monster.transform.position - light.origin;
-        RaycastHit rayHit;
+        // int layerMask = 1 << 3;
+        // layerMask = ~layerMask;
+        // light.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        // light.direction = monster.transform.position - light.origin;
+        // RaycastHit rayHit;
     
-        if (isOn && Physics.Raycast(light, out rayHit, 30f, layerMask)) {
-            // print("I'm looking at " + rayHit.transform.name);
-            Debug.DrawLine(light.origin, rayHit.point, Color.white);
-            monsterAI.seeLight = rayHit.collider.tag == "Enemy";
-        } else {
-            monsterAI.seeLight = false;
-        }
+        // if (isOn && Physics.Raycast(light, out rayHit, 30f, layerMask)) {
+        //     // print("I'm looking at " + rayHit.transform.name);
+        //     Debug.DrawLine(light.origin, rayHit.point, Color.white);
+        //     monsterAI.seeLight = rayHit.collider.tag == "Enemy";
+        // } else {
+        //     monsterAI.seeLight = false;
+        // }
     }
 
     void hideCharge()
