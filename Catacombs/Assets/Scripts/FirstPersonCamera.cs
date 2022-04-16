@@ -34,12 +34,21 @@ public class FirstPersonCamera : MonoBehaviour
                 pickedUp = false;
                 hit.transform.SendMessage("HitByRay");
             }
+            else if (hit.transform.tag == "npc") {
+                hit.transform.SendMessage("HitByRay");
+            }
 
             if (last != hit.transform && last.tag == "pickup" && !pickedUp) 
+                last.SendMessage("ExitByRay");
+            if (last != hit.transform && last.tag == "npc")
                 last.SendMessage("ExitByRay");
             last = hit.transform;
         } else {
             if (last.tag == "pickup" && !pickedUp) {
+                last.SendMessage("ExitByRay");
+                last = this.transform;
+            }
+            if (last.tag == "npc") {
                 last.SendMessage("ExitByRay");
                 last = this.transform;
             }

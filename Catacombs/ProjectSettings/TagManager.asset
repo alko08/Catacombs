@@ -14,6 +14,7 @@ TagManager:
   - Enemy
   - IgnoreObject
   - Crosshair
+  - npc
   layers:
   - Default
   - TransparentFX
