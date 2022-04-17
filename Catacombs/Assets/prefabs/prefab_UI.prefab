@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 4495956231439716505}
   - component: {fileID: 3300680989257783299}
   m_Layer: 5
-  m_Name: MapButton
+  m_Name: ObjectivesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7325,7 +7325,7 @@ GameObject:
   - component: {fileID: 1244400790974632515}
   - component: {fileID: 1950530094152622099}
   m_Layer: 5
-  m_Name: MapGlow
+  m_Name: ObjectivesGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7723,7 +7723,7 @@ GameObject:
   - component: {fileID: 8912627454338597263}
   - component: {fileID: 1478050955266934417}
   m_Layer: 5
-  m_Name: MapText
+  m_Name: ObjectivesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7776,9 +7776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Map
-
-    (Not done yet!)'
+  m_text: Objectives
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
