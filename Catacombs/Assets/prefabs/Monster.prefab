@@ -289,7 +289,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 7
+  m_Speed: 6
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -340,10 +340,12 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInWarningRange: 0
   isOnFloor: 0
+  seeLight: 0
   hunting: {fileID: 0}
   warning: {fileID: 0}
   chase_audio_source: {fileID: 0}
   chase_volume: 0
+  patrolPoints: []
 --- !u!1001 &5738584939050963615
 PrefabInstance:
   m_ObjectHideFlags: 0

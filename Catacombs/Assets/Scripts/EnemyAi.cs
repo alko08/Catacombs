@@ -31,10 +31,15 @@ public class EnemyAi : MonoBehaviour
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
     private Ray sight0, sight1, sight2, sight3;
-    private bool seePlayer;
+    private bool seePlayer, hunted;
+
+    public Transform[] patrolPoints;
+    private int patrolSpot;
 
     private void Awake()
     {
+        hunted = false;
+        patrolSpot = -1;
         seePlayer = false;
         player = GameObject.FindWithTag("Player").transform;
         FPC = player.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
@@ -44,7 +49,7 @@ public class EnemyAi : MonoBehaviour
     private void Update()
     {
         //Check for sight and attack range
-        playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer);
+        playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer) && isOnFloor;
         playerInSightRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
 
@@ -139,24 +144,28 @@ public class EnemyAi : MonoBehaviour
     }
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
-        // float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        // float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        // walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        // if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-        //     walkPointSet = true;
-        float radius = walkPointRange;
-        Vector3 randomDirection = Random.insideUnitSphere * radius;
-        randomDirection += transform.position;
-        NavMeshHit hit;
-        Vector3 finalPosition = Vector3.zero;
-        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1)) {
-            finalPosition = hit.position;            
+        // Random Patrol Point on Navmesh
+        // float radius = walkPointRange;
+        // Vector3 randomDirection = Random.insideUnitSphere * radius;
+        // randomDirection += transform.position;
+        // NavMeshHit hit;
+        // Vector3 finalPosition = Vector3.zero;
+        // if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1)) {
+        //     finalPosition = hit.position;            
+        // }
+        // walkPointSet = true;
+        // walkPoint = finalPosition;
+        if (hunted) {
+            hunted = false;
+        } else {
+            patrolSpot++;
+            if (patrolSpot >= patrolPoints.Length) {
+                patrolSpot = 0;
+            }
         }
+
         walkPointSet = true;
-        walkPoint = finalPosition;
+        walkPoint = patrolPoints[patrolSpot].position;
     }
 
     private void ChasePlayer()
@@ -168,6 +177,7 @@ public class EnemyAi : MonoBehaviour
         agent.SetDestination(player.position);
         walkPoint = player.position;
         walkPointSet = true;
+        hunted = true;
     }
 
     // private void AttackPlayer()
