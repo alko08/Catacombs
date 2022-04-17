@@ -34,13 +34,15 @@ public class FirstPersonCamera : MonoBehaviour
                 pickedUp = false;
                 hit.transform.SendMessage("HitByRay");
             }
-            else if (hit.transform.tag == "npc") {
+            else if (hit.transform.tag == "npc" || 
+                     hit.transform.tag == "door") {
                 hit.transform.SendMessage("HitByRay");
             }
 
             if (last != hit.transform && last.tag == "pickup" && !pickedUp) 
                 last.SendMessage("ExitByRay");
-            if (last != hit.transform && last.tag == "npc")
+            if (last != hit.transform && (last.tag == "npc" ||
+                                          last.tag == "door"))
                 last.SendMessage("ExitByRay");
             last = hit.transform;
         } else {
@@ -48,7 +50,8 @@ public class FirstPersonCamera : MonoBehaviour
                 last.SendMessage("ExitByRay");
                 last = this.transform;
             }
-            if (last.tag == "npc") {
+            if (last.tag == "npc" ||
+                last.tag == "door") {
                 last.SendMessage("ExitByRay");
                 last = this.transform;
             }

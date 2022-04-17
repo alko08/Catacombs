@@ -15,6 +15,7 @@ TagManager:
   - IgnoreObject
   - Crosshair
   - npc
+  - door
   layers:
   - Default
   - TransparentFX
