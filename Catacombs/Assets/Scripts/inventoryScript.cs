@@ -29,6 +29,10 @@ public class inventoryScript : MonoBehaviour
     public GameObject inventoryUI;  // Refers to the parent containing all
                                     // inventory elements.
 
+    // Objectives UI vars.
+    public bool isOpen_tasks;
+    public GameObject tasksUI;
+
     // Selector UI vars.
     public bool isOpen_select;
     public GameObject selectorUI;
@@ -45,6 +49,13 @@ public class inventoryScript : MonoBehaviour
     // List for storing item slots on UI.
     public List<GameObject> itemsUI = new List<GameObject>();
     const int numItems_UI = 32;
+
+    // List for storing task data.
+    public List<string> objectivesList = new List<string>();
+
+    // List for storing task text on UI. 
+    public List<GameObject> taskList_UI = new List<GameObject>();
+    const int numTasks_UI = 6;
 
     // Item Textures.
     public Texture2D book0;
@@ -66,22 +77,35 @@ public class inventoryScript : MonoBehaviour
     // Begin by hiding all inventory UI elements.
     void Start()
     {
+        // Initializing Batteries.
         batteryCount = 0;
         batteryCountText = GameObject.FindWithTag("BatteryCount").GetComponent<TextMeshProUGUI>();
 
+        // Initializing inventoryUI.
         isOpen = false;
         inventoryUI = GameObject.Find("inventoryUI");
         initiateItemsUI();
 
+        // Initializing objectives menu.
+        isOpen_tasks = false;
+        tasksUI = GameObject.Find("objectivesUI");
+        initiateTasksUI();
+
+        // Initializing selector.
         isOpen_select = false;
         selectorUI = GameObject.Find("selectorUI");
 
+        // Setting objective bools.
         firstBookFound  = false;
         firstBookRead   = false;
         purpleBookFound = false;
 
+        // Closing UI so player starts with it closed.
         inventoryUI.SetActive(false);
+        tasksUI.SetActive(false);
         selectorUI.SetActive(false);
+
+        // Other.
         testTotal = 0;
     }
 
@@ -100,22 +124,41 @@ public class inventoryScript : MonoBehaviour
         }
     }
 
+    // This function grabs all the task GameObjects in objectivesUI and stores
+    // them in a list that we can reference later. 
+    void initiateTasksUI()
+    {
+        string currTask;
+
+        for (int i = 0; i < numTasks_UI + 1; i++) {
+            currTask = "task" + i.ToString();
+            // Debug.Log("Processing " + currItemName);
+            taskList_UI.Add(GameObject.Find(currTask));
+            taskList_UI[i].SetActive(false);
+        }
+    }
+
     // On update, check if the [R] key was pressed. If it was, switch the
     // of the inventory.
     void Update()
     {
         if (Input.GetButtonDown("Inventory")) {
             // Code that opens the selector. 
-            if ( (!isOpen_select) && (!isOpen) ){
+            if ( (!isOpen_select) && (!isOpen) && (!isOpen_tasks) ){
                 doOpen_select();
             } else if (isOpen) {
                 doClose();
+            } else if (isOpen_tasks) {
+                doClose_tasks();
             } else {
                 doClose_select();
             }
         }
     }
 
+    // OPEN/CLOSE FUNCTIONS
+    
+    // inventoryUI
     void doOpen()
     {
         // Opening UI elements.
@@ -125,20 +168,51 @@ public class inventoryScript : MonoBehaviour
         }
 
         // Disabling out-of-UI controls and unlocking cursor. 
-        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        // GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+        // Cursor.lockState = CursorLockMode.Confined;
+        // Cursor.visible = true;
+        setNonUI(false);
 
         isOpen = !isOpen;
     }
 
+    void doClose()
+    {
+        inventoryUI.SetActive(false);
+
+        setNonUI(true);
+
+        isOpen = !isOpen;
+    }
+
+    // tasksUI
+    void doOpen_tasks()
+    {
+        tasksUI.SetActive(true);
+        for (int i = 0; i < objectivesList.Count; i++) {
+            printTask(objectivesList[i], i);
+        }
+
+        setNonUI(false);
+
+        isOpen_tasks = !isOpen_tasks;
+    }
+
+    void doClose_tasks()
+    {
+        tasksUI.SetActive(false);
+
+        setNonUI(true);
+
+        isOpen_tasks = !isOpen_tasks;
+    }
+
+    // selectorUI
     void doOpen_select()
     {
         selectorUI.SetActive(true);
 
-        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        setNonUI(false);
 
         isOpen_select = !isOpen_select;
     }
@@ -146,9 +220,8 @@ public class inventoryScript : MonoBehaviour
     void doClose_select()
     {
         selectorUI.SetActive(false);
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
-        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+
+        setNonUI(true);
 
         isOpen_select = !isOpen_select;
 
@@ -157,14 +230,13 @@ public class inventoryScript : MonoBehaviour
         }
     }
 
-    void doClose()
+    // Helper to toggling out-of-UI controls. The boolean parameter represents the status of non-UI elements.
+    // Pass false for opening a UI element, true for closing it. 
+    void setNonUI(bool NonUI_status)
     {
-        inventoryUI.SetActive(false);
+        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = NonUI_status;
         Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
-        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
-
-        isOpen = !isOpen;
+        Cursor.visible = !NonUI_status;
     }
 
     // Function for adding books to inventory.
@@ -244,6 +316,19 @@ public class inventoryScript : MonoBehaviour
         }
     }
 
+    void printTask(string task, int index)
+    {
+        GameObject currTask;
+        if (index < taskList_UI.Count) {
+            currTask = taskList_UI[index];
+
+            currTask.SetActive(true);
+            currTask.GetComponent<TextMeshProUGUI>().text = task;
+        } else {
+            Debug.Log("index out of range.");
+        }
+    }
+
     public void removeBook(string bookName)
     {
         if (bookName == "Battery") {
@@ -310,9 +395,17 @@ public class inventoryScript : MonoBehaviour
         return text;
     }
 
+    // Wrapper functions used by SelectorGlowScript to quickly switch from
+    // the selector screen to one of the other UI screens.
     public void SelectToInventory()
     {
         doClose_select();
         doOpen();
+    }
+
+    public void SelectToTasks()
+    {
+        doClose_select();
+        doOpen_tasks();
     }
 }

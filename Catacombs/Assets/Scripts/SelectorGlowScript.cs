@@ -13,6 +13,12 @@ public class SelectorGlowScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     // On start, grab inventory. 
     void Start()
     {
+        if (gameObject.name == "InventoryButton") {
+            myGlow = GameObject.Find("InventoryGlow");
+        } else {
+            myGlow = GameObject.Find("ObjectivesGlow");
+        }
+
         myGlow.SetActive(false);
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         mousingOver = false;
@@ -21,8 +27,16 @@ public class SelectorGlowScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     void Update()
     {
         if ( (mousingOver) && (Input.GetKeyDown(KeyCode.Mouse0)) ) {
+            mousingOver = false;
             myGlow.SetActive(false);
-            inventory.SelectToInventory();
+            
+            if (gameObject.name == "InventoryButton") {
+                // Debug.Log("Opening inventory");
+                inventory.SelectToInventory();
+            } else if (gameObject.name == "ObjectivesButton") {
+                // Debug.Log("Opening tasks");
+                inventory.SelectToTasks();
+            }
         }
     }
     
