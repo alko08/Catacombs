@@ -271,8 +271,8 @@ public class inventoryScript : MonoBehaviour
                 { m_name = randomBookName(), 
                   m_sprite = book3 });
             testTotal++;
-            goalTextMeshPro.SetText(testTotal + " / 20");
-            if (testTotal >= 20) {
+            goalTextMeshPro.SetText(testTotal + " / 10");
+            if (testTotal >= 10) {
                 SceneManager.LoadScene("WinScene");
             }
         
