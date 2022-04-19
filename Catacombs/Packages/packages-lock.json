@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.oddworm.copylightingsettings": {
+      "version": "https://github.com/pschraut/UnityCopyLightingSettings.git#1.6.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c6dfbb2c3823117e55e04b95ae1598ad3c20e403"
+    },
     "com.unity.collab-proxy": {
       "version": "1.5.7",
       "depth": 0,
