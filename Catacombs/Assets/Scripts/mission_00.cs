@@ -78,7 +78,7 @@ public class mission_00 : MonoBehaviour
             else if (notClear) {
                 clear();
             }
-        } else if ((blytheTalk_done) and (!blytheTalk_done1)) {
+        } else if ((blytheTalk_done) && (!blytheTalk_done1)) {
             print_blytheTalk2();
         } else {
             clear();
@@ -143,7 +143,7 @@ public class mission_00 : MonoBehaviour
         dialogueBox.text = "Giant Bug: Look, if you're confused, I'd suggest lookin " +
                            "around. In case ya couldn't tell, we're in Tisch " +
                            "library right now.";
-        timer1 = 450;
+        timer1 = 900;
         blytheTalk_done1 = true;
     }
 
@@ -175,6 +175,7 @@ public class mission_00 : MonoBehaviour
         for (int i = 0; i < NUM_BOXES; i++) {
             boxes[i].SetActive(false);
         }
+        blytheTalk_done1 = false;
     }
 
     void ButtonClicked(int buttonNo)
