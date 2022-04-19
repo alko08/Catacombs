@@ -62,8 +62,10 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book1;
     public Texture2D book2;
     public Texture2D book3;
+    public Texture2D keyRing;
     // public Texture2D battery;
     public int batteryCount;
+    public bool hasKey;
     private TextMeshProUGUI batteryCountText;
 
     // Other.
@@ -77,6 +79,9 @@ public class inventoryScript : MonoBehaviour
     // Begin by hiding all inventory UI elements.
     void Start()
     {
+        // Initializing Key.
+        hasKey = false;
+
         // Initializing Batteries.
         batteryCount = 0;
         batteryCountText = GameObject.FindWithTag("BatteryCount").GetComponent<TextMeshProUGUI>();
@@ -253,6 +258,11 @@ public class inventoryScript : MonoBehaviour
         } else if (bookName.Contains("battery")) {
             batteryCount++;
             batteryCountText.SetText("" + batteryCount);
+        } else if (bookName.Contains("keyring")) {
+            hasKey = true;
+            inventoryList.Add(new Book() 
+                { m_name = "A Ring of Keys", 
+                  m_sprite = keyRing });
         } else if (bookName.Contains("pickup_hint")) {
             inventoryList.Add(new Book()
                 { m_name = "A Hint",
@@ -331,12 +341,12 @@ public class inventoryScript : MonoBehaviour
 
     public void removeBook(string bookName)
     {
-        if (bookName == "Battery") {
-        //     inventoryList.Remove(new Book()
-        //         { m_name = "Battery", 
-        //           m_sprite = battery });
-        //     itemsUI[inventoryList.Count].SetActive(false);
-            Debug.Log("Cant remove:" + bookName);
+        if (bookName == "keyRing") {
+            inventoryList.Remove(new Book()
+                { m_name = "A Ring of Keys", 
+                  m_sprite = keyRing });
+            itemsUI[inventoryList.Count].SetActive(false);
+            // Debug.Log("Cant remove:" + bookName);
         } else {
             Debug.Log("Cant remove:" + bookName);
         }

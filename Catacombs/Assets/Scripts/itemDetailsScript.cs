@@ -57,7 +57,11 @@ public class itemDetailsScript : MonoBehaviour
         } 
         
         else if (itemName.Contains("Battery")) {
-            bio = "Charges the flashlight to full when it dies.";
+            bio = "Charges the flashlight an extra 50%.";
+        } 
+
+        else if (itemName.Contains("A Ring of Keys")) {
+            bio = "A ring of keys. Unlocks locked doors.";
         } 
         
         else if (itemName.Contains("Welcome")) {

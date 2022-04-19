@@ -38,10 +38,11 @@ public class door_animation : MonoBehaviour
     void HitByRay() {
         if (!nearPlayer) {
             ExitByRay();
-        }
-        crosshair.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
-            ChangeDoor();
+        } else {
+            crosshair.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                ChangeDoor();
+            }
         }
     }
 

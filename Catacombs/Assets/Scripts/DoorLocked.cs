@@ -1,23 +1,28 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class double_door_anim : MonoBehaviour
+public class DoorLocked : MonoBehaviour
 {
     bool nearPlayer, playerFar;
     GameObject player, crosshair;
     FirstPersonCamera FPCam;
-    Animator doubleDoorAnimator;
+    Animator doorAnimator;
     BoxCollider doorCollider;
+    public bool isExit = false;
+    private inventoryScript inventory;
 
     // Start by storing values in variables.
     void Start()
     {
+        inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         crosshair = GameObject.FindWithTag("Crosshair").transform.GetChild(0).gameObject;
         player = GameObject.FindWithTag("Player");
         FPCam = player.transform.GetChild(0).gameObject.GetComponent<FirstPersonCamera>();
         nearPlayer = false;
-        doubleDoorAnimator = gameObject.GetComponent<Animator>();
+        doorAnimator = gameObject.GetComponent<Animator>();
         doorCollider = gameObject.GetComponent<BoxCollider>();
     }
 
@@ -25,12 +30,12 @@ public class double_door_anim : MonoBehaviour
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
         nearPlayer = dist < 5f;
-        playerFar = dist > 8f;
+        playerFar = dist > 7f;
         if (playerFar) {
-            doubleDoorAnimator.SetBool("PlayerFar", true);
+            doorAnimator.SetBool("PlayerFar", true);
             doorCollider.enabled = true;
         } else {
-            doubleDoorAnimator.SetBool("PlayerFar", false);
+            doorAnimator.SetBool("PlayerFar", false);
         }
     }
 
@@ -39,7 +44,7 @@ public class double_door_anim : MonoBehaviour
             ExitByRay();
         } else {
             crosshair.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && inventory.hasKey) {
                 ChangeDoor();
             }
         }
@@ -54,7 +59,15 @@ public class double_door_anim : MonoBehaviour
     void ChangeDoor()
     {
         crosshair.SetActive(false);
-        doubleDoorAnimator.SetTrigger("ChangeDoorState");
+        doorAnimator.SetTrigger("ChangeDoorState");
         doorCollider.enabled = false;
+        if (isExit) {
+            StartCoroutine(NextSceneCoroutine());
+        }
+    }
+
+    IEnumerator NextSceneCoroutine() {
+        yield return new WaitForSeconds(.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
