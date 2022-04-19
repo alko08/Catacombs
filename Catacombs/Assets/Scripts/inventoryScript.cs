@@ -347,6 +347,7 @@ public class inventoryScript : MonoBehaviour
                 { m_name = "A Ring of Keys", 
                   m_sprite = keyRing });
             itemsUI[inventoryList.Count].SetActive(false);
+            hasKey = false;
             // Debug.Log("Cant remove:" + bookName);
         } else {
             Debug.Log("Cant remove:" + bookName);

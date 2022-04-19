@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class DoorLocked : MonoBehaviour
 {
-    bool nearPlayer, playerFar;
+    bool nearPlayer, playerFar, isLocked;
     GameObject player, crosshair;
     FirstPersonCamera FPCam;
     Animator doorAnimator;
@@ -19,6 +19,7 @@ public class DoorLocked : MonoBehaviour
     // Start by storing values in variables.
     void Start()
     {
+        isLocked = true;
         flashlight = GameObject.FindWithTag("Flashlight").GetComponent<FlashLight>();
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         crosshair = GameObject.FindWithTag("Crosshair").transform.GetChild(0).gameObject;
@@ -47,7 +48,7 @@ public class DoorLocked : MonoBehaviour
             ExitByRay();
         } else {
             crosshair.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Mouse0) && inventory.hasKey) {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && (!isLocked || inventory.hasKey)) {
                 ChangeDoor();
             }
         }
@@ -61,6 +62,11 @@ public class DoorLocked : MonoBehaviour
     // the player.
     void ChangeDoor()
     {
+        if (inventory.hasKey) {
+            isLocked = false;
+            inventory.removeBook("keyRing");
+        }
+        
         crosshair.SetActive(false);
         doorAnimator.SetTrigger("ChangeDoorState");
         doorCollider.enabled = false;
