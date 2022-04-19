@@ -41,7 +41,7 @@ public class FlashLight : MonoBehaviour
         charge100 = chargeBar.transform.GetChild(10).gameObject;
         hideCharge();
 
-        charge = 1f;
+        charge = StaticVariables.batteryVal;
         isOn = false;
         lightSource.SetActive(false);
 
@@ -153,5 +153,9 @@ public class FlashLight : MonoBehaviour
 
     void hideLoseBattery() {
         beepText.SetActive(false);
+    }
+    
+    public void updateVariables() {
+        StaticVariables.batteryVal = charge;
     }
 }

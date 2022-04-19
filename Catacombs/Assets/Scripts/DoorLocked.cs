@@ -13,10 +13,13 @@ public class DoorLocked : MonoBehaviour
     BoxCollider doorCollider;
     public bool isExit = false;
     private inventoryScript inventory;
+    private FlashLight flashlight;
+
 
     // Start by storing values in variables.
     void Start()
     {
+        flashlight = GameObject.FindWithTag("Flashlight").GetComponent<FlashLight>();
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         crosshair = GameObject.FindWithTag("Crosshair").transform.GetChild(0).gameObject;
         player = GameObject.FindWithTag("Player");
@@ -67,6 +70,8 @@ public class DoorLocked : MonoBehaviour
     }
 
     IEnumerator NextSceneCoroutine() {
+        flashlight.updateVariables();
+        inventory.updateVariables();
         yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

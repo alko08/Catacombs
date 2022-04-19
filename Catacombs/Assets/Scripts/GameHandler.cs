@@ -12,6 +12,7 @@ public class GameHandler : MonoBehaviour {
     public AudioMixer mixer;
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
+    public static string SceneDied = "MainMenu";
 
     void Awake (){ 
         SetLevel (volumeLevel);
@@ -24,6 +25,10 @@ public class GameHandler : MonoBehaviour {
 
     void Start (){
         Resume();
+        string thisLevel = SceneManager.GetActiveScene().name;
+        if (thisLevel != "LoseScene"){
+            SceneDied = thisLevel;
+        }
     }
 
     void Update (){
@@ -42,6 +47,10 @@ public class GameHandler : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+
+    public void ReplayGame (){
+        SceneManager.LoadScene(SceneDied);
     }
 
     void Pause(){
@@ -70,7 +79,7 @@ public class GameHandler : MonoBehaviour {
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("library");
+        SceneManager.LoadScene("Level_1");
     }
 
     public void RestartGame() {

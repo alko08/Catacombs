@@ -83,8 +83,9 @@ public class inventoryScript : MonoBehaviour
         hasKey = false;
 
         // Initializing Batteries.
-        batteryCount = 0;
+        batteryCount = StaticVariables.batteryNum;
         batteryCountText = GameObject.FindWithTag("BatteryCount").GetComponent<TextMeshProUGUI>();
+        batteryCountText.SetText("" + batteryCount);
 
         // Initializing inventoryUI.
         isOpen = false;
@@ -417,5 +418,9 @@ public class inventoryScript : MonoBehaviour
     {
         doClose_select();
         doOpen_tasks();
+    }
+
+    public void updateVariables() {
+        StaticVariables.batteryNum = batteryCount;
     }
 }
