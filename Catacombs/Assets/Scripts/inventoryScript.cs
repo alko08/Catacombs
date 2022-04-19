@@ -237,7 +237,7 @@ public class inventoryScript : MonoBehaviour
     }
 
     // Helper to toggling out-of-UI controls. The boolean parameter represents the status of non-UI elements.
-    // Pass false for opening a UI element, true for closing it. 
+    // Pass false for opening a UI element, true when closing it. 
     void setNonUI(bool NonUI_status)
     {
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = NonUI_status;
