@@ -572,7 +572,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6710006193854479671}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3154172573612516929}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'Giant Bug: Haha! Nope!'
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1105673767427671077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1216,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1180044462795116178}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3154172573612516929}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'Giant Bug: You''re asking a lotta questions, friend!'
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2402949002826193097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,7 +1346,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1567523155746486690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3154172573612516929}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'Giant Bug: Hey, hey! Calm down! I don''t bite!'
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2530020211314951957
 GameObject:
   m_ObjectHideFlags: 0
@@ -9362,7 +9398,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862491689626436645}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3154172573612516929}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'Giant Bug: I''m doing great too!'
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7315639584692065256
 GameObject:
   m_ObjectHideFlags: 0

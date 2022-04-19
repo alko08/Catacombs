@@ -309,6 +309,12 @@ public class inventoryScript : MonoBehaviour
                   m_sprite = book1 });
         }
 
+        else if (bookName.Contains("tutorialBook")) {
+            inventoryList.Add(new Book()
+                { m_name = "It Listens",
+                  m_sprite = book1});
+        }
+
         if (isOpen) {
             doOpen();
         }

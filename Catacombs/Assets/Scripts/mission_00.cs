@@ -76,6 +76,8 @@ public class mission_00 : MonoBehaviour
             else if (notClear) {
                 clear();
             }
+        } else if (blytheTalk_done) {
+            print_blytheTalk2();
         }
     }
 
@@ -85,8 +87,9 @@ public class mission_00 : MonoBehaviour
 
     void initiateBoxes()
     {
-        boxes = new GameObject[4];
-        choices = new TextMeshProUGUI[4];
+        boxes = new GameObject[NUM_BOXES];
+        choices = new TextMeshProUGUI[NUM_BOXES];
+        buttons = new Button[NUM_BOXES];
         
         string currBox;
         string currChoice;
@@ -99,7 +102,7 @@ public class mission_00 : MonoBehaviour
             choices[i] = GameObject.Find(currChoice).GetComponent<TextMeshProUGUI>();
 
             buttons[i] = boxes[i].GetComponent<Button>();
-            buttons[i].onClick.AddListener(TaskOnClick);
+            buttons[i].onClick.AddListener(() => ButtonClicked(i));
 
             boxes[i].SetActive(false);
         }
@@ -125,11 +128,17 @@ public class mission_00 : MonoBehaviour
 
     public void print_blytheTalk1()
     {
-        dialogueBox.text = "Oh hey there! How're you doing?";
+        dialogueBox.text = "Giant Bug: Oh hey there! How're you doing?";
         timer1 = 0;
-        blytheTalk_done = true;
         pause = true;   // Pausing text change to open talking menu.
         openDialogueOptions();
+    }
+
+    void print_blytheTalk2()
+    {
+        dialogueBox.text = "Giant Bug: Look, if you're confused, I'd suggest lookin " +
+                           "around. In case ya couldn't tell, we're in Tisch " +
+                           "library right now.";
     }
 
     /*********************************************************************\
@@ -152,9 +161,33 @@ public class mission_00 : MonoBehaviour
         choices[3].text = "AAHHHHH! GIANT BUG! AAHHHHH!";
     }
 
-    void TaskOnClick()
+    void closeDialogueOptions()
     {
-        Debug.Log("Button Pressed");
+        setNonUI(true);
+        isOpen_dialogue = false;
+
+        for (int i = 0; i < NUM_BOXES; i++) {
+            boxes[i].SetActive(false);
+        }
+    }
+
+    void ButtonClicked(int buttonNo)
+    {
+        Debug.Log("Button pressed: " + buttonNo);
+        
+        // if (buttonNo == 0) {
+        //     dialogueBox.text = "Giant Bug: I'm doing great too!";
+        // } else if (buttonNo == 1) {
+        //     dialogueBox.text = "Giant Bug: You're asking a lotta questions, friend!";
+        // } else if (buttonNo == 2) {
+        //     dialogueBox.text = "Giant Bug: Nope!";
+        // } else if (buttonNo == 3) {
+        //     dialogueBox.text = "Giant Bug: Hey, hey! Calm down! I don't bite!";
+        // }
+
+        timer1 = 450;   // Should give a moment before the next dialogue thing appears.
+        blytheTalk_done = true;
+        closeDialogueOptions();
     }
 
     // Toggling non-UI controls. Yoinked straight from inventoryScript.

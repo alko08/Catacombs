@@ -141,6 +141,11 @@ public class itemDetailsScript : MonoBehaviour
                   "on continuing your pointless search for answers, know that " +
                   "there are more monsters ahead.";
         }
+
+        else if (itemName.Contains("It Listens")) {
+            bio = "You are safe outside the glass. Watch the monster's movements. " +
+                  "Predict its movements. Hide under tables. Get the keys. Progress.";
+        }
         
         else {
             bio = "ITEM UNKNOWN";
