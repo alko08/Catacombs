@@ -31,6 +31,7 @@ public class mission_00 : MonoBehaviour
     bool notClear;
     bool pause;
     bool isOpen_dialogue;
+    bool blytheTalk_done1;
     
     /*********************************************************************\
         Basic Functions
@@ -59,6 +60,7 @@ public class mission_00 : MonoBehaviour
         blytheTalk_done = false;
         pause = false;
         isOpen_dialogue = false;
+        blytheTalk_done1 = false;
     }
 
     // Update is called once per frame
@@ -76,8 +78,10 @@ public class mission_00 : MonoBehaviour
             else if (notClear) {
                 clear();
             }
-        } else if (blytheTalk_done) {
+        } else if ((blytheTalk_done) && (!blytheTalk_done1)) {
             print_blytheTalk2();
+        } else {
+            clear();
         }
     }
 
@@ -139,6 +143,8 @@ public class mission_00 : MonoBehaviour
         dialogueBox.text = "Giant Bug: Look, if you're confused, I'd suggest lookin " +
                            "around. In case ya couldn't tell, we're in Tisch " +
                            "library right now.";
+        timer1 = 900;
+        blytheTalk_done1 = true;
     }
 
     /*********************************************************************\
@@ -169,6 +175,7 @@ public class mission_00 : MonoBehaviour
         for (int i = 0; i < NUM_BOXES; i++) {
             boxes[i].SetActive(false);
         }
+        blytheTalk_done1 = false;
     }
 
     void ButtonClicked(int buttonNo)
@@ -185,7 +192,7 @@ public class mission_00 : MonoBehaviour
         //     dialogueBox.text = "Giant Bug: Hey, hey! Calm down! I don't bite!";
         // }
 
-        timer1 = 450;   // Should give a moment before the next dialogue thing appears.
+        timer1 = 300;   // Should give a moment before the next dialogue thing appears.
         blytheTalk_done = true;
         closeDialogueOptions();
     }
