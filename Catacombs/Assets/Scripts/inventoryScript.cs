@@ -36,6 +36,8 @@ public class inventoryScript : MonoBehaviour
     // Selector UI vars.
     public bool isOpen_select;
     public GameObject selectorUI;
+    public GameObject glow_o;
+    public GameObject glow_i;
 
     // Book bools.
     public bool firstBookFound; // Communicates with mission01 script to
@@ -71,6 +73,7 @@ public class inventoryScript : MonoBehaviour
     // Other.
     private int testTotal;
     public TextMeshProUGUI goalTextMeshPro;
+    public bool dialogue_open;
 
     /*********************************************************************\
         FUNCTIONS
@@ -100,6 +103,8 @@ public class inventoryScript : MonoBehaviour
         // Initializing selector.
         isOpen_select = false;
         selectorUI = GameObject.Find("selectorUI");
+        glow_o = GameObject.Find("Glow_O");
+        glow_i = GameObject.Find("Glow_I");
 
         // Setting objective bools.
         firstBookFound  = false;
@@ -113,6 +118,7 @@ public class inventoryScript : MonoBehaviour
 
         // Other.
         testTotal = 0;
+        dialogue_open = false;
     }
 
     // This function should grab all the item GameObjects in the UI and store
@@ -145,10 +151,12 @@ public class inventoryScript : MonoBehaviour
     }
 
     // On update, check if the [R] key was pressed. If it was, switch the
-    // of the inventory.
+    // of the inventory. Don't open if dialogue is open.
     void Update()
     {
-        if (Input.GetButtonDown("Inventory")) {
+        dialogue_open = GameObject.Find("missionManager").GetComponent<mission_00>().isOpen_dialogue;
+        
+        if ((Input.GetButtonDown("Inventory")) && (!dialogue_open)) {
             // Code that opens the selector. 
             if ( (!isOpen_select) && (!isOpen) && (!isOpen_tasks) ){
                 doOpen_select();
@@ -225,6 +233,10 @@ public class inventoryScript : MonoBehaviour
 
     void doClose_select()
     {
+        glow_o.SetActive(false);
+        glow_i.SetActive(false);
+        GameObject.Find("ObjectivesButton").GetComponent<SelectorGlowScript>().mousingOver = false;
+        GameObject.Find("InventoryButton").GetComponent<SelectorGlowScript>().mousingOver = false;
         selectorUI.SetActive(false);
 
         setNonUI(true);
@@ -330,6 +342,38 @@ public class inventoryScript : MonoBehaviour
             currItem.GetComponent<RawImage>().texture = book.m_sprite;
         } else {
             Debug.Log("index out of range.");
+        }
+    }
+
+    public void addTask(string newTask)
+    {
+        objectivesList.Add(newTask);
+
+        updateTasks();
+    }
+
+    public void removeTask(string removedTask) 
+    {
+        int countAtStart = objectivesList.Count;
+        
+        Debug.Log("Removing task: " + removedTask);
+        objectivesList.Remove(removedTask);
+        
+        if (objectivesList.Count > countAtStart) {
+            Debug.Log("Task removed.");
+        } else {
+            Debug.Log("Task not removed.");
+        }
+
+        updateTasks();
+    }
+
+    void updateTasks()
+    {
+        if (isOpen_tasks) {
+            for (int i = 0; i < objectivesList.Count; i++) {
+                printTask(objectivesList[i], i);
+            }
         }
     }
 

@@ -14,9 +14,9 @@ public class SelectorGlowScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     void Start()
     {
         if (gameObject.name == "InventoryButton") {
-            myGlow = GameObject.Find("InventoryGlow");
-        } else {
-            myGlow = GameObject.Find("ObjectivesGlow");
+            myGlow = GameObject.Find("Glow_I");
+        } else if (gameObject.name == "ObjectivesButton") {
+            myGlow = GameObject.Find("Glow_O");
         }
 
         myGlow.SetActive(false);

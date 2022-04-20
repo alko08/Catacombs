@@ -12,15 +12,18 @@ public class mission_00 : MonoBehaviour
     \*********************************************************************/
 
     // Objects
-    public GameObject gameUI;
+    public inventoryScript inventory;
     public mission_01 nextMission;
     public TextMeshProUGUI dialogueBox;
 
-    // Dialogue Choices
+    // Dialogue Stuff
     const int NUM_BOXES = 4;
     public GameObject[] boxes;
     public TextMeshProUGUI[] choices;
     public Button[] buttons;
+    public Button exitButton;
+    int dialogueRound;
+    string prevChoice;
     
     // Timers
     private int timer1;
@@ -30,8 +33,12 @@ public class mission_00 : MonoBehaviour
     bool blytheTalk_done;
     bool notClear;
     bool pause;
-    bool isOpen_dialogue;
+    public bool isOpen_dialogue;
     bool blytheTalk_done1;
+
+    // Tasks.
+    const int NUM_TASKS = 6;
+    string[] tasks;
     
     /*********************************************************************\
         Basic Functions
@@ -40,10 +47,8 @@ public class mission_00 : MonoBehaviour
     // Initializing.
     void Start()
     {
-        // UI GameObject.
-        gameUI = GameObject.Find("prefab_UI");
-
-        // Other GameObjects.
+        // Things outside of mission_00.
+        inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         nextMission = gameObject.GetComponent<mission_01>();
             nextMission.enabled = false;
         dialogueBox = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
@@ -51,6 +56,11 @@ public class mission_00 : MonoBehaviour
         
         // Dialogue Choices.
         initiateBoxes();
+        dialogueRound = 0;
+        prevChoice = "";
+
+        // Tasks.
+        initiateTasks();
         
         // Timers.
         timer1 = 120;
@@ -80,13 +90,13 @@ public class mission_00 : MonoBehaviour
             }
         } else if ((blytheTalk_done) && (!blytheTalk_done1)) {
             print_blytheTalk2();
-        } else {
+        } else if (notClear) {
             clear();
         }
     }
 
     /*********************************************************************\
-        Helper Functions
+        Initialization Helper Functions
     \*********************************************************************/
 
     void initiateBoxes()
@@ -106,10 +116,29 @@ public class mission_00 : MonoBehaviour
             choices[i] = GameObject.Find(currChoice).GetComponent<TextMeshProUGUI>();
 
             buttons[i] = boxes[i].GetComponent<Button>();
-            buttons[i].onClick.AddListener(() => ButtonClicked(i));
+        }
 
+        // Initiating button listeners.
+        buttons[0].onClick.AddListener(ButtonClicked_LT);
+        buttons[1].onClick.AddListener(ButtonClicked_LB);
+        buttons[2].onClick.AddListener(ButtonClicked_RT);
+        buttons[3].onClick.AddListener(ButtonClicked_RB);
+
+        // Now that buttons have been individually primed, close the boxes.
+        for (int i = 0; i < NUM_BOXES; i++) {
             boxes[i].SetActive(false);
         }
+
+        exitButton = GameObject.Find("exit").GetComponent<Button>();
+        exitButton.onClick.AddListener(ButtonClicked_exit);
+        exitButton.gameObject.SetActive(false);
+    }
+
+    void initiateTasks()
+    {
+        tasks = new string[NUM_TASKS];
+
+        tasks[0] = "Find someone to talk to.";
     }
 
     /*********************************************************************\
@@ -125,6 +154,7 @@ public class mission_00 : MonoBehaviour
     void print_opening()
     {
         dialogueBox.text = "You: Where am I? How did I get here?";
+        inventory.addTask(tasks[0]);
         timer1 = 300;
         opening_done = true;
         notClear = true;
@@ -132,9 +162,12 @@ public class mission_00 : MonoBehaviour
 
     public void print_blytheTalk1()
     {
+        inventory.removeTask(tasks[0]);
         dialogueBox.text = "Giant Bug: Oh hey there! How're you doing?";
         timer1 = 0;
         pause = true;   // Pausing text change to open talking menu.
+        notClear = false;   // Setting to false to prevent dialogue from getting erased instantly.
+        dialogueRound++;    // Should go to 1.
         openDialogueOptions();
     }
 
@@ -142,8 +175,8 @@ public class mission_00 : MonoBehaviour
     {
         dialogueBox.text = "Giant Bug: Look, if you're confused, I'd suggest lookin " +
                            "around. In case ya couldn't tell, we're in Tisch " +
-                           "library right now.";
-        timer1 = 900;
+                           "library right now. Read a book!";
+        timer1 = 300;
         blytheTalk_done1 = true;
     }
 
@@ -160,11 +193,12 @@ public class mission_00 : MonoBehaviour
         for (int i = 0; i < NUM_BOXES; i++) {
             boxes[i].SetActive(true);
         }
+        exitButton.gameObject.SetActive(true);
 
-        choices[0].text = "Great! How about you?";
+        choices[0].text = "AAHHHHH! GIANT BUG! AAHHHHH!";
         choices[1].text = "Where am I? Who are you? How are you talking?";
         choices[2].text = "Am I dead?";
-        choices[3].text = "AAHHHHH! GIANT BUG! AAHHHHH!";
+        choices[3].text = "What was that thing that just walked by?";
     }
 
     void closeDialogueOptions()
@@ -175,25 +209,61 @@ public class mission_00 : MonoBehaviour
         for (int i = 0; i < NUM_BOXES; i++) {
             boxes[i].SetActive(false);
         }
+        exitButton.gameObject.SetActive(false);
+
         blytheTalk_done1 = false;
     }
 
-    void ButtonClicked(int buttonNo)
+    void ButtonClicked_LT()
     {
-        Debug.Log("Button pressed: " + buttonNo);
-        
-        // if (buttonNo == 0) {
-        //     dialogueBox.text = "Giant Bug: I'm doing great too!";
-        // } else if (buttonNo == 1) {
-        //     dialogueBox.text = "Giant Bug: You're asking a lotta questions, friend!";
-        // } else if (buttonNo == 2) {
-        //     dialogueBox.text = "Giant Bug: Nope!";
-        // } else if (buttonNo == 3) {
-        //     dialogueBox.text = "Giant Bug: Hey, hey! Calm down! I don't bite!";
-        // }
+        dialogueRound++;
+        Debug.Log("LT Pressed. Current Round: " + dialogueRound.ToString());
 
-        timer1 = 300;   // Should give a moment before the next dialogue thing appears.
-        blytheTalk_done = true;
+        if (dialogueRound == 2) {
+            dialogueBox.text = "Giant Bug: Hey, hey! Calm down! I don't bite!";
+            prevChoice = "LT";
+        }
+    }
+
+    void ButtonClicked_LB()
+    {
+        dialogueRound++;
+        Debug.Log("LB Pressed. Current Round: " + dialogueRound.ToString());
+
+        if (dialogueRound == 2) {
+            dialogueBox.text = "Giant Bug: You're asking a lotta questions, friend!";
+            prevChoice = "LB";
+        }
+    }
+
+    void ButtonClicked_RT()
+    {
+        dialogueRound++;
+        Debug.Log("RT Pressed. Current Round: " + dialogueRound.ToString());
+
+        if (dialogueRound == 2) {
+            dialogueBox.text = "Giant Bug: Haha! Nope!";
+            prevChoice = "RT";
+        }
+    }
+
+    void ButtonClicked_RB()
+    {
+        dialogueRound++;
+        Debug.Log("RB Pressed. Current Round: " + dialogueRound.ToString());
+
+        if (dialogueRound == 2) {
+            dialogueBox.text = "Giant Bug: Oh him? I'm not too sure actually." +
+                               "I'd avoid him if you can, though! He bites!";
+            prevChoice = "RB";
+        }
+    }
+
+    void ButtonClicked_exit()
+    {
+        // Resetting dialogue.
+        dialogueRound = 0;
+        prevChoice = "";
         closeDialogueOptions();
     }
 
@@ -203,6 +273,47 @@ public class mission_00 : MonoBehaviour
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = NonUI_status;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = !NonUI_status;
+    }
+
+    // Function used to change dialogue boxes starting on dialogueRound == 2.
+    void changeDialogueBoxes() {
+        // ROUND 2.
+        if (dialogueRound == 2) {
+            
+            // Giant Bug's Dialogue: "Hey, hey! Calm down! I don't bite!"
+            if (prevChoice == "LT") {
+                choices[0].text = "";
+                choices[1].text = "";
+                choices[2].text = "";
+                choices[3].text = "";
+            }
+
+            // Giant Bug's Dialogue: "You're asking a lotta questions, friend!"
+            else if (prevChoice == "LB") {
+                choices[0].text = "";
+                choices[1].text = "";
+                choices[2].text = "";
+                choices[3].text = "";
+            }
+
+            // Giant Bug's Dialogue: "Haha! Nope!"
+            else if (prevChoice == "RT") {
+                choices[0].text = "";
+                choices[1].text = "";
+                choices[2].text = "";
+                choices[3].text = "";
+            }
+
+            // Giant Bug's Dialogue: "Giant Bug: Oh him? I'm not too sure actually.
+            //                        I'd avoid him if you can, though! He bites!"
+            else if (prevChoice == "RB") {
+                choices[0].text = "";
+                choices[1].text = "";
+                choices[2].text = "";
+                choices[3].text = "";
+            }
+
+        }
     }
 
 }

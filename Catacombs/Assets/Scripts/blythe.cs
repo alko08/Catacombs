@@ -9,6 +9,7 @@ public class blythe : MonoBehaviour
     FirstPersonCamera FPCam;
     Animator blytheAnimator;
     float dist;
+    bool inventoryOpen;
 
     // Start by storing values in variables.
     void Start()
@@ -21,22 +22,30 @@ public class blythe : MonoBehaviour
         nearPlayer = false;
         blytheAnimator = gameObject.GetComponent<Animator>();
         dist = Vector3.Distance(player.transform.position, transform.position);
+        inventoryOpen = false;
     }
 
     void Update()
     {
         dist = Vector3.Distance(player.transform.position, transform.position);
         nearPlayer = (dist < 5f);
+
+        inventoryOpen = (GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen_select 
+                       | GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen
+                       | GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen_tasks);
     }
 
     void HitByRay() {
-        if (!nearPlayer) {
+        if ((!nearPlayer) | (inventoryOpen)) {
             ExitByRay();
         }
-        crosshair.SetActive(true);
-        talkText.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
-            talk();
+
+        if (!inventoryOpen) {
+            crosshair.SetActive(true);
+            talkText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                talk();
+            }
         }
     }
 
