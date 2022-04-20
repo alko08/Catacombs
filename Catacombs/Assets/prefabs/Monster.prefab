@@ -83,10 +83,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 3
+  m_Radius: 1.5
+  m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!108 &1063167476
 Light:
   m_ObjectHideFlags: 0
@@ -290,16 +290,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 7978677155907919760}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 6
-  m_Acceleration: 5
+  m_Radius: 1.5
+  m_Speed: 3
+  m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3
+  m_Height: 5
   m_BaseOffset: 0.02493153
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -335,7 +335,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 30
   sightRange: 20
   warningRange: 30
   attackRange: 10
@@ -358,6 +357,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a13e4ca546de85e49bccfe9ee8671f00, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a13e4ca546de85e49bccfe9ee8671f00, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a13e4ca546de85e49bccfe9ee8671f00, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a13e4ca546de85e49bccfe9ee8671f00, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a13e4ca546de85e49bccfe9ee8671f00, type: 3}
       propertyPath: m_LocalPosition.x

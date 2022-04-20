@@ -17,7 +17,7 @@ public class EnemyAi : MonoBehaviour
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
-    public float walkPointRange;
+    // public float walkPointRange;
 
     //Attacking
     // public float timeBetweenAttacks;
