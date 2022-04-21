@@ -8,7 +8,7 @@ public class EnemyAi : MonoBehaviour
     public NavMeshAgent agent;
     public LayerMask whatIsPlayer;
     public float sightRange, warningRange, attackRange, walkSpeed, runSpeed;
-    public bool isOnFloor; //seeLight;
+    public bool isOnFloor, isInSight; //seeLight;
     public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
@@ -67,18 +67,19 @@ public class EnemyAi : MonoBehaviour
     }
 
     private void FixedUpdate(){
-        sight0.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        sight0.direction = player.transform.position - sight0.origin;
-        sight1.origin = sight0.origin + new Vector3(0f, 1f, 0f);
-        sight1.direction = player.transform.position - sight0.origin - new Vector3(0f, .5f, 0f);
-        sight2.origin = sight1.origin + new Vector3(0f, 1f, 0f);
-        sight2.direction = player.transform.position - sight0.origin - new Vector3(0f, 1.25f, 0f);
-        sight3.origin = sight2.origin + new Vector3(0f, 1f, 0f);
-        sight3.direction = player.transform.position - sight0.origin - new Vector3(0f, 2.2f, 0f);
-    
-        if (playerInWarningRange) {
+        seePlayer = false;
+
+        if (playerInWarningRange && isInSight) {
             RaycastHit rayHit0, rayHit1, rayHit2, rayHit3;
-            seePlayer = false;
+            sight0.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            sight0.direction = player.transform.position - sight0.origin;
+            sight1.origin = sight0.origin + new Vector3(0f, 1f, 0f);
+            sight1.direction = player.transform.position - sight0.origin - new Vector3(0f, .5f, 0f);
+            sight2.origin = sight1.origin + new Vector3(0f, 1f, 0f);
+            sight2.direction = player.transform.position - sight0.origin - new Vector3(0f, 1.25f, 0f);
+            sight3.origin = sight2.origin + new Vector3(0f, 1f, 0f);
+            sight3.direction = player.transform.position - sight0.origin - new Vector3(0f, 2.2f, 0f);
+            
 
             if (Physics.Raycast(sight0, out rayHit0, sightRange)) {
                 Debug.DrawLine(sight0.origin, rayHit0.point, Color.white);
@@ -109,7 +110,10 @@ public class EnemyAi : MonoBehaviour
 
     private void Patroling()
     {
-        GetComponent<NavMeshAgent>().speed = walkSpeed;
+        if (!hunted) {
+            GetComponent<NavMeshAgent>().speed = walkSpeed;
+        }
+        
         hunting.SetActive(false);
         if (playerInWarningRange) {
             warning.SetActive(true);
