@@ -5,6 +5,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+    /*********************************************************************\
+        KNOWN BUGS
+    \*********************************************************************/
+
+/*****************************************************************************\
+
+    - Tasks don't get removed when they're supposed to be. 
+    - Dialogue choices don't update properly.
+
+\*****************************************************************************/
+
 public class mission_00 : MonoBehaviour
 {
     /*********************************************************************\
@@ -167,7 +178,7 @@ public class mission_00 : MonoBehaviour
         timer1 = 0;
         pause = true;   // Pausing text change to open talking menu.
         notClear = false;   // Setting to false to prevent dialogue from getting erased instantly.
-        dialogueRound++;    // Should go to 1.
+        dialogueRound = 1;  // Setting dialogue round to start mode.
         openDialogueOptions();
     }
 
@@ -187,6 +198,7 @@ public class mission_00 : MonoBehaviour
     // Function that runs dialogue tree. 
     void openDialogueOptions()
     {
+        Debug.Log("opening dialogue stuff");
         setNonUI(false);
         isOpen_dialogue = true;
 
@@ -238,6 +250,10 @@ public class mission_00 : MonoBehaviour
             dialogueRound = 101;
             changeDialogueBoxes();
         }
+
+        else {
+            closeDialogueOptions();
+        }
     }
 
     void ButtonClicked_LB()
@@ -264,6 +280,10 @@ public class mission_00 : MonoBehaviour
             dialogueRound = 201;
             changeDialogueBoxes();
         }
+
+        else {
+            closeDialogueOptions();
+        }
     }
 
     void ButtonClicked_RT()
@@ -289,6 +309,10 @@ public class mission_00 : MonoBehaviour
             dialogueBox.text = "";
             dialogueRound = 301;
             changeDialogueBoxes();
+        }
+
+        else {
+            closeDialogueOptions();
         }
     }
 
@@ -317,6 +341,10 @@ public class mission_00 : MonoBehaviour
             dialogueRound = 401;
             changeDialogueBoxes();
         }
+
+        else {
+            closeDialogueOptions();
+        }
     }
 
     void ButtonClicked_exit()
@@ -337,6 +365,9 @@ public class mission_00 : MonoBehaviour
 
     // Function used to change dialogue boxes starting on dialogueRound == 2.
     void changeDialogueBoxes() {
+        
+        Debug.Log("Changing dialogue options...");
+        
         // ROUND 2.
         if (dialogueRound == 2) {
             
@@ -373,6 +404,10 @@ public class mission_00 : MonoBehaviour
                 choices[3].text = "";
             }
 
+        }
+
+        else {
+            closeDialogueOptions();
         }
     }
 
