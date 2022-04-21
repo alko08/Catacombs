@@ -222,6 +222,21 @@ public class mission_00 : MonoBehaviour
         if (dialogueRound == 2) {
             dialogueBox.text = "Giant Bug: Hey, hey! Calm down! I don't bite!";
             prevChoice = "LT";
+            changeDialogueBoxes();
+        }
+
+        // Player said: "AAHHHHH"
+        else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 100;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "How are you talking?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 101;
+            changeDialogueBoxes();
         }
     }
 
@@ -233,6 +248,21 @@ public class mission_00 : MonoBehaviour
         if (dialogueRound == 2) {
             dialogueBox.text = "Giant Bug: You're asking a lotta questions, friend!";
             prevChoice = "LB";
+            changeDialogueBoxes();
+        }
+
+        // Player said: "Are you going to answer any of them?"
+        else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 200;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "You're not given a lotta answers!"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 201;
+            changeDialogueBoxes();
         }
     }
 
@@ -244,6 +274,21 @@ public class mission_00 : MonoBehaviour
         if (dialogueRound == 2) {
             dialogueBox.text = "Giant Bug: Haha! Nope!";
             prevChoice = "RT";
+            changeDialogueBoxes();
+        }
+
+        // Player said: "Then where am I?"
+        else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 300;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "Are you sure?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 301;
+            changeDialogueBoxes();
         }
     }
 
@@ -256,6 +301,21 @@ public class mission_00 : MonoBehaviour
             dialogueBox.text = "Giant Bug: Oh him? I'm not too sure actually." +
                                "I'd avoid him if you can, though! He bites!";
             prevChoice = "RB";
+            changeDialogueBoxes();
+        }
+
+        // Player said: "He bites!?"
+        else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 400;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "Did he not see us?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 401;
+            changeDialogueBoxes();
         }
     }
 
@@ -282,34 +342,34 @@ public class mission_00 : MonoBehaviour
             
             // Giant Bug's Dialogue: "Hey, hey! Calm down! I don't bite!"
             if (prevChoice == "LT") {
-                choices[0].text = "";
+                choices[0].text = "AAHHHHH!";
                 choices[1].text = "";
-                choices[2].text = "";
+                choices[2].text = "How are you talking?";
                 choices[3].text = "";
             }
 
             // Giant Bug's Dialogue: "You're asking a lotta questions, friend!"
             else if (prevChoice == "LB") {
-                choices[0].text = "";
+                choices[0].text = "Are you going to answer any of them?";
                 choices[1].text = "";
-                choices[2].text = "";
+                choices[2].text = "You're not given a lotta answers!";
                 choices[3].text = "";
             }
 
             // Giant Bug's Dialogue: "Haha! Nope!"
             else if (prevChoice == "RT") {
-                choices[0].text = "";
+                choices[0].text = "Then where am I?";
                 choices[1].text = "";
-                choices[2].text = "";
+                choices[2].text = "Are you sure?";
                 choices[3].text = "";
             }
 
             // Giant Bug's Dialogue: "Giant Bug: Oh him? I'm not too sure actually.
             //                        I'd avoid him if you can, though! He bites!"
             else if (prevChoice == "RB") {
-                choices[0].text = "";
+                choices[0].text = "He bites!?";
                 choices[1].text = "";
-                choices[2].text = "";
+                choices[2].text = "Did he not see us?";
                 choices[3].text = "";
             }
 
