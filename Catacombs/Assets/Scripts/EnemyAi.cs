@@ -6,35 +6,20 @@ using System.Collections;
 public class EnemyAi : MonoBehaviour
 {
     public NavMeshAgent agent;
-
-    private Transform player;
-    private UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
-
-    public LayerMask whatIsGround, whatIsPlayer;
-
-    // public float health;
-
-    //Patroling
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    // public float walkPointRange;
-
-    //Attacking
-    // public float timeBetweenAttacks;
-    // bool alreadyAttacked;
-    // public GameObject projectile;
-
-    //States
-    public float sightRange, warningRange, attackRange;
-    public bool playerInSightRange, playerInWarningRange, isOnFloor, seeLight;
+    public LayerMask whatIsPlayer;
+    public float sightRange, warningRange, attackRange, walkSpeed, runSpeed;
+    public bool isOnFloor; //seeLight;
     public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
-    private Ray sight0, sight1, sight2, sight3;
-    private bool seePlayer, hunted;
-
     public Transform[] patrolPoints;
+    
+    private Ray sight0, sight1, sight2, sight3;
+    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet;
     private int patrolSpot;
+    private Vector3 walkPoint;
+    private Transform player;
+    private UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
 
     private void Awake()
     {
@@ -79,50 +64,52 @@ public class EnemyAi : MonoBehaviour
                 chase_audio_source.volume = chase_volume;
             }
         }
-            
-        // if (playerInSightRange && !playerInAttackRange) 
-        // if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
     private void FixedUpdate(){
         sight0.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         sight0.direction = player.transform.position - sight0.origin;
         sight1.origin = sight0.origin + new Vector3(0f, 1f, 0f);
-        sight1.direction = player.transform.position - sight1.origin;
+        sight1.direction = player.transform.position - sight0.origin - new Vector3(0f, .5f, 0f);
         sight2.origin = sight1.origin + new Vector3(0f, 1f, 0f);
-        sight2.direction = player.transform.position - sight2.origin;
+        sight2.direction = player.transform.position - sight0.origin - new Vector3(0f, 1.25f, 0f);
         sight3.origin = sight2.origin + new Vector3(0f, 1f, 0f);
-        sight3.direction = player.transform.position - sight3.origin;
-
-        
+        sight3.direction = player.transform.position - sight0.origin - new Vector3(0f, 2.2f, 0f);
     
         if (playerInWarningRange) {
             RaycastHit rayHit0, rayHit1, rayHit2, rayHit3;
+            seePlayer = false;
 
             if (Physics.Raycast(sight0, out rayHit0, sightRange)) {
                 Debug.DrawLine(sight0.origin, rayHit0.point, Color.white);
                 seePlayer = rayHit0.collider.tag == "Player";
+                // Debug.Log("0:" + rayHit0.collider.name);
             }
 
             if (!seePlayer && Physics.Raycast(sight1, out rayHit1, sightRange)) {
                 Debug.DrawLine(sight1.origin, rayHit1.point, Color.white);
                 seePlayer = rayHit1.collider.tag == "Player";
+                // Debug.Log("1:" + rayHit1.collider.name);
             }
 
             if (!seePlayer && Physics.Raycast(sight2, out rayHit2, sightRange)) {
                 Debug.DrawLine(sight2.origin, rayHit2.point, Color.white);
                 seePlayer = rayHit2.collider.tag == "Player";
+                // Debug.Log("2:" + rayHit2.collider.name);
             }
             
             if (!seePlayer && Physics.Raycast(sight3, out rayHit3, sightRange)) {
                 Debug.DrawLine(sight3.origin, rayHit3.point, Color.white);
                 seePlayer = rayHit3.collider.tag == "Player";
+                // Debug.Log("3:" + rayHit3.collider.name);
             }
+            // Debug.Log("See Player: " + seePlayer);
         }
     }
 
     private void Patroling()
     {
+        GetComponent<NavMeshAgent>().speed = walkSpeed;
         hunting.SetActive(false);
         if (playerInWarningRange) {
             warning.SetActive(true);
@@ -170,6 +157,7 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
+        GetComponent<NavMeshAgent>().speed = runSpeed;
         hunting.SetActive(true);
         warning.SetActive(false);
         
@@ -202,17 +190,6 @@ public class EnemyAi : MonoBehaviour
     // private void ResetAttack()
     // {
     //     alreadyAttacked = false;
-    // }
-
-    // public void TakeDamage(int damage)
-    // {
-    //     health -= damage;
-
-    //     if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    // }
-    // private void DestroyEnemy()
-    // {
-    //     Destroy(gameObject);
     // }
 
     private void OnDrawGizmosSelected()
