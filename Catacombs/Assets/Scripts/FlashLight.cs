@@ -52,7 +52,7 @@ public class FlashLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Flashlight")) {
+        if(Input.GetButtonDown("Fire2")) {
             if (!isOn && charge > 0f) {
                 
                 lightSource.SetActive(true);
