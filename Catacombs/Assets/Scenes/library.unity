@@ -689,6 +689,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (11)
@@ -777,6 +793,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -865,6 +897,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (9)
@@ -953,6 +1001,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -1135,6 +1199,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase
@@ -1223,6 +1303,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (1)
@@ -1311,6 +1407,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -1399,6 +1511,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -1737,6 +1865,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (12)
@@ -2172,6 +2316,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (17)
@@ -2663,6 +2823,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (1)
@@ -2751,6 +2927,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (5)
@@ -3879,6 +4071,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -3967,6 +4175,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (8)
@@ -4676,6 +4900,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (8)
@@ -4942,6 +5182,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -5365,6 +5621,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (16)
@@ -5822,6 +6094,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -5949,6 +6237,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (4)
@@ -6576,6 +6880,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (4)
@@ -11575,6 +11895,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (10)
@@ -12197,6 +12533,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (1)
@@ -17847,6 +18199,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (10)
@@ -18184,6 +18552,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase
@@ -18277,6 +18661,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase
@@ -18890,6 +19290,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (9)
@@ -18978,6 +19394,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -19443,6 +19875,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (13)
@@ -19531,6 +19979,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (7)
@@ -20015,6 +20479,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (9)
@@ -20159,6 +20639,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -20247,6 +20743,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (10)
@@ -20335,6 +20847,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -20485,6 +21013,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (6)
@@ -20847,6 +21391,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (5)
@@ -20940,6 +21500,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (11)
@@ -21850,6 +22426,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -21938,6 +22530,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (1)
@@ -22112,6 +22720,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -22601,6 +23225,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (8)
@@ -22694,6 +23334,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (6)
@@ -22787,6 +23443,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (5)
@@ -23181,6 +23853,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (7)
@@ -23371,6 +24059,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (14)
@@ -23866,6 +24570,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -34.352
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (4)
@@ -24052,6 +24772,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (18)
@@ -24380,6 +25116,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (6)
@@ -24566,6 +25318,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (7)
@@ -24736,6 +25504,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -24824,6 +25608,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (19)
@@ -25402,6 +26202,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase
@@ -25500,6 +26316,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase
@@ -25887,6 +26719,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -25975,6 +26823,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (20)
@@ -26063,6 +26927,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (15)
@@ -26414,6 +27294,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (2)
@@ -27274,6 +28170,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (3)
@@ -27880,6 +28792,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8313488797319518598, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2496455831371618696, guid: 55350b90baa095f4daddd449848103bb, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 55350b90baa095f4daddd449848103bb, type: 3}
     - target: {fileID: 919132149155446097, guid: 8cb171369c853a6429eb6113764c01d7, type: 3}
       propertyPath: m_Name
       value: bookcase (12)
