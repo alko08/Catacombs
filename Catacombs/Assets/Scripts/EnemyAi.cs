@@ -15,14 +15,15 @@ public class EnemyAi : MonoBehaviour
     public Transform[] patrolPoints;
     
     private Ray sight0, sight1, sight2, sight3;
-    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet;
+    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet, seeSpeaker;
     private int patrolSpot;
     private Vector3 walkPoint;
-    private Transform player;
+    private Transform player, speaker;
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
 
     private void Awake()
     {
+        seeSpeaker = false;
         hunted = false;
         patrolSpot = -1;
         seePlayer = false;
@@ -37,8 +38,11 @@ public class EnemyAi : MonoBehaviour
         playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer) && isOnFloor;
         playerInSightRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
-
-        if (!isOnFloor || !playerInSightRange) {
+        
+        if (seeSpeaker) {
+            Debug.Log("speaker");
+            agent.SetDestination(speaker.position);
+        } else if (!isOnFloor || !playerInSightRange) {
             // Debug.Log("Patrolling");
             Patroling();
 
@@ -170,6 +174,25 @@ public class EnemyAi : MonoBehaviour
         walkPoint = player.position;
         walkPointSet = true;
         hunted = true;
+    }
+
+    public void attackSpeaker(Transform speak)
+    {
+        GetComponent<NavMeshAgent>().speed = runSpeed;
+        speaker = speak;
+        seeSpeaker = true;
+        walkPointSet = false;
+        hunted = false;
+        agent.SetDestination(speaker.position);
+    }
+
+    public bool destroySpeaker(int count)
+    {
+        Vector3 distanceToWalkPoint = transform.position - speaker.position;
+        seeSpeaker = distanceToWalkPoint.magnitude > 3f && count <= 20;
+        if (!seeSpeaker) speaker = null;
+        return seeSpeaker;
+        // play destroy animation
     }
 
     // private void AttackPlayer()
