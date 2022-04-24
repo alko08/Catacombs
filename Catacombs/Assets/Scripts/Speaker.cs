@@ -50,8 +50,7 @@ public class Speaker : MonoBehaviour
     IEnumerator despawnCoroutine(GameObject c) {
         yield return new WaitForSeconds(10f);
         if(!monster.destroySpeaker(0)) {
-            Destroy(c);
-            canThrow = true;
+            StartCoroutine(destroyCoroutine(c));
         } else {
             count = 0;
             StartCoroutine(waitCoroutine(c));
@@ -60,11 +59,16 @@ public class Speaker : MonoBehaviour
     IEnumerator waitCoroutine(GameObject c) {
         yield return new WaitForSeconds(1f);
         if(!monster.destroySpeaker(count)) {
-            Destroy(c);
-            canThrow = true;
+            StartCoroutine(destroyCoroutine(c));
         } else {
             count++;
             StartCoroutine(waitCoroutine(c));
         }
+    }
+
+    IEnumerator destroyCoroutine(GameObject c) {
+        yield return new WaitForSeconds(.5f);
+        Destroy(c);
+        canThrow = true;
     }
 }

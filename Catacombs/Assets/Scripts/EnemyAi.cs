@@ -15,14 +15,16 @@ public class EnemyAi : MonoBehaviour
     public Transform[] patrolPoints;
     
     private Ray sight0, sight1, sight2, sight3;
-    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet, seeSpeaker;
+    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet, seeSpeaker, moving;
     private int patrolSpot;
     private Vector3 walkPoint;
     private Transform player, speaker;
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
+    private Animator monsterAnimator;
 
     private void Awake()
     {
+        moving = true;
         seeSpeaker = false;
         hunted = false;
         patrolSpot = -1;
@@ -30,6 +32,7 @@ public class EnemyAi : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         FPC = player.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
         agent = GetComponent<NavMeshAgent>();
+        monsterAnimator = gameObject.transform.GetChild(1).gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -39,10 +42,10 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
         
-        if (seeSpeaker) {
-            Debug.Log("speaker");
+        if (seeSpeaker && moving) {
+            // Debug.Log("speaker");
             agent.SetDestination(speaker.position);
-        } else if (!isOnFloor || !playerInSightRange) {
+        } else if ((!isOnFloor || !playerInSightRange) && moving) {
             // Debug.Log("Patrolling");
             Patroling();
 
@@ -55,7 +58,7 @@ public class EnemyAi : MonoBehaviour
                     chase_audio_source.Stop();
                 }
             }
-        } else {
+        } else if (moving) {
             // Debug.Log("Chaseing");
             ChasePlayer();
             if (!chase_audio_source.isPlaying) {
@@ -152,6 +155,9 @@ public class EnemyAi : MonoBehaviour
         // walkPoint = finalPosition;
         if (hunted) {
             hunted = false;
+            monsterAnimator.SetTrigger("listen");
+            moving = false;
+            StartCoroutine(listenCoroutine());
         } else {
             patrolSpot++;
             if (patrolSpot >= patrolPoints.Length) {
@@ -159,8 +165,10 @@ public class EnemyAi : MonoBehaviour
             }
         }
 
-        walkPointSet = true;
-        walkPoint = patrolPoints[patrolSpot].position;
+        if (moving) {
+            walkPointSet = true;
+            walkPoint = patrolPoints[patrolSpot].position;
+        }
     }
 
     private void ChasePlayer()
@@ -190,9 +198,22 @@ public class EnemyAi : MonoBehaviour
     {
         Vector3 distanceToWalkPoint = transform.position - speaker.position;
         seeSpeaker = distanceToWalkPoint.magnitude > 3f && count <= 20;
-        if (!seeSpeaker) speaker = null;
+        if (!seeSpeaker) {
+            speaker = null;
+            monsterAnimator.SetTrigger("attack");
+            StartCoroutine(attackCoroutine());
+        }
         return seeSpeaker;
-        // play destroy animation
+    }
+
+    IEnumerator listenCoroutine() {
+        yield return new WaitForSeconds(5.5f);
+        moving = true;
+    }
+
+    IEnumerator attackCoroutine() {
+        yield return new WaitForSeconds(4f);
+        moving = true;
     }
 
     // private void AttackPlayer()
