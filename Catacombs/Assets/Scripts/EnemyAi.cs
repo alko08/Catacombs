@@ -1,11 +1,9 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
 public class EnemyAi : MonoBehaviour
 {
-    public NavMeshAgent agent;
     public LayerMask whatIsPlayer;
     public float sightRange, warningRange, attackRange, walkSpeed, runSpeed;
     public bool isOnFloor, isInSight; //seeLight;
@@ -14,6 +12,7 @@ public class EnemyAi : MonoBehaviour
     public float chase_volume = 0.0f;
     public Transform[] patrolPoints;
     
+    private NavMeshAgent agent;
     private Ray sight0, sight1, sight2, sight3;
     private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet, seeSpeaker, moving;
     private int patrolSpot;
@@ -45,6 +44,12 @@ public class EnemyAi : MonoBehaviour
         if (seeSpeaker && moving) {
             // Debug.Log("speaker");
             agent.SetDestination(speaker.position);
+            hunting.SetActive(false);
+            if (playerInWarningRange) {
+                warning.SetActive(true);
+            } else {
+                warning.SetActive(false);
+            }
         } else if ((!isOnFloor || !playerInSightRange) && moving) {
             // Debug.Log("Patrolling");
             Patroling();
@@ -157,7 +162,7 @@ public class EnemyAi : MonoBehaviour
             hunted = false;
             monsterAnimator.SetTrigger("listen");
             moving = false;
-            StartCoroutine(listenCoroutine());
+            StartCoroutine(notMovingCoroutine());
         } else {
             patrolSpot++;
             if (patrolSpot >= patrolPoints.Length) {
@@ -200,19 +205,15 @@ public class EnemyAi : MonoBehaviour
         seeSpeaker = distanceToWalkPoint.magnitude > 3f && count <= 20;
         if (!seeSpeaker) {
             speaker = null;
+            moving = false;
             monsterAnimator.SetTrigger("attack");
-            StartCoroutine(attackCoroutine());
+            StartCoroutine(notMovingCoroutine());
         }
         return seeSpeaker;
     }
 
-    IEnumerator listenCoroutine() {
-        yield return new WaitForSeconds(5.5f);
-        moving = true;
-    }
-
-    IEnumerator attackCoroutine() {
-        yield return new WaitForSeconds(4f);
+    IEnumerator notMovingCoroutine() {
+        yield return new WaitUntil(() => monsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("StartWalk"));
         moving = true;
     }
 

@@ -17,6 +17,7 @@ TagManager:
   - npc
   - door
   - Flashlight
+  - FadeToBlack
   layers:
   - Default
   - TransparentFX

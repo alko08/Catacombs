@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 3358792074874326383}
   - component: {fileID: 3110949274025841840}
   m_Layer: 0
-  m_Name: RawImage
+  m_Name: Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
