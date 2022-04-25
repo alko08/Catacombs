@@ -34,10 +34,14 @@ public class MonsterScript : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (foundPlayer && !isUnder) {
-            player.transform.Translate(0, 0, Time.deltaTime / 1.5f);
-        } else if (foundPlayer) {
-            // player.transform.Translate(0, 0, Time.deltaTime / 1.5f);
+        if (foundPlayer) {
+            Vector3 relativePos = transform.GetChild(3).position - player.transform.position;
+            if (!isUnder) {
+                player.transform.Translate(0, 0, Time.deltaTime / 1.5f);
+                relativePos = transform.GetChild(2).position - player.transform.position;
+            }
+            Quaternion toRotation = Quaternion.LookRotation(relativePos);
+            player.transform.rotation = Quaternion.Lerp(player.transform.rotation, toRotation, 1 * Time.deltaTime );
         }
 
         if (monsterAI.seeHiding && !bigSize) {
@@ -55,12 +59,12 @@ public class MonsterScript : MonoBehaviour
         if (other.transform.tag == "Player" && (!FPC.hiding || monsterAI.seeHiding)) {
             if (!FPC.hiding) {
                 monsterAnimator.SetTrigger("attack");
-                player.transform.LookAt(gameObject.transform.GetChild(2));
+                // player.transform.LookAt(gameObject.transform.GetChild(2));
                 StartCoroutine(attackCoroutine());
             } else {
                 isUnder = true;
                 monsterAnimator.SetTrigger("attackUnder");
-                player.transform.LookAt(gameObject.transform.GetChild(3));
+                // player.transform.LookAt(gameObject.transform.GetChild(3));
                 StartCoroutine(attackUnderCoroutine());
             }
 
@@ -87,8 +91,8 @@ public class MonsterScript : MonoBehaviour
         yield return new WaitUntil(() => monsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("UnderDeskAttack"));
         black.SetActive(true);
         fog.SetActive(true);
-        LeanTween.alpha (black.GetComponent<RectTransform>(), 1f, 2f).setEase(LeanTweenType.linear);
-        LeanTween.alpha (fog.GetComponent<RectTransform>(), .5f, 2f).setEase(LeanTweenType.linear);
+        LeanTween.alpha (black.GetComponent<RectTransform>(), .9f, 2f).setEase(LeanTweenType.linear);
+        LeanTween.alpha (fog.GetComponent<RectTransform>(), .45f, 2f).setEase(LeanTweenType.linear);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("LoseScene");
     }

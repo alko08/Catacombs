@@ -10121,7 +10121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 331, y: -315}
+  m_AnchoredPosition: {x: 331, y: -285}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5262929545787801966
@@ -10165,16 +10165,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press [f] for flashlight.
+  m_Text: 'Press [leftClick] to pick up items.
 
-    Press [r] for inventory.
+    Press [right click] or [left
+    alt] for flashlight.
 
-    Press [leftClick]
-    to pick up items.
+    Press [e] or [r] for inventory.
 
-    Press [c] or [ctrl] to crouch.
+    Press [c] or [ctrl]
+    to crouch.
 
-    Press [shift] to run.'
+    Press [shift] to run.
+
+    Press [f] or [g] to throw a speaker.'
 --- !u!1 &7765161356605658677
 GameObject:
   m_ObjectHideFlags: 0
