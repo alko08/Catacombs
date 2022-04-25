@@ -6,17 +6,17 @@ using UnityEngine.EventSystems;
 public class SelectorGlowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // Variables
-    public GameObject myGlow;
-    public inventoryScript inventory;
+    private GameObject myGlow;
+    private inventoryScript inventory;
     public bool mousingOver;
 
     // On start, grab inventory. 
     void Start()
     {
         if (gameObject.name == "InventoryButton") {
-            myGlow = GameObject.Find("Glow_I");
+            myGlow = GameObject.Find("selectUIParent").transform.GetChild(0).GetChild(1).gameObject;
         } else if (gameObject.name == "ObjectivesButton") {
-            myGlow = GameObject.Find("Glow_O");
+            myGlow = GameObject.Find("selectUIParent").transform.GetChild(0).GetChild(0).gameObject;
         }
 
         myGlow.SetActive(false);

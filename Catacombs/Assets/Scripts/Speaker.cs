@@ -67,7 +67,7 @@ public class Speaker : MonoBehaviour
     }
 
     IEnumerator destroyCoroutine(GameObject c) {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.8f);
         Destroy(c);
         canThrow = true;
     }

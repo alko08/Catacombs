@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FlashLight : MonoBehaviour
 {
-    private bool isOn;
+    public bool isOn;
     public GameObject lightSource;
     public AudioSource clickSound;
     public AudioSource beepSound;

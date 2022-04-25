@@ -6,7 +6,7 @@ public class EnemyAi : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
     public float sightRange, warningRange, attackRange, walkSpeed, runSpeed;
-    public bool isOnFloor, isInSight; //seeLight;
+    public bool isOnFloor, isInSight, seeHiding; //seeLight;
     public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
@@ -14,15 +14,18 @@ public class EnemyAi : MonoBehaviour
     
     private NavMeshAgent agent;
     private Ray sight0, sight1, sight2, sight3;
-    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet, seeSpeaker, moving;
+    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet, seeSpeaker, moving, lastSeen;
     private int patrolSpot;
     private Vector3 walkPoint;
     private Transform player, speaker;
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
     private Animator monsterAnimator;
+    private FlashLight flash;
 
     private void Awake()
     {
+        seeHiding = false;
+        lastSeen = false;
         moving = true;
         seeSpeaker = false;
         hunted = false;
@@ -32,14 +35,23 @@ public class EnemyAi : MonoBehaviour
         FPC = player.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
         agent = GetComponent<NavMeshAgent>();
         monsterAnimator = gameObject.transform.GetChild(1).gameObject.GetComponent<Animator>();
+        flash = GameObject.FindWithTag("Flashlight").GetComponent<FlashLight>();
     }
 
     private void Update()
-    {
+    {    
         //Check for sight and attack range
         playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer) && isOnFloor;
         playerInSightRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
+        
+        if (!FPC.hiding || !moving) {
+            seeHiding = false;
+        } else if (lastSeen) {
+            seeHiding = true;
+        } else if (flash.isOn && Physics.CheckSphere(transform.position, sightRange, whatIsPlayer)) {
+            seeHiding = true;
+        }
         
         if (seeSpeaker && moving) {
             // Debug.Log("speaker");
@@ -50,6 +62,8 @@ public class EnemyAi : MonoBehaviour
             } else {
                 warning.SetActive(false);
             }
+        } else if (seeHiding) {
+            ChasePlayer();
         } else if ((!isOnFloor || !playerInSightRange) && moving) {
             // Debug.Log("Patrolling");
             Patroling();
@@ -79,9 +93,10 @@ public class EnemyAi : MonoBehaviour
     }
 
     private void FixedUpdate(){
+        lastSeen = seePlayer;
         seePlayer = false;
 
-        if (playerInWarningRange && isInSight) {
+        if (isOnFloor && isInSight && !FPC.hiding) {
             RaycastHit rayHit0, rayHit1, rayHit2, rayHit3;
             sight0.origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             sight0.direction = player.transform.position - sight0.origin;

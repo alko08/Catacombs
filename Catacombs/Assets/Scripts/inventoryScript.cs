@@ -26,18 +26,16 @@ public class inventoryScript : MonoBehaviour
     // Inventory UI vars. 
     public bool isOpen;
 
-    public GameObject inventoryUI;  // Refers to the parent containing all
+    private GameObject inventoryUI;  // Refers to the parent containing all
                                     // inventory elements.
 
     // Objectives UI vars.
     public bool isOpen_tasks;
-    public GameObject tasksUI;
+    private GameObject tasksUI;
 
     // Selector UI vars.
     public bool isOpen_select;
-    public GameObject selectorUI;
-    public GameObject glow_o;
-    public GameObject glow_i;
+    private GameObject selectorUI, glow_o, glow_i;
 
     // Book bools.
     public bool firstBookFound; // Communicates with mission01 script to
@@ -103,8 +101,8 @@ public class inventoryScript : MonoBehaviour
         // Initializing selector.
         isOpen_select = false;
         selectorUI = GameObject.Find("selectorUI");
-        glow_o = GameObject.Find("Glow_O");
-        glow_i = GameObject.Find("Glow_I");
+        glow_o = selectorUI.transform.GetChild(0).gameObject;
+        glow_i = selectorUI.transform.GetChild(1).gameObject;
 
         // Setting objective bools.
         firstBookFound  = false;
