@@ -16,7 +16,7 @@ public class FlashLight : MonoBehaviour
     public float charge;
     private GameObject beepText, monster;
     private inventoryScript inventory;
-    private Ray light;
+    // private Ray light;
     // private EnemyAi monsterAI;
 
     // // Start is called before the first frame update

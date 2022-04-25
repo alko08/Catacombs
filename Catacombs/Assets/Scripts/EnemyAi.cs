@@ -6,7 +6,7 @@ public class EnemyAi : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
     public float sightRange, warningRange, attackRange, walkSpeed, runSpeed;
-    public bool isOnFloor, isInSight, seeHiding; //seeLight;
+    public bool isOnFloor, isInSight, seeHiding;
     public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
@@ -14,7 +14,9 @@ public class EnemyAi : MonoBehaviour
     
     private NavMeshAgent agent;
     private Ray sight0, sight1, sight2, sight3;
-    private bool seePlayer, hunted, playerInSightRange, playerInWarningRange, walkPointSet, seeSpeaker, moving, lastSeen;
+    private bool seePlayer, hunted, playerInAttackRange, playerInWarningRange, 
+        walkPointSet, seeSpeaker, moving, lastSeen, playerInSightRange, seeLight, 
+        lookingThroughGlass, listened;
     private int patrolSpot;
     private Vector3 walkPoint;
     private Transform player, speaker;
@@ -24,6 +26,7 @@ public class EnemyAi : MonoBehaviour
 
     private void Awake()
     {
+        lookingThroughGlass = false;
         seeHiding = false;
         lastSeen = false;
         moving = true;
@@ -39,56 +42,57 @@ public class EnemyAi : MonoBehaviour
     }
 
     private void Update()
-    {    
+    {
         //Check for sight and attack range
-        playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer) && isOnFloor;
-        playerInSightRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
+        playerInWarningRange = Physics.CheckSphere(transform.position, warningRange, whatIsPlayer);
+        playerInAttackRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
-        
-        if (!FPC.hiding || !moving) {
-            seeHiding = false;
-        } else if (lastSeen) {
-            seeHiding = true;
-        } else if (flash.isOn && Physics.CheckSphere(transform.position, sightRange, whatIsPlayer)) {
-            seeHiding = true;
-        }
-        
-        if (seeSpeaker && moving) {
-            // Debug.Log("speaker");
-            agent.SetDestination(speaker.position);
-            hunting.SetActive(false);
-            if (playerInWarningRange) {
-                warning.SetActive(true);
-            } else {
-                warning.SetActive(false);
-            }
-        } else if (seeHiding) {
-            ChasePlayer();
-        } else if ((!isOnFloor || !playerInSightRange) && moving) {
-            // Debug.Log("Patrolling");
-            Patroling();
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        seeLight = flash.isOn && playerInSightRange;
 
-            if (chase_audio_source.isPlaying) {
-                if (chase_volume > 0.0f) {
-                    chase_volume -= (Time.deltaTime / 6);
+        seeHiding = false;
+        if (moving) {
+            lookingThroughGlass = false;
+            if (lastSeen && FPC.hiding) {
+                seeHiding = true;
+            } else if (seeLight && FPC.hiding) {
+                seeHiding = true;
+            }
+            
+            if (seeSpeaker) {
+                LookAtSpeaker();
+            } else if (seeHiding) {
+                ChasePlayer();
+            } else if (!isOnFloor && seeLight) {
+                LookAtLight();
+            }else if ((!isOnFloor || !playerInAttackRange)) {
+                // Debug.Log("Patrolling");
+                Patroling();
+
+                if (chase_audio_source.isPlaying) {
+                    if (chase_volume > 0.0f) {
+                        chase_volume -= (Time.deltaTime / 6);
+                        chase_audio_source.volume = chase_volume;
+                    }
+                    else {
+                        chase_audio_source.Stop();
+                    }
+                }
+            } else {
+                // Debug.Log("Chaseing");
+                ChasePlayer();
+                if (!chase_audio_source.isPlaying) {
+                    chase_audio_source.volume = 0.0f;
+                    chase_audio_source.Play();
+                }
+
+                if (chase_volume < 1.0f) {
+                    chase_volume += (Time.deltaTime / 3);
                     chase_audio_source.volume = chase_volume;
                 }
-                else {
-                    chase_audio_source.Stop();
-                }
             }
-        } else if (moving) {
-            // Debug.Log("Chaseing");
-            ChasePlayer();
-            if (!chase_audio_source.isPlaying) {
-                chase_audio_source.volume = 0.0f;
-                chase_audio_source.Play();
-            }
-
-            if (chase_volume < 1.0f) {
-                chase_volume += (Time.deltaTime / 3);
-                chase_audio_source.volume = chase_volume;
-            }
+        } else {
+            agent.SetDestination(transform.position);
         }
     }
 
@@ -133,6 +137,12 @@ public class EnemyAi : MonoBehaviour
             }
             // Debug.Log("See Player: " + seePlayer);
         }
+
+        if (lookingThroughGlass) {
+            Vector3 relativePos = player.position - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(relativePos);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 1 * Time.deltaTime );
+        }
     }
 
     private void Patroling()
@@ -162,23 +172,13 @@ public class EnemyAi : MonoBehaviour
     }
     private void SearchWalkPoint()
     {
-        // Random Patrol Point on Navmesh
-        // float radius = walkPointRange;
-        // Vector3 randomDirection = Random.insideUnitSphere * radius;
-        // randomDirection += transform.position;
-        // NavMeshHit hit;
-        // Vector3 finalPosition = Vector3.zero;
-        // if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1)) {
-        //     finalPosition = hit.position;            
-        // }
-        // walkPointSet = true;
-        // walkPoint = finalPosition;
         if (hunted) {
             hunted = false;
+            listened = true;
             monsterAnimator.SetTrigger("listen");
             moving = false;
             StartCoroutine(notMovingCoroutine());
-        } else {
+        } else if (moving && !listened) {
             patrolSpot++;
             if (patrolSpot >= patrolPoints.Length) {
                 patrolSpot = 0;
@@ -187,6 +187,7 @@ public class EnemyAi : MonoBehaviour
 
         if (moving) {
             walkPointSet = true;
+            listened = false;
             walkPoint = patrolPoints[patrolSpot].position;
         }
     }
@@ -204,13 +205,48 @@ public class EnemyAi : MonoBehaviour
         hunted = true;
     }
 
+    private void LookAtLight()
+    {
+        lookingThroughGlass = true;
+        walkPointSet = false;
+        hunted = true;
+        
+        hunting.SetActive(false);
+        if (playerInWarningRange) {
+            warning.SetActive(true);
+        } else {
+            warning.SetActive(false);
+        }
+
+        agent.SetDestination(player.position);
+        Vector3 distanceToWalkPoint = transform.position - player.position;
+        if (distanceToWalkPoint.magnitude <= 10f) {
+            monsterAnimator.SetTrigger("listen");
+            moving = false;
+            StartCoroutine(notMovingCoroutine());
+        }
+    }
+
+    private void LookAtSpeaker()
+    {
+        walkPointSet = false;
+        hunted = true;
+
+        hunting.SetActive(false);
+        if (playerInWarningRange) {
+            warning.SetActive(true);
+        } else {
+            warning.SetActive(false);
+        }
+
+        agent.SetDestination(speaker.position);
+    }
+
     public void attackSpeaker(Transform speak)
     {
         GetComponent<NavMeshAgent>().speed = runSpeed;
         speaker = speak;
         seeSpeaker = true;
-        walkPointSet = false;
-        hunted = false;
         agent.SetDestination(speaker.position);
     }
 
@@ -231,31 +267,7 @@ public class EnemyAi : MonoBehaviour
         yield return new WaitUntil(() => monsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("StartWalk"));
         moving = true;
     }
-
-    // private void AttackPlayer()
-    // {
-    //     //Make sure enemy doesn't move
-    //     agent.SetDestination(transform.position);
-
-    //     transform.LookAt(player);
-
-    //     if (!alreadyAttacked)
-    //     {
-    //         ///Attack code here
-    //         Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-    //         rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-    //         rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-    //         ///End of attack code
-
-    //         alreadyAttacked = true;
-    //         Invoke(nameof(ResetAttack), timeBetweenAttacks);
-    //     }
-    // }
-    // private void ResetAttack()
-    // {
-    //     alreadyAttacked = false;
-    // }
-
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

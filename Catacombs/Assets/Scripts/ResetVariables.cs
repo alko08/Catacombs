@@ -9,5 +9,6 @@ public class ResetVariables : MonoBehaviour
     {
         StaticVariables.batteryNum = 0;
         StaticVariables.batteryVal = 1f;
+        StaticVariables.speakerNum = 0;
     }
 }

@@ -18,6 +18,7 @@ TagManager:
   - door
   - Flashlight
   - FadeToBlack
+  - SpeakerCount
   layers:
   - Default
   - TransparentFX

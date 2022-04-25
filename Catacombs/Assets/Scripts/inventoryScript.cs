@@ -63,10 +63,11 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book2;
     public Texture2D book3;
     public Texture2D keyRing;
-    // public Texture2D battery;
-    public int batteryCount;
+
+    // Batteries, Speakers, and Keys
+    private int batteryCount, speakerCount;
     public bool hasKey;
-    private TextMeshProUGUI batteryCountText;
+    private TextMeshProUGUI batteryCountText, speakerCountText;
 
     // Other.
     private int testTotal;
@@ -87,6 +88,11 @@ public class inventoryScript : MonoBehaviour
         batteryCount = StaticVariables.batteryNum;
         batteryCountText = GameObject.FindWithTag("BatteryCount").GetComponent<TextMeshProUGUI>();
         batteryCountText.SetText("" + batteryCount);
+
+        // Initializing Speakers.
+        speakerCount = StaticVariables.speakerNum;
+        speakerCountText = GameObject.FindWithTag("SpeakerCount").GetComponent<TextMeshProUGUI>();
+        speakerCountText.SetText("" + speakerCount);
 
         // Initializing inventoryUI.
         isOpen = false;
@@ -269,6 +275,9 @@ public class inventoryScript : MonoBehaviour
         } else if (bookName.Contains("battery")) {
             batteryCount++;
             batteryCountText.SetText("" + batteryCount);
+        } else if (bookName.Contains("speaker")) {
+            speakerCount++;
+            speakerCountText.SetText("" + speakerCount);
         } else if (bookName.Contains("keyring")) {
             hasKey = true;
             inventoryList.Add(new Book() 
@@ -407,10 +416,6 @@ public class inventoryScript : MonoBehaviour
     }
 
     public bool containsBattery() {
-        // return inventoryList.Contains(new Book()
-        //         { m_name = "Battery", 
-        //           m_sprite = battery });
-
         return batteryCount > 0;
     }
 
@@ -419,6 +424,18 @@ public class inventoryScript : MonoBehaviour
         if (batteryCount > 0) {
             batteryCount--;
             batteryCountText.SetText("" + batteryCount);
+        }
+    }
+
+    public bool containsSpeaker() {
+        return speakerCount > 0;
+    }
+
+    public void removeSpeaker()
+    {
+        if (speakerCount > 0) {
+            speakerCount--;
+            speakerCountText.SetText("" + speakerCount);
         }
     }
 
@@ -471,5 +488,6 @@ public class inventoryScript : MonoBehaviour
 
     public void updateVariables() {
         StaticVariables.batteryNum = batteryCount;
+        StaticVariables.speakerNum = speakerCount;
     }
 }

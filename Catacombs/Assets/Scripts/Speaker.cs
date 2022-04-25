@@ -10,6 +10,7 @@ public class Speaker : MonoBehaviour
     private EnemyAi monster;
     private int count;
     private bool canThrow;
+    private inventoryScript inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -19,20 +20,21 @@ public class Speaker : MonoBehaviour
         monster = GameObject.FindWithTag("Enemy").GetComponent<EnemyAi>();
         player = GameObject.FindWithTag("MainCamera").transform;
         speakerObject = this.gameObject.transform.GetChild(0).gameObject;
-        // rb = speakerObject.GetComponent<Rigidbody>();
         speakerObject.SetActive(false);
+        inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Speaker") && canThrow) {
+        if(Input.GetButtonDown("Speaker") && canThrow && inventory.containsSpeaker()) {
             throwSpeaker();
         }
     }
 
     void throwSpeaker() {
         canThrow = false;
+        inventory.removeSpeaker();
         GameObject clone;
         clone = Instantiate(speakerObject, player.position, transform.rotation);
         clone.SetActive(true);

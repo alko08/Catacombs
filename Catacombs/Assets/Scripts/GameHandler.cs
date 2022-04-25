@@ -8,11 +8,11 @@ using UnityEngine.Audio;
 public class GameHandler : MonoBehaviour {
 
     public static bool GameisPaused = false;
-    public GameObject pauseMenuUI;
+    private GameObject pauseMenuUI;
     public AudioMixer mixer;
-    public static float volumeLevel = 1.0f;
+    private static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
-    public static string SceneDied = "MainMenu";
+    private static string SceneDied = "MainMenu";
 
     void Awake (){ 
         SetLevel (volumeLevel);
@@ -24,6 +24,7 @@ public class GameHandler : MonoBehaviour {
     }
 
     void Start (){
+        pauseMenuUI = GameObject.FindWithTag("PauseMenu").transform.GetChild(0).gameObject;
         Resume();
         string thisLevel = SceneManager.GetActiveScene().name;
         if (thisLevel != "LoseScene"){

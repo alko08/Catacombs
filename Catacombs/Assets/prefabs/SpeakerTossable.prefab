@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 902942365956863852}
   - component: {fileID: 902942365956863853}
   m_Layer: 0
-  m_Name: Speaker
+  m_Name: SpeakerTossable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,6 +242,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bf4181e583e13bd4ab3b5344c46977bc, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bf4181e583e13bd4ab3b5344c46977bc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15.0369
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bf4181e583e13bd4ab3b5344c46977bc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15.0369
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bf4181e583e13bd4ab3b5344c46977bc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15.0369
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf4181e583e13bd4ab3b5344c46977bc, type: 3}
       propertyPath: m_LocalPosition.x
