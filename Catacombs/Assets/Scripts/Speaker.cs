@@ -8,6 +8,7 @@ public class Speaker : MonoBehaviour
     private Transform player;
     private Rigidbody rb;
     private EnemyAi monster;
+    private Animator monsterAnim;
     private int count;
     private bool canThrow;
     private inventoryScript inventory;
@@ -18,8 +19,9 @@ public class Speaker : MonoBehaviour
         canThrow = true;
         count = 0;
         monster = GameObject.FindWithTag("Enemy").GetComponent<EnemyAi>();
+        monsterAnim = GameObject.FindWithTag("Enemy").transform.GetChild(1).gameObject.GetComponent<Animator>();
         player = GameObject.FindWithTag("MainCamera").transform;
-        speakerObject = this.gameObject.transform.GetChild(0).gameObject;
+        speakerObject = transform.GetChild(0).gameObject;
         speakerObject.SetActive(false);
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
     }
@@ -69,7 +71,12 @@ public class Speaker : MonoBehaviour
     }
 
     IEnumerator destroyCoroutine(GameObject c) {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitUntil(() => monsterAnim.GetCurrentAnimatorStateInfo(0).IsName("Stomp"));
+        yield return new WaitForSeconds(1.4f);
+        c.GetComponent<AudioSource>().Stop();
+        c.transform.GetChild(0).gameObject.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(.1f);
+        // c.GetComponent<MeshRenderer>().enabled = false;
         Destroy(c);
         canThrow = true;
     }
