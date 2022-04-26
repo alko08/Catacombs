@@ -6,7 +6,7 @@ public class EnemyAi : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
     public float sightRange, warningRange, attackRange, walkSpeed, runSpeed;
-    public bool isOnFloor, isInSight, seeHiding;
+    public bool isOnFloor, isInSight, seeHiding, moving;
     public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
@@ -15,7 +15,7 @@ public class EnemyAi : MonoBehaviour
     private NavMeshAgent agent;
     private Ray sight0, sight1, sight2, sight3;
     private bool seePlayer, hunted, playerInAttackRange, playerInWarningRange, 
-        walkPointSet, seeSpeaker, moving, lastSeen, playerInSightRange, seeLight, 
+        walkPointSet, seeSpeaker, lastSeen, playerInSightRange, seeLight, 
         lookingThroughGlass, listened;
     private int patrolSpot;
     private Vector3 walkPoint;
@@ -48,7 +48,7 @@ public class EnemyAi : MonoBehaviour
         playerInAttackRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        seeLight = flash.isOn && playerInSightRange;
+        seeLight = flash.isOn && playerInSightRange && isInSight;
 
         seeHiding = false;
         if (moving) {
@@ -257,14 +257,16 @@ public class EnemyAi : MonoBehaviour
         if (!seeSpeaker) {
             speaker = null;
             moving = false;
-            monsterAnimator.SetTrigger("attack");
+            monsterAnimator.SetTrigger("stomp");
             StartCoroutine(notMovingCoroutine());
         }
         return seeSpeaker;
     }
 
     IEnumerator notMovingCoroutine() {
+        monsterAnimator.SetBool("walking", false);
         yield return new WaitUntil(() => monsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("StartWalk"));
+        monsterAnimator.SetBool("walking", true);
         moving = true;
     }
     

@@ -7,8 +7,8 @@ using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
 
-    public static bool GameisPaused = false;
-    private GameObject pauseMenuUI;
+    public static bool GameisPaused = false, showInstruct;
+    private GameObject pauseMenuUI, instruct;
     public AudioMixer mixer;
     private static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
@@ -29,6 +29,12 @@ public class GameHandler : MonoBehaviour {
         string thisLevel = SceneManager.GetActiveScene().name;
         if (thisLevel != "LoseScene"){
             SceneDied = thisLevel;
+        }
+
+        showInstruct = false;
+        if (thisLevel != "LoseScene" && thisLevel != "WinScene" && thisLevel != "MainMenu"){
+            instruct = GameObject.FindWithTag("Instructions").transform.GetChild(0).gameObject;
+            instruct.SetActive(showInstruct);
         }
     }
 
@@ -93,5 +99,10 @@ public class GameHandler : MonoBehaviour {
         #else
         Application.Quit();
         #endif
+    }
+
+    public void ChangeInstruct() {
+        showInstruct = !showInstruct;
+        instruct.SetActive(showInstruct);
     }
 }

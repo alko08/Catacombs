@@ -35,6 +35,7 @@ public class MonsterScript : MonoBehaviour
 
     private void FixedUpdate() {
         if (foundPlayer) {
+            monsterAnimator.SetBool("walking", false);
             Vector3 relativePos = transform.GetChild(3).position - player.transform.position;
             if (!isUnder) {
                 player.transform.Translate(0, 0, Time.deltaTime / 1.5f);
@@ -47,9 +48,11 @@ public class MonsterScript : MonoBehaviour
         if (monsterAI.seeHiding && !bigSize) {
             bigSize = true;
             GetComponent<CapsuleCollider>().radius = 5f;
+            GetComponent<CapsuleCollider>().height = 15f;
         } else if (!monsterAI.seeHiding && bigSize) {
             bigSize = false;
             GetComponent<CapsuleCollider>().radius = 3f;
+            GetComponent<CapsuleCollider>().height = 10f;
         }
     }
 
