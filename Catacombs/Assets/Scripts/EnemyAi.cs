@@ -48,7 +48,7 @@ public class EnemyAi : MonoBehaviour
         playerInAttackRange = (seePlayer && !FPC.hiding) || (playerInWarningRange && FPC.sprinting) ||
             (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer) && !FPC.hiding);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        seeLight = flash.isOn && playerInSightRange && isInSight;
+        seeLight = flash.isOn && playerInSightRange;
 
         seeHiding = false;
         if (moving) {
