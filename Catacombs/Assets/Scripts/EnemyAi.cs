@@ -13,7 +13,7 @@ public class EnemyAi : MonoBehaviour
     public Transform[] patrolPoints;
     
     private NavMeshAgent agent;
-    private Ray sight0, sight1, sight2, sight3;
+    private Ray sight0, sight1, sight2, sight3, glassRay;
     private bool seePlayer, hunted, playerInAttackRange, playerInWarningRange, 
         walkPointSet, seeSpeaker, lastSeen, playerInSightRange, seeLight, 
         lookingThroughGlass, listened;
@@ -23,6 +23,7 @@ public class EnemyAi : MonoBehaviour
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
     private Animator monsterAnimator;
     private FlashLight flash;
+    // private Camera playerCam;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class EnemyAi : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         monsterAnimator = gameObject.transform.GetChild(1).gameObject.GetComponent<Animator>();
         flash = GameObject.FindWithTag("Flashlight").GetComponent<FlashLight>();
+        // playerCam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
 
     private void Update()
@@ -176,7 +178,6 @@ public class EnemyAi : MonoBehaviour
             hunted = false;
             listened = true;
             monsterAnimator.SetTrigger("listen");
-            moving = false;
             StartCoroutine(notMovingCoroutine());
         } else if (moving && !listened) {
             patrolSpot++;
@@ -207,6 +208,7 @@ public class EnemyAi : MonoBehaviour
 
     private void LookAtLight()
     {
+        
         lookingThroughGlass = true;
         walkPointSet = false;
         hunted = true;
@@ -218,11 +220,25 @@ public class EnemyAi : MonoBehaviour
             warning.SetActive(false);
         }
 
-        agent.SetDestination(player.position);
-        Vector3 distanceToWalkPoint = transform.position - player.position;
-        if (distanceToWalkPoint.magnitude <= 10f) {
+        RaycastHit hit;
+        glassRay.origin = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+        glassRay.direction = player.position - glassRay.origin;
+                
+        int layerMask = 1 << 3;
+        layerMask = ~layerMask;
+        if (Physics.Raycast(glassRay, out hit, 20, layerMask)) {
+            Debug.DrawLine(glassRay.origin, hit.point, Color.white);
+            walkPoint = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            
+        } else {
+            walkPoint = player.position;
+        }
+        agent.SetDestination(walkPoint);
+        
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+        // Debug.Log("Distance:" + distanceToWalkPoint.magnitude);
+        if (distanceToWalkPoint.magnitude <= 5f) {
             monsterAnimator.SetTrigger("listen");
-            moving = false;
             StartCoroutine(notMovingCoroutine());
         }
     }
@@ -256,7 +272,6 @@ public class EnemyAi : MonoBehaviour
         seeSpeaker = distanceToWalkPoint.magnitude > 3f && count <= 20;
         if (!seeSpeaker) {
             speaker = null;
-            moving = false;
             monsterAnimator.SetTrigger("stomp");
             StartCoroutine(notMovingCoroutine());
         }
@@ -264,6 +279,7 @@ public class EnemyAi : MonoBehaviour
     }
 
     IEnumerator notMovingCoroutine() {
+        moving = false;
         monsterAnimator.SetBool("walking", false);
         yield return new WaitUntil(() => monsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("StartWalk"));
         monsterAnimator.SetBool("walking", true);
