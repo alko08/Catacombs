@@ -34,6 +34,7 @@ public class mission_00 : MonoBehaviour
     public Button exitButton;
     int dialogueRound;
     string prevChoice;
+    int finalDialogueCode;
     
     // Timers
     private int timer1;
@@ -45,6 +46,7 @@ public class mission_00 : MonoBehaviour
     bool pause;
     public bool isOpen_dialogue;
     bool blytheTalk_done1;
+    bool checker1;
 
     // Tasks.
     const int NUM_TASKS = 6;
@@ -68,6 +70,7 @@ public class mission_00 : MonoBehaviour
         initiateBoxes();
         dialogueRound = 0;
         prevChoice = "";
+        finalDialogueCode = 0;
 
         // Tasks.
         initiateTasks();
@@ -81,6 +84,7 @@ public class mission_00 : MonoBehaviour
         pause = false;
         isOpen_dialogue = false;
         blytheTalk_done1 = false;
+        checker1 = false;
     }
 
     // Update is called once per frame
@@ -99,8 +103,13 @@ public class mission_00 : MonoBehaviour
             else if (notClear) {
                 clear();
             }
-        } else if ((blytheTalk_done) && (!blytheTalk_done1)) {
-            print_blytheTalk2();
+        // } else if ((blytheTalk_done) && (!blytheTalk_done1)) {
+        //     print_blytheTalk2();
+        
+        else if (checker1) {
+            print_task1Dialogue_2();
+        }
+        
         } else if (notClear) {
             clear();
         }
@@ -150,6 +159,7 @@ public class mission_00 : MonoBehaviour
         tasks = new string[NUM_TASKS];
 
         tasks[0] = "Find someone to talk to.";
+        tasks[1] = "Explore Tisch and find your friend.";
     }
 
     /*********************************************************************\
@@ -189,6 +199,26 @@ public class mission_00 : MonoBehaviour
                            "library right now. Read a book!";
         timer1 = 300;
         blytheTalk_done1 = true;
+    }
+
+    void print_task1Dialogue()
+    {
+        closeDialogueOptions();
+        
+        timer1 = 120;
+        checker1 = true;
+
+        inventory.addTask(tasks[1]);
+
+        Debug.Log("Waiting for task1 stuff to print...");
+    }
+
+    void print_task1Dialogue_2()
+    {
+        dialogueBox.text = "You: I gotta find my friend!";
+        // inventory.addTask(tasks[1]);
+        timer1 = 120;
+        notClear = true;
     }
 
     /*********************************************************************\
@@ -245,7 +275,7 @@ public class mission_00 : MonoBehaviour
         // Player said: "AAHHHHH"
         else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
             dialogueBox.text = "Giant Bug: Okay, now you're just being rude.";
-            dialogueRound = 100;
+            dialogueRound = 2;
             changeDialogueBoxes();
         }
 
@@ -274,6 +304,31 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
+        // Player said: "Why am I in Tisch?" / "What do you mean I bonked my head?"
+        else if ( (finalDialogueCode == 1) || (finalDialogueCode == 2) 
+               || (finalDialogueCode == 3) ) {
+            dialogueBox.text = "Giant Bug: Well, you were lookin for your " +
+                               "friend and someone didn't want you to find them, so they " +
+                               "bonked you upside the head!";
+            print_task1Dialogue();
+        }
+
+        // Player said: "People like me?"
+        else if (finalDialogueCode == 4) {
+            dialogueBox.text = "Giant Bug: Yup! Don't you remember? You were sneaking " +
+                               "around lookin for your friend when someone bonked you on " +
+                               "the head!";
+            print_task1Dialogue();
+        }
+
+        // Player said: "Why is he here?"
+        else if (finalDialogueCode == 5) {
+            dialogueBox.text = "Giant Bug: He's guarding the lower levels of the library. " +
+                               "Someone put him there so people like you don't go snooping around.";
+            dialogueRound = 203;
+            changeDialogueBoxes();
+        }
+
         else {
             closeDialogueOptions();
         }
@@ -294,9 +349,10 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
-        // Player said: ""
+        // Player said: "Calm down!? You're a giant bug!"
         else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
-            dialogueBox.text = "";
+            dialogueBox.text = "Giant Bug: That's rude! I'm the first person you find " +
+                               "after bonking your head and you're treating me like this!?";
             dialogueRound = 200;
             changeDialogueBoxes();
         }
@@ -309,9 +365,10 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
-        // Player said: ""
+        // Player said: "Then why is everything so dark and creepy?"
         else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
-            dialogueBox.text = "";
+            dialogueBox.text = "Giant Bug: Wow, you must've bonked your head real hard earlier. " +
+                               "It's all dark and creepy because we're in Tisch Library, obviously!";
             dialogueRound = 202;
             changeDialogueBoxes();
         }
@@ -319,7 +376,7 @@ public class mission_00 : MonoBehaviour
         // Player said: "What's he doing in there?"
         else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
             dialogueBox.text = "Giant Bug: He's guarding the lower levels of the library. " +
-                               "Someone put him there so people don't go around snooping.";
+                               "Someone put him there so people like you don't go snooping around.";
             dialogueRound = 203;
             changeDialogueBoxes();
         }
@@ -344,31 +401,42 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
-        // Player said: "Then where am I?"
+        // Player said: "Where am I? Who are you? How are you talking?"
         else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
-            dialogueBox.text = "";
-            dialogueRound = 300;
-            changeDialogueBoxes();
+            dialogueRound = 1;
+            ButtonClicked_LB();
         }
 
-        // Player said: ""
+        // Player said: "You're not given a lotta answers!"
         else if ( (dialogueRound == 3) && (prevChoice == "LB") ) {
-            dialogueBox.text = "";
+            dialogueBox.text = "Giant Bug: So impatient... Fine. You're in Tisch Library, I'm " +
+                               "Giant Bug, and I can talk because I feel like it.";
             dialogueRound = 301;
             changeDialogueBoxes();
         }
 
         // Player said: "Are you sure?"
         else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
-            dialogueBox.text = "";
+            dialogueBox.text = "Giant Bug: Yup! You just bonked your head real hard " +
+                               "earlier! That might be why you don't remember anything.";
             dialogueRound = 302;
             changeDialogueBoxes();
         }
 
-        // Player said: "I don't have time for this... (Leave)"
-        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
-            dialogueBox.text = "Seeya!";
-            closeDialogueOptions();
+        // Player said: "Did he not see us?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
+            dialogueBox.text = "Giant Bug: Probably not! His eyes aren't all that " +
+                               "good, you see. Mostly uses his ears to find things.";
+            dialogueRound = 303;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "What do you mean I bonked my head?"
+        else if (finalDialogueCode == 2) {
+            dialogueBox.text = "Giant Bug: Well, you were lookin for your " +
+                               "friend and someone didn't want you to find them, so they " +
+                               "bonked you upside the head!";
+            print_task1Dialogue();
         }
 
         else {
@@ -392,32 +460,33 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
-        // Player said: "He bites!?"
+        // Player said: "(Say nothing and flee)"
         else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
-            dialogueBox.text = "";
-            dialogueRound = 400;
-            changeDialogueBoxes();
+            dialogueBox.text = "Hey! Where're you going?";
+            closeDialogueOptions();
         }
 
-        // Player said: "What's he doing in there?"
+        // Player said: "Not helpful."
         else if ( (dialogueRound == 3) && (prevChoice == "LB") ) {
-            dialogueBox.text = "";
+            dialogueBox.text = "Giant Bug: So impatient... Fine. You're in Tisch Library, I'm " +
+                               "Giant Bug, and I can talk because I feel like it.";
             dialogueRound = 401;
             changeDialogueBoxes();
         }
 
-        // Player said: "Did he not see us?"
+        // Player said: "I don't have time for this... (Leave)"
         else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
-            dialogueBox.text = "";
-            dialogueRound = 402;
-            changeDialogueBoxes();
+            dialogueBox.text = "Hey! Where're you going?";
+            closeDialogueOptions();
         }
 
-        // Player said: "Are we safe here?"
-        // Player said: "I don't have time for this... (Leave)"
+        // Player said: "Are you sure we're safe?"
         else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
-            dialogueBox.text = "Seeya!";
-            closeDialogueOptions();
+            dialogueBox.text = "Giant Bug: Yup! Don't worry, his eyesight " +
+                               "isn't all that great, so he mainly finds things by " +
+                               "listening.";
+            dialogueRound = 403;
+            changeDialogueBoxes();
         }
 
         else {
@@ -454,9 +523,9 @@ public class mission_00 : MonoBehaviour
             // Giant Bug's Dialogue: "Hey, hey! Calm down! I don't bite!"
             if (prevChoice == "LT") {
                 choices[0].text = "AAHHHHH!";
-                choices[1].text = "";
-                choices[2].text = "How are you talking?";
-                choices[3].text = "";
+                choices[1].text = "Calm down!? You're a giant bug!";
+                choices[2].text = "Where am I? Who are you? How are you talking?";
+                choices[3].text = "(Say nothing and flee)";
             }
 
             // Giant Bug's Dialogue: "You're asking a lotta questions, friend!"
@@ -470,7 +539,7 @@ public class mission_00 : MonoBehaviour
             // Giant Bug's Dialogue: "Haha! Nope!"
             else if (prevChoice == "RT") {
                 choices[0].text = "Then where am I?";
-                choices[1].text = "";
+                choices[1].text = "Then why is everything so dark and creepy?";
                 choices[2].text = "Are you sure?";
                 choices[3].text = "I don't have time for this... (Leave)";
             }
@@ -488,74 +557,59 @@ public class mission_00 : MonoBehaviour
 
         // ROUND 3.
 
-        // Giant Bug's Dialogue: "Giant Bug: Okay, now you're just being rude."
-        else if (dialogueRound == 100) {
+        // Giant Bug's Dialogue: "Giant Bug: So impatient... Fine. You're in Tisch Library, I'm " +
+        //                       "Giant Bug, and I can talk because I feel like it."
+        else if ( (dialogueRound == 101) || (dialogueRound == 301) || (dialogueRound == 401) ) {
+            choices[0].text = "Why am I in Tisch?";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
 
+            finalDialogueCode = 1;
         } 
         
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 101) {
+        // Giant Bug's Dialogue: "Giant Bug: Wow, you must've hit your head pretty " +
+        //                       "hard to have forgotten that! You're in Tisch Library!"
+        else if ( (dialogueRound == 102) || (dialogueRound == 201) || (dialogueRound == 202) ) {
+            choices[0].text = "Why am I in Tisch?";
+            choices[1].text = "";
+            choices[2].text = "What do you mean I bonked my head?";
+            choices[3].text = "";
 
-        } 
+            finalDialogueCode = 2;
+        }
         
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 102) {
+        // Giant bug's Dialogue: "Giant Bug: That's rude! I'm the first person you find " +
+        //                       "after bonking your head and you're treating me like this!?"
+        else if ( (dialogueRound == 200) || (dialogueRound == 302) ) {
+            choices[0].text = "What do you mean I bonked my head?";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
 
-        } 
+            finalDialogueCode = 3;
+        }
         
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 103) {
-            
-        } 
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 201) {
-
-        } 
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 202) {
-            
-        } 
-        
-        // Giant Bug's Dialogue: 
+        // Giant Bug's Dialogue: "Giant Bug: He's guarding the lower levels of the library. " +
+        //                       "Someone put him there so people like you don't go snooping around."
         else if (dialogueRound == 203) {
+            choices[0].text = "People like me?";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
 
-        } 
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 300) {
-            
-        } 
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 301) {
-
-        } 
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 302) {
-
+            finalDialogueCode = 4;
         }
 
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 303) {
+        // Giant Bug's Dialogue: "Giant Bug: Probably not! His eyes aren't all that " +
+        //                       "good, you see. Mostly uses his ears to find things."
+        else if ( (dialogueRound == 303) || (dialogueRound == 403) || (dialogueRound == 103) ) {
+            choices[0].text = "Why is he here?";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
 
-        }
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 400) {
-            
-        } 
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 401) {
-
-        } 
-        
-        // Giant Bug's Dialogue: 
-        else if (dialogueRound == 402) {
-            
+            finalDialogueCode = 5;
         }
 
         else {
