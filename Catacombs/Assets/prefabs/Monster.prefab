@@ -41,12 +41,13 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 3715470840233454774, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
+  - {fileID: 2982955500637902885, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
   - {fileID: 2289479306111076863, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
   - {fileID: 4000671483701866867, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
+  - {fileID: -4289954598985156504, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
   - {fileID: 8964532722025290734, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
   - {fileID: 7299830041155502507, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
-  - {fileID: -4289954598985156504, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
+  - {fileID: 109447446115317870, guid: 481d6f598b7374845832ac88d10b7bf4, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

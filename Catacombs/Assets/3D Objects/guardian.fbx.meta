@@ -4,24 +4,6 @@ ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
   - first:
-      74: -3773528098017054933
-    second: metarig.001|metarig.001Action
-  - first:
-      74: -8615489201019685891
-    second: metarig.001|rigAction
-  - first:
-      74: 6514623213639274862
-    second: metarig.001|rigAction.002
-  - first:
-      74: -3221760180622662235
-    second: metarig.001|rigAction.003
-  - first:
-      74: 8488717246111261839
-    second: metarig.001|Shader NodetreeAction
-  - first:
-      74: -965931101953932208
-    second: metarig.001|walk.001
-  - first:
       74: 8964532722025290734
     second: rig|attack
   - first:
@@ -31,35 +13,17 @@ ModelImporter:
       74: -4289954598985156504
     second: rig|listen
   - first:
-      74: 3374748389425109202
-    second: rig|rigAction
-  - first:
-      74: 1444733745673076434
-    second: rig|rigAction.001
-  - first:
-      74: 8105518610988583752
-    second: rig|rigAction.002
-  - first:
-      74: 9121768560578137977
-    second: rig|rigAction.003
-  - first:
-      74: 1834158696024964906
-    second: rig|rigAction.004
-  - first:
-      74: 2331058893900490188
-    second: rig|Shader NodetreeAction
-  - first:
       74: 2289479306111076863
     second: rig|start_walking
+  - first:
+      74: 109447446115317870
+    second: rig|stomp
   - first:
       74: 4000671483701866867
     second: rig|stop_walking
   - first:
       74: 2982955500637902885
     second: rig|walk
-  - first:
-      74: 3715470840233454774
-    second: rig|walk.001
   externalObjects: {}
   materials:
     materialImportMode: 2
