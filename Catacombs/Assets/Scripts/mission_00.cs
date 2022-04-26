@@ -11,7 +11,6 @@ using TMPro;
 
 /*****************************************************************************\
 
-    - Tasks don't get removed when they're supposed to be. 
     - Dialogue choices don't update properly.
 
 \*****************************************************************************/
@@ -93,6 +92,7 @@ public class mission_00 : MonoBehaviour
             timer1--;
         } else if (!pause) {
             if (!opening_done) {
+                Debug.Log("Calling print_opening()");
                 print_opening();
             }
             
@@ -224,10 +224,15 @@ public class mission_00 : MonoBehaviour
         exitButton.gameObject.SetActive(false);
 
         blytheTalk_done1 = false;
+
+        timer1 = 60;
+        notClear = true;
     }
 
     void ButtonClicked_LT()
     {
+        if (choices[0].text != "") {
+        
         dialogueRound++;
         Debug.Log("LT Pressed. Current Round: " + dialogueRound.ToString());
 
@@ -239,25 +244,47 @@ public class mission_00 : MonoBehaviour
 
         // Player said: "AAHHHHH"
         else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
-            dialogueBox.text = "";
+            dialogueBox.text = "Giant Bug: Okay, now you're just being rude.";
             dialogueRound = 100;
             changeDialogueBoxes();
         }
 
-        // Player said: "How are you talking?"
-        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
-            dialogueBox.text = "";
+        // Player said: "Are you going to answer any of them?"
+        else if ( (dialogueRound == 3) && (prevChoice == "LB") ) {
+            dialogueBox.text = "Giant Bug: So impatient... Fine. You're in Tisch Library, I'm " +
+                               "Giant Bug, and I can talk because I feel like it.";
             dialogueRound = 101;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "Then where am I?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "Giant Bug: Wow, you must've hit your head pretty " +
+                               "hard to have forgotten that! You're in Tisch Library!";
+            dialogueRound = 102;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "He bites!?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
+            dialogueBox.text = "Giant Bug: Haha, yup! Don't worry, his eyesight " +
+                               "isn't all that great, so he mainly finds things by " +
+                               "listening.";
+            dialogueRound = 103;
             changeDialogueBoxes();
         }
 
         else {
             closeDialogueOptions();
         }
+
+        }
     }
 
     void ButtonClicked_LB()
     {
+        if (choices[1].text != "") {
+        
         dialogueRound++;
         Debug.Log("LB Pressed. Current Round: " + dialogueRound.ToString());
 
@@ -267,27 +294,47 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
-        // Player said: "Are you going to answer any of them?"
+        // Player said: ""
         else if ( (dialogueRound == 3) && (prevChoice == "LT") ) {
             dialogueBox.text = "";
             dialogueRound = 200;
             changeDialogueBoxes();
         }
 
-        // Player said: "You're not given a lotta answers!"
+        // Player said: "I'm asking because I don't remember I got here."
+        else if ( (dialogueRound == 3) && (prevChoice == "LB") ) {
+            dialogueBox.text = "Giant Bug: Oh right! You bonked you're head real " +
+                               "hard earlier. Lemme fill you in: you're in Tisch Library!";
+            dialogueRound = 201;
+            changeDialogueBoxes();
+        }
+
+        // Player said: ""
         else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
             dialogueBox.text = "";
-            dialogueRound = 201;
+            dialogueRound = 202;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "What's he doing in there?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
+            dialogueBox.text = "Giant Bug: He's guarding the lower levels of the library. " +
+                               "Someone put him there so people don't go around snooping.";
+            dialogueRound = 203;
             changeDialogueBoxes();
         }
 
         else {
             closeDialogueOptions();
         }
+
+        }
     }
 
     void ButtonClicked_RT()
     {
+        if (choices[2].text != "") {
+        
         dialogueRound++;
         Debug.Log("RT Pressed. Current Round: " + dialogueRound.ToString());
 
@@ -304,20 +351,37 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
-        // Player said: "Are you sure?"
-        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+        // Player said: ""
+        else if ( (dialogueRound == 3) && (prevChoice == "LB") ) {
             dialogueBox.text = "";
             dialogueRound = 301;
             changeDialogueBoxes();
         }
 
+        // Player said: "Are you sure?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "";
+            dialogueRound = 302;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "I don't have time for this... (Leave)"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "Seeya!";
+            closeDialogueOptions();
+        }
+
         else {
             closeDialogueOptions();
+        }
+
         }
     }
 
     void ButtonClicked_RB()
     {
+        if (choices[0].text != "") {
+        
         dialogueRound++;
         Debug.Log("RB Pressed. Current Round: " + dialogueRound.ToString());
 
@@ -335,15 +399,31 @@ public class mission_00 : MonoBehaviour
             changeDialogueBoxes();
         }
 
-        // Player said: "Did he not see us?"
-        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+        // Player said: "What's he doing in there?"
+        else if ( (dialogueRound == 3) && (prevChoice == "LB") ) {
             dialogueBox.text = "";
             dialogueRound = 401;
             changeDialogueBoxes();
         }
 
+        // Player said: "Did he not see us?"
+        else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
+            dialogueBox.text = "";
+            dialogueRound = 402;
+            changeDialogueBoxes();
+        }
+
+        // Player said: "Are we safe here?"
+        // Player said: "I don't have time for this... (Leave)"
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+            dialogueBox.text = "Seeya!";
+            closeDialogueOptions();
+        }
+
         else {
             closeDialogueOptions();
+        }
+
         }
     }
 
@@ -382,9 +462,9 @@ public class mission_00 : MonoBehaviour
             // Giant Bug's Dialogue: "You're asking a lotta questions, friend!"
             else if (prevChoice == "LB") {
                 choices[0].text = "Are you going to answer any of them?";
-                choices[1].text = "";
+                choices[1].text = "I'm asking because I don't remember I got here.";
                 choices[2].text = "You're not given a lotta answers!";
-                choices[3].text = "";
+                choices[3].text = "Not helpful.";
             }
 
             // Giant Bug's Dialogue: "Haha! Nope!"
@@ -392,18 +472,90 @@ public class mission_00 : MonoBehaviour
                 choices[0].text = "Then where am I?";
                 choices[1].text = "";
                 choices[2].text = "Are you sure?";
-                choices[3].text = "";
+                choices[3].text = "I don't have time for this... (Leave)";
             }
 
             // Giant Bug's Dialogue: "Giant Bug: Oh him? I'm not too sure actually.
             //                        I'd avoid him if you can, though! He bites!"
             else if (prevChoice == "RB") {
                 choices[0].text = "He bites!?";
-                choices[1].text = "";
+                choices[1].text = "What's he doing in there?";
                 choices[2].text = "Did he not see us?";
-                choices[3].text = "";
+                choices[3].text = "Are we safe here?";
             }
 
+        }
+
+        // ROUND 3.
+
+        // Giant Bug's Dialogue: "Giant Bug: Okay, now you're just being rude."
+        else if (dialogueRound == 100) {
+
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 101) {
+
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 102) {
+
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 103) {
+            
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 201) {
+
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 202) {
+            
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 203) {
+
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 300) {
+            
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 301) {
+
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 302) {
+
+        }
+
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 303) {
+
+        }
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 400) {
+            
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 401) {
+
+        } 
+        
+        // Giant Bug's Dialogue: 
+        else if (dialogueRound == 402) {
+            
         }
 
         else {

@@ -364,9 +364,10 @@ public class inventoryScript : MonoBehaviour
         int countAtStart = objectivesList.Count;
         
         Debug.Log("Removing task: " + removedTask);
+        
         objectivesList.Remove(removedTask);
         
-        if (objectivesList.Count > countAtStart) {
+        if (objectivesList.Count < countAtStart) {
             Debug.Log("Task removed.");
         } else {
             Debug.Log("Task not removed.");
@@ -386,12 +387,9 @@ public class inventoryScript : MonoBehaviour
 
     void printTask(string task, int index)
     {
-        GameObject currTask;
         if (index < taskList_UI.Count) {
-            currTask = taskList_UI[index];
-
-            currTask.SetActive(true);
-            currTask.GetComponent<TextMeshProUGUI>().text = task;
+            taskList_UI[index].SetActive(true);
+            taskList_UI[index].GetComponent<TextMeshProUGUI>().text = task;
         } else {
             Debug.Log("index out of range.");
         }
