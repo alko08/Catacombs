@@ -58,7 +58,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             hiding = false;
             sprinting = false;
-
+            
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;

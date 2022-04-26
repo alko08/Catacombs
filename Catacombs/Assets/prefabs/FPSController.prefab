@@ -584,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfe4dc8efff4bf48afaa019a3d4a6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOn: 0
   lightSource: {fileID: 8080258339697149145}
   clickSound: {fileID: 2573608480916717562}
   beepSound: {fileID: 3739245388944474694}

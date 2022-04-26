@@ -23,6 +23,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void Init(Transform character, Transform camera)
         {
+            if (Application.platform == RuntimePlatform.WebGLPlayer) {
+                XSensitivity = XSensitivity/2;
+                YSensitivity = YSensitivity/2;
+            }
             m_CharacterTargetRot = character.localRotation;
             m_CameraTargetRot = camera.localRotation;
         }
