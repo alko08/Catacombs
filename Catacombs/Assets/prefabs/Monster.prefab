@@ -96,13 +96,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4567947102038820690}
-  m_LocalRotation: {x: 0.21263108, y: 0.67437977, z: 0.67437977, w: -0.21263108}
+  m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: 0.6532815, w: -0.27059805}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2000, y: 2000, z: 1000}
   m_Children: []
   m_Father: {fileID: 7345973753015829802}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 35, z: 180}
+  m_LocalEulerAnglesHint: {x: -90, y: 45, z: 180}
 --- !u!64 &2556245633250749349
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4711208715938537054, guid: 4fea96ca78f5d284895a7f6c28df23eb, type: 3}
+  m_Mesh: {fileID: 4711208715938537054, guid: 57c6dae87d7154b4c9a22573e39cddaa, type: 3}
 --- !u!114 &7551751671902407086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +402,7 @@ MonoBehaviour:
   isOnFloor: 0
   isInSight: 0
   seeHiding: 0
+  moving: 0
   hunting: {fileID: 0}
   warning: {fileID: 0}
   chase_audio_source: {fileID: 0}
