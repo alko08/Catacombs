@@ -10025,7 +10025,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1afaa62a33fb82a4abcd05c7c2032c6a, type: 2}
+  - {fileID: 2100000, guid: 599263366a3125c4c809f3a5191e1a51, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11365,7 +11365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 772b22c2ddfd26a4f9d2fe201e4622f9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 772b22c2ddfd26a4f9d2fe201e4622f9, type: 3}
       propertyPath: m_LocalScale.x
@@ -11414,7 +11414,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 772b22c2ddfd26a4f9d2fe201e4622f9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1afaa62a33fb82a4abcd05c7c2032c6a, type: 2}
+      objectReference: {fileID: 2100000, guid: 599263366a3125c4c809f3a5191e1a51, type: 2}
     - target: {fileID: 919132149155446097, guid: 772b22c2ddfd26a4f9d2fe201e4622f9, type: 3}
       propertyPath: m_Name
       value: final_chamber
