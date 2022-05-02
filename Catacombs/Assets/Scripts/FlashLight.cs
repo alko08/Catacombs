@@ -157,5 +157,6 @@ public class FlashLight : MonoBehaviour
     
     public void updateVariables() {
         StaticVariables.batteryVal = charge;
+        StaticVariables.changed = true;
     }
 }

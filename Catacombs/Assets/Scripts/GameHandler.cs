@@ -7,12 +7,13 @@ using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
 
-    public static bool GameisPaused = false, showInstruct;
-    private GameObject pauseMenuUI, instruct;
+    public static bool GameisPaused = false;
+    private GameObject pauseMenuUI, instructMenu;
     public AudioMixer mixer;
     private static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
     private static string SceneDied = "MainMenu";
+    private bool menu;
 
     void Awake (){ 
         SetLevel (volumeLevel);
@@ -25,16 +26,15 @@ public class GameHandler : MonoBehaviour {
 
     void Start (){
         pauseMenuUI = GameObject.FindWithTag("PauseMenu").transform.GetChild(0).gameObject;
+        instructMenu = GameObject.FindWithTag("Instructions").transform.GetChild(0).gameObject;
+
+        menu = SceneManager.GetActiveScene().name == "MainMenu" ||
+        SceneManager.GetActiveScene().name == "LoseScene" || 
+        SceneManager.GetActiveScene().name == "WinScene";
         Resume();
         string thisLevel = SceneManager.GetActiveScene().name;
         if (thisLevel != "LoseScene"){
             SceneDied = thisLevel;
-        }
-
-        showInstruct = false;
-        if (thisLevel != "LoseScene" && thisLevel != "WinScene" && thisLevel != "MainMenu"){
-            instruct = GameObject.FindWithTag("Instructions").transform.GetChild(0).gameObject;
-            instruct.SetActive(showInstruct);
         }
     }
 
@@ -48,9 +48,7 @@ public class GameHandler : MonoBehaviour {
                 Pause();
             }
         }
-        if (SceneManager.GetActiveScene().name == "MainMenu" ||
-        SceneManager.GetActiveScene().name == "LoseScene" || 
-        SceneManager.GetActiveScene().name == "WinScene") {
+        if (menu) {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -70,14 +68,23 @@ public class GameHandler : MonoBehaviour {
 
     public void Resume(){
         pauseMenuUI.SetActive(false);
+        instructMenu.SetActive(false);
         Time.timeScale = 1f;
         GameisPaused = false;
-        if (SceneManager.GetActiveScene().name != "MainMenu" && 
-        SceneManager.GetActiveScene().name != "LoseScene" && 
-        SceneManager.GetActiveScene().name != "WinScene") {
+        if (menu) {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = false;
         }
+    }
+
+    public void Controls(){
+        pauseMenuUI.SetActive(false);
+        instructMenu.SetActive(true);
+    }
+
+    public void PauseResume(){
+        pauseMenuUI.SetActive(true);
+        instructMenu.SetActive(false);
     }
 
     public void SetLevel (float sliderValue){
@@ -99,10 +106,5 @@ public class GameHandler : MonoBehaviour {
         #else
         Application.Quit();
         #endif
-    }
-
-    public void ChangeInstruct() {
-        showInstruct = !showInstruct;
-        instruct.SetActive(showInstruct);
     }
 }

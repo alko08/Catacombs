@@ -158,6 +158,38 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4500999054750209397, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1423602585}
+    - target: {fileID: 4500999054750209397, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431662969446610134, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1423602585}
+    - target: {fileID: 5431662969446610134, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseResume
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417257747767162261, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1423602585}
+    - target: {fileID: 6417257747767162261, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419076412972690146, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1423602585}
+    - target: {fileID: 6419076412972690146, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 6872081007467505945, guid: 6cc18bb46a1806c4fb017bdc44fdfb5a, type: 3}
       propertyPath: m_RootOrder
       value: 3

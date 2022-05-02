@@ -42,7 +42,7 @@ public class Speaker : MonoBehaviour
         clone.SetActive(true);
         rb = clone.GetComponent<Rigidbody>();
         clone.GetComponent<AudioSource>().Play();
-        rb.velocity = player.forward * 10; //new Vector3(10, 0, 0);
+        rb.velocity = player.forward * 15; //new Vector3(10, 0, 0);
         monster.attackSpeaker(clone.transform);
         StartCoroutine(despawnCoroutine(clone));
         
