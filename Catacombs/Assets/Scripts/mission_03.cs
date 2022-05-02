@@ -205,7 +205,7 @@ public class mission_03 : MonoBehaviour
         exitButton.gameObject.SetActive(false);
         dialogueRound = 0;
 
-        timer = 120;
+        timer = 240;
         doClear = true;
     }
 
@@ -215,19 +215,54 @@ public class mission_03 : MonoBehaviour
 
     void ButtonClicked_LT()
     {
-
+        if (dialogueRound == 0) {
+            dialogueRound = 100;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 100 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
-    void ButtonClicked_LB(){
-
+    void ButtonClicked_LB()
+    {
+        if (dialogueRound == 0) {
+            dialogueRound = 101;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 101 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
-    void ButtonClicked_RT() {
-
+    void ButtonClicked_RT() 
+    {
+        if (dialogueRound == 0) {
+            dialogueRound = 102;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 102 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
-    void ButtonClicked_RB() {
-
+    void ButtonClicked_RB() 
+    {
+        if (dialogueRound == 0) {
+            dialogueRound = 103;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 103 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
     void ButtonClicked_exit()

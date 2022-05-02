@@ -174,7 +174,8 @@ public class mission_01 : MonoBehaviour
     public void print_blytheTalk()
     {
         inventory.removeTask(tasks[1]);
-        dialogueBox.text = "Giant Bug: Hey, it's you again! How was the monster?";
+        dialogueBox.text = "Giant Bug: Hey, it's you again! I hope the monster " +
+                           "wasn't too bad!";
         timer = 0;
         doClear = false;
         openDialogueOptions();
@@ -205,7 +206,7 @@ public class mission_01 : MonoBehaviour
         exitButton.gameObject.SetActive(false);
         dialogueRound = 0;
 
-        timer = 120;
+        timer = 240;
         doClear = true;
     }
 
@@ -215,19 +216,54 @@ public class mission_01 : MonoBehaviour
 
     void ButtonClicked_LT()
     {
-
+        if (dialogueRound == 0) {
+            dialogueRound = 100;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 100 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
-    void ButtonClicked_LB(){
-
+    void ButtonClicked_LB()
+    {
+        if (dialogueRound == 0) {
+            dialogueRound = 101;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 101 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
-    void ButtonClicked_RT() {
-
+    void ButtonClicked_RT() 
+    {
+        if (dialogueRound == 0) {
+            dialogueRound = 102;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 102 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
-    void ButtonClicked_RB() {
-
+    void ButtonClicked_RB() 
+    {
+        if (dialogueRound == 0) {
+            dialogueRound = 103;
+            dialogueBox.text = "Giant Bug: ";
+            updateDialogueBoxes(/* 103 */);
+        } 
+        
+        else {
+            closeDialogueOptions();
+        }
     }
 
     void ButtonClicked_exit()
@@ -242,8 +278,34 @@ public class mission_01 : MonoBehaviour
 
     void updateDialogueBoxes()
     {
-        // ROUND 0;
+        // ROUND 0.
         if (dialogueRound == 0) {
+            choices[0].text = "It was terrible! It can't follow me, right?";
+            choices[1].text = "How did you get down here?";
+            choices[2].text = "Do you know where my friend went?";
+            choices[3].text = "What do I do from here?";
+        }
+
+        // ROUND 1.
+        else if (dialogueRound == 100) {
+            choices[0].text = "";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+        else if (dialogueRound == 101) {
+            choices[0].text = "";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+        else if (dialogueRound == 102) {
+            choices[0].text = "";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+        else if (dialogueRound == 103) {
             choices[0].text = "";
             choices[1].text = "";
             choices[2].text = "";
