@@ -11,6 +11,7 @@ public class blythe : MonoBehaviour
     float dist;
     bool inventoryOpen;
     bool dialogueOpen;
+    public int currMission;
 
     // Start by storing values in variables.
     void Start()
@@ -44,6 +45,10 @@ public class blythe : MonoBehaviour
             ExitByRay();
         }
 
+        if (currMission == 1) {
+            GameObject.Find("missionManager").GetComponent<mission_01>().print_noticeBlythe();
+        }
+
         if ( (!inventoryOpen) && (!dialogueOpen) ) {
             crosshair.SetActive(true);
             talkText.SetActive(true);
@@ -65,6 +70,15 @@ public class blythe : MonoBehaviour
         crosshair.SetActive(false);
         talkText.SetActive(false);
         blytheAnimator.SetTrigger("talk_trigger");
-        GameObject.Find("missionManager").GetComponent<mission_00>().print_blytheTalk1();
+
+        if (currMission == 0) {
+            GameObject.Find("missionManager").GetComponent<mission_00>().print_blytheTalk1();
+        } else if (currMission == 1) {
+            GameObject.Find("missionManager").GetComponent<mission_01>().print_blytheTalk();
+        } else if (currMission == 2) {
+            GameObject.Find("missionManager").GetComponent<mission_02>().print_blytheTalk();
+        } else if (currMission == 3) {
+            GameObject.Find("missionManager").GetComponent<mission_03>().print_blytheTalk();
+        }
     }
 }

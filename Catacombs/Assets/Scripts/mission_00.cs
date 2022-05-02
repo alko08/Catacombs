@@ -71,6 +71,7 @@ public class mission_00 : MonoBehaviour
         dialogueRound = 0;
         prevChoice = "";
         finalDialogueCode = 0;
+        GameObject.Find("blythe").GetComponent<blythe>().currMission = 0;
 
         // Tasks.
         initiateTasks();
@@ -205,7 +206,7 @@ public class mission_00 : MonoBehaviour
     {
         closeDialogueOptions();
         
-        timer1 = 120;
+        timer1 = 240;
         checker1 = true;
 
         inventory.addTask(tasks[1]);
@@ -252,6 +253,7 @@ public class mission_00 : MonoBehaviour
             boxes[i].SetActive(false);
         }
         exitButton.gameObject.SetActive(false);
+        dialogueRound = 0;  // Resetting dialogue round.
 
         blytheTalk_done1 = false;
 

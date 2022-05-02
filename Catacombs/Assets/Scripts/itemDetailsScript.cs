@@ -65,9 +65,9 @@ public class itemDetailsScript : MonoBehaviour
         } 
         
         else if (itemName.Contains("Welcome")) {
-            bio = "Welcome to Tisch. If you can't remember how or when you " +
-                  "got here, don't worry. The purple journal will explain " +
-                  "everything.";
+            bio = "I see you got past the monster. Congratulations. I'm sorry " +
+                  "to say that this is the furthest you will get. Turn around " +
+                  "now or face the consequences.";
         } 
         
         else if (itemName.Contains("A Hint")) {
@@ -167,7 +167,7 @@ public class itemDetailsScript : MonoBehaviour
     void activateBookTrigger()
     {
         Debug.Log("GreenBook Open");
-        GameObject.Find("missionManager").GetComponent<mission_01>().bookTextTrigger2 = true;
+        // GameObject.Find("missionManager").GetComponent<mission_01>().bookTextTrigger2 = true;
         bookOpenTrigger = true;
     }
 }

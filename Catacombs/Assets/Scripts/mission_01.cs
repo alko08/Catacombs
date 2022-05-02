@@ -1,147 +1,253 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using UnityEngine.UI;
 using TMPro;
 
+    /*********************************************************************\
+        KNOWN BUGS
+    \*********************************************************************/
+
+/*****************************************************************************\
+
+    - None :)
+
+\*****************************************************************************/
+
 public class mission_01 : MonoBehaviour
 {
-    public GameObject gameUI;
-    private int timer1;
-    private int timer2;
-    bool waiting;
-    bool trigDone0, trigDone1, trigDone2, trigDone3;
-    public TextMeshProUGUI dialogueBox;
-    public bool bookTextTrigger1;
-    public bool bookTextTrigger2;
-    public bool bookTextTrigger3;
-    public GameObject barrier;
+    /*********************************************************************\
+        Declaring variables
+    \*********************************************************************/
 
-    // Start is called before the first frame update
+    // Objects
+    public inventoryScript inventory;
+    public TextMeshProUGUI dialogueBox;
+
+    // Dialogue Stuff
+    const int NUM_BOXES = 4;
+    public GameObject[] boxes;
+    public TextMeshProUGUI[] choices;
+    public Button[] buttons;
+    public Button exitButton;
+    int dialogueRound;
+        
+    // Timer
+    int timer;
+
+    // Bools
+    bool openingPrinted;
+    bool doClear; // If true, dialogue box is cleared when timer reaches 0.
+    public bool isOpen_dialogue;
+
+    // Tasks
+    const int NUM_TASKS = 6;
+    string[] tasks;
+
+
+    // Start is called before the first frame update. Here, we initialize all
+    // of our variables to their default states. Objects get assigned here
+    // as well. 
     void Start()
     {
-        gameUI = GameObject.Find("prefab_UI");
-        timer1 = 120;
-        timer2 = 0;
-        waiting = false;
+        inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         dialogueBox = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
-        dialogueBox.text = "";
-        bookTextTrigger1 = false;
-        bookTextTrigger2 = false;
-        bookTextTrigger3 = false;
-        barrier = GameObject.Find("doorBarrier");
-        trigDone0 = false;
-        trigDone1 = false;
-        trigDone2 = false;
-        trigDone3 = false;
+
+        initiateBoxes();
+        dialogueRound = 0;
+        GameObject.Find("blythe").GetComponent<blythe>().currMission = 1;
+
+        timer = 120;    // Small delay before opening is printed.
+
+        openingPrinted = false;
+        doClear = false;
+        isOpen_dialogue = false;
+
+        initiateTasks();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame. The way we do dialogue is by having
+    // a timer that constantly ticks down. Each time it hits 0, this function
+    // will do something that affects the dialogue box.
     void Update()
     {
-        // Timer to activate opening dialogue.
-        if (timer1 > 0) {
-            timer1--;
-        } else {
-            if (!trigDone0) {
-                print_OpeningDialogue();
-                if (!waiting) {
-                setDialogueFade();
-                }
-            }
+        if (timer > 0) {
+            timer--;
+        } else if (!openingPrinted) {
+            print_OpeningDialogue();
         }
-
-        // Dialogue that activates when first book is picked up. 
-        updateBookTextTriggers();
-        if ( (bookTextTrigger3 == true) && (!trigDone3) ) {
-            print_BookDialogue3();
-            barrier.SetActive(false);
-
-            if (!waiting) {
-                setDialogueFade();
-            }
-        } else if ( (bookTextTrigger2 == true) && (!trigDone2) ) {
-            // Debug.Log("bookTextTrigger2 == true");
-            print_BookDialogue2();
-
-            if (!waiting) {
-                setDialogueFade();
-            }
-        } else if ( (bookTextTrigger1 == true) && (!trigDone1) ) {
-            print_BookDialogue1();
-
-            if (!waiting) {
-                setDialogueFade();
-            }
-        }
-
-        // Timer that causes text to disappear after a bit of time.
-        if (timer2 > 0) {
-            timer2--;
-            // if (timer2 % 60 == 0) {
-            //     Debug.Log("tick");
-            // }
-        } else if (waiting) {
-            setTrigDone();
-            dialogueBox.text = "";
-            waiting = false;
-        }
-    }
-
-    void updateBookTextTriggers()
-    {
-        bookTextTrigger1 = GameObject.Find("EventSystem").GetComponent<inventoryScript>().firstBookFound;
-        // bookTextTrigger2 = GameObject.Find("EventSystem").GetComponent<inventoryScript>().firstBookRead;
-        bookTextTrigger3 = GameObject.Find("EventSystem").GetComponent<inventoryScript>().purpleBookFound;
-    }
-
-    void setDialogueFade()
-    {
-        Debug.Log("tickDown invoked");
         
-        timer2 = 600;
-        waiting = true;
-    }
-
-    void setTrigDone()
-    {
-        if (dialogueBox.text == "You: Where am I? How did I get here?") {
-            trigDone0 = true;
-        } else if (dialogueBox.text == "You: A book? I wonder what it says...") {
-            trigDone1 = true;
-        } else if (dialogueBox.text == "You: I need to find that journal.") {
-            trigDone2 = true;
-        } else if (dialogueBox.text == "You: The journal! Let's see what it says...") {
-            trigDone3 = true;
+        else if (doClear) {
+            clear();
         }
     }
 
-    //                   //
-    // DIALOGUE PRINTERS //
-    //                   //
-    void print_OpeningDialogue()
-    {
-        dialogueBox.text = "You: Where am I? How did I get here?";
-    }
+    /*********************************************************************\
+        Initialization Helper Functions
+    \*********************************************************************/
 
-    void print_BookDialogue1()
+    void initiateBoxes()
     {
-        dialogueBox.text = "You: A book? I wonder what it says...";
-    }
+        boxes = new GameObject[NUM_BOXES];
+        choices = new TextMeshProUGUI[NUM_BOXES];
+        buttons = new Button[NUM_BOXES];
+        
+        string currBox;
+        string currChoice;
+        for (int i = 0; i < NUM_BOXES; i++) {
+            currBox = "box" + (i + 1).ToString();
+                // Debug.Log("Current box: " + currBox);
+            boxes[i] = GameObject.Find(currBox);
 
-    void print_BookDialogue2()
-    {
-        dialogueBox.text = "You: I need to find that journal.";
+            currChoice = "choice" + (i + 1).ToString();
+            choices[i] = GameObject.Find(currChoice).GetComponent<TextMeshProUGUI>();
+
+            buttons[i] = boxes[i].GetComponent<Button>();
+        }
+
+        // Initiating button listeners.
+        buttons[0].onClick.AddListener(ButtonClicked_LT);
+        buttons[1].onClick.AddListener(ButtonClicked_LB);
+        buttons[2].onClick.AddListener(ButtonClicked_RT);
+        buttons[3].onClick.AddListener(ButtonClicked_RB);
+
+        // Now that buttons have been individually primed, close the boxes.
+        for (int i = 0; i < NUM_BOXES; i++) {
+            boxes[i].SetActive(false);
+        }
+
+        exitButton = GameObject.Find("exit").GetComponent<Button>();
+        exitButton.onClick.AddListener(ButtonClicked_exit);
+        exitButton.gameObject.SetActive(false);
     }
     
-    void print_BookDialogue3()
+    void initiateTasks()
     {
-        dialogueBox.text = "You: The journal! Let's see what it says...";
+        tasks = new string[NUM_TASKS];
+
+        tasks[0] = "Explore Tisch and find your friend.";
+        tasks[1] = "Find and speak to the Giant Bug.";
+
+        inventory.addTask(tasks[0]);
     }
 
-    public void print_BarrierText()
+    /*********************************************************************\
+        Misc Helper Functions
+    \*********************************************************************/
+
+    // Toggles non-UI elements (mainly crosshair stuff). 
+    // Pass false to disable (opening UI), pass false to enable (closing UI).
+    void setNonUI(bool NonUI_status)
     {
-        dialogueBox.text = "Complete current objective to advance.";
+        GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = NonUI_status;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = !NonUI_status;
     }
 
+    /*********************************************************************\
+        Dialogue Functions
+    \*********************************************************************/
+
+    void clear()
+    {
+        dialogueBox.text = "";
+        doClear = false;
+    }
+
+    // BASIC DIALOGUE PRINTERS
+    void print_OpeningDialogue()
+    {
+        dialogueBox.text = "You: I wonder what's down here...";
+        timer = 300;
+        doClear = true;
+    }
+
+    public void print_noticeBlythe()
+    {
+        dialogueBox.text = "You: Is that the Giant Bug?";
+        inventory.addTask(tasks[1]);
+        timer = 300;
+        doClear = true;
+    }
+
+    public void print_blytheTalk()
+    {
+        inventory.removeTask(tasks[1]);
+        dialogueBox.text = "Giant Bug: Hey, it's you again! How was the monster?";
+        timer = 0;
+        doClear = false;
+        openDialogueOptions();
+    }
+
+    // DIALOGUE TREE HELPERS
+    void openDialogueOptions()
+    {
+        setNonUI(false);
+        isOpen_dialogue = true;
+
+        for (int i = 0; i < NUM_BOXES; i++) {
+            boxes[i].SetActive(true);
+        }
+        exitButton.gameObject.SetActive(true);
+
+        updateDialogueBoxes(/* ROUND: 0 */);
+    }
+
+    void closeDialogueOptions()
+    {
+        setNonUI(true);
+        isOpen_dialogue = false;
+
+        for (int i = 0; i < NUM_BOXES; i++) {
+            boxes[i].SetActive(false);
+        }
+        exitButton.gameObject.SetActive(false);
+        dialogueRound = 0;
+
+        timer = 120;
+        doClear = true;
+    }
+
+    /*********************************************************************\
+        Button-Press Functions
+    \*********************************************************************/
+
+    void ButtonClicked_LT()
+    {
+
+    }
+
+    void ButtonClicked_LB(){
+
+    }
+
+    void ButtonClicked_RT() {
+
+    }
+
+    void ButtonClicked_RB() {
+
+    }
+
+    void ButtonClicked_exit()
+    {
+        // Resetting dialogue.
+        closeDialogueOptions();
+    }
+
+    /*********************************************************************\
+        Dialogue Tree Updater
+    \*********************************************************************/
+
+    void updateDialogueBoxes()
+    {
+        // ROUND 0;
+        if (dialogueRound == 0) {
+            choices[0].text = "";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+    }
 }

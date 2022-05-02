@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 39188743895969644}
   - component: {fileID: 6417589482336044695}
   - component: {fileID: 39188743895969645}
+  - component: {fileID: 9211823929054876762}
+  - component: {fileID: 6489403971378429861}
   m_Layer: 0
   m_Name: missionManager
   m_TagString: Untagged
@@ -44,8 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffe6de30cce541b78e3a1163ce5790c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameUI: {fileID: 0}
+  inventory: {fileID: 0}
   dialogueBox: {fileID: 0}
+  boxes: []
+  choices: []
+  buttons: []
+  exitButton: {fileID: 0}
+  isOpen_dialogue: 0
 --- !u!114 &39188743895969645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,9 +65,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3e696a3a72c4f7cae2b9e356007647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameUI: {fileID: 0}
+  inventory: {fileID: 0}
   dialogueBox: {fileID: 0}
-  bookTextTrigger1: 0
-  bookTextTrigger2: 0
-  bookTextTrigger3: 0
-  barrier: {fileID: 0}
+  boxes: []
+  choices: []
+  buttons: []
+  exitButton: {fileID: 0}
+  isOpen_dialogue: 0
+--- !u!114 &9211823929054876762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39188743895969634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25e2bd4f220c4b3c976d1951f2079c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  dialogueBox: {fileID: 0}
+  boxes: []
+  choices: []
+  buttons: []
+  exitButton: {fileID: 0}
+  isOpen_dialogue: 0
+--- !u!114 &6489403971378429861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39188743895969634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b76d659083e24567866220b81c52967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  dialogueBox: {fileID: 0}
+  boxes: []
+  choices: []
+  buttons: []
+  exitButton: {fileID: 0}
+  isOpen_dialogue: 0
