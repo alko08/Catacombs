@@ -11,7 +11,7 @@ using TMPro;
 
 /*****************************************************************************\
 
-    - Dialogue choices don't update properly.
+    - None :)
 
 \*****************************************************************************/
 
@@ -23,7 +23,7 @@ public class mission_00 : MonoBehaviour
 
     // Objects
     public inventoryScript inventory;
-    public mission_01 nextMission;
+    // public mission_01 nextMission;
     public TextMeshProUGUI dialogueBox;
 
     // Dialogue Stuff
@@ -61,8 +61,8 @@ public class mission_00 : MonoBehaviour
     {
         // Things outside of mission_00.
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
-        nextMission = gameObject.GetComponent<mission_01>();
-            nextMission.enabled = false;
+        // nextMission = gameObject.GetComponent<mission_01>();
+        //     nextMission.enabled = false;
         dialogueBox = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
             clear();
         

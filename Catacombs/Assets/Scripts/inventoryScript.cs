@@ -332,6 +332,15 @@ public class inventoryScript : MonoBehaviour
             inventoryList.Add(new Book()
                 { m_name = "It Listens",
                   m_sprite = book1});
+            addTask("Find the key and go deeper into Tisch.");
+        } else if (bookName.Contains("tutorialBook (1)")) {
+            inventoryList.Add(new Book()
+                { m_name = "Tread Softly",
+                  m_sprite = book1});
+        } else if (bookName.Contains("tutorialBook (2)")) {
+            inventoryList.Add(new Book()
+                { m_name = "Stay Hidden",
+                  m_sprite = book1});
         }
 
         if (isOpen) {

@@ -146,6 +146,15 @@ public class itemDetailsScript : MonoBehaviour
             bio = "You are safe outside the glass. Watch the monster's movements. " +
                   "Predict its movements. Hide under tables. Get the keys. Progress.";
         }
+
+        else if (itemName.Contains("Tread Softly")) {
+            bio = "Sprinting draws the monster's attention. Do so only when it " +
+                  "isn't nearby, or when absolutely necessary.";
+        }
+
+        else if (itemName.Contains("Stay Hidden")) {
+            bio = "Hide under desks to avoid its sight.";
+        }
         
         else {
             bio = "ITEM UNKNOWN";

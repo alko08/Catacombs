@@ -59,7 +59,19 @@ public class pickupScript2 : MonoBehaviour
         crosshair.SetActive(false);
         gameObject.SetActive(false);
         inventory.addBook(this.name);
+        updateObjectives(this.name);
         FPCam.pickedUp = true;
         Destroy(this);
+    }
+
+    // Function that checks the name of an object. If it matches an item name
+    // that should trigger an objectives update, the objectives UI screen
+    // should update. 
+    void updateObjectives(string itemName)
+    {
+        if (itemName == "keyring") {
+            inventory.removeTask("Find the key and go deeper into Tisch.");
+            inventory.addTask("Get to the doors and continue exploring.");
+        }
     }
 }
