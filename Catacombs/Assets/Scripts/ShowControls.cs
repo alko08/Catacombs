@@ -60,10 +60,10 @@ public class ShowControls : MonoBehaviour
                 str += "Press [c] to crouch.\n";
                 num += 1;
             }
-            if (crouch2) {
-                str += "Press [ctrl] to crouch.\n";
-                num += 1;
-            }
+            // if (crouch2) {
+            //     str += "Press [ctrl] to crouch.\n";
+            //     num += 1;
+            // }
             if (sprint) {
                 str += "Press [shift] to run.\n";
                 num += 1;

@@ -29,7 +29,8 @@ public class Tutorial : MonoBehaviour
            StartCoroutine(EndCoroutine());
         } else if (nearDesk) {
             endWalk = true;
-            text.SetText("Press [c] or [ctrl] to crouch and hide under objects.");
+            text.SetText("Press [c] to crouch and hide under objects.");
+            // text.SetText("Press [c] or [ctrl] to crouch and hide under objects.");
         } else if (endWalk) {
             text.SetText("");
         }
