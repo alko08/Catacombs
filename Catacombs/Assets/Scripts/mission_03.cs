@@ -67,10 +67,10 @@ public class mission_03 : MonoBehaviour
         initiateTasks();
     }
 
-    // Update is called once per frame. The way we do dialogue is by having
+    // FixedUpdate is called once per tick. The way we do dialogue is by having
     // a timer that constantly ticks down. Each time it hits 0, this function
     // will do something that affects the dialogue box.
-    void Update()
+    void FixedUpdate()
     {
         if (timer > 0) {
             timer--;

@@ -90,8 +90,9 @@ public class mission_00 : MonoBehaviour
         checker1 = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called once per tick. Therefore timer stays constant 
+    // between devices with better frames per second
+    void FixedUpdate()
     {
         // Mission starts like mission_01 used to: Confused dialogue after a
         // short timer. 

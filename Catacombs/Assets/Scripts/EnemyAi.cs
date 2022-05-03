@@ -7,11 +7,11 @@ public class EnemyAi : MonoBehaviour
     public LayerMask whatIsPlayer;
     public float sightRange, warningRange, attackRange, walkSpeed, runSpeed;
     public bool isOnFloor, isInSight, seeHiding, moving;
-    public GameObject hunting, warning;
     public AudioSource chase_audio_source;
     public float chase_volume = 0.0f;
     public Transform[] patrolPoints;
-    
+
+    private GameObject hunting, warning, lightWarning;    
     private NavMeshAgent agent;
     private Ray sight0, sight1, sight2, sight3, glassRay;
     private bool seePlayer, hunted, playerInAttackRange, playerInWarningRange, 
@@ -41,6 +41,10 @@ public class EnemyAi : MonoBehaviour
         monsterAnimator = gameObject.transform.GetChild(1).gameObject.GetComponent<Animator>();
         flash = GameObject.FindWithTag("Flashlight").GetComponent<FlashLight>();
         // playerCam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+
+        hunting = GameObject.FindWithTag("hunting");
+        warning = GameObject.FindWithTag("warning");
+        lightWarning = GameObject.FindWithTag("lightWarning");
     }
 
     private void Update()
@@ -153,6 +157,7 @@ public class EnemyAi : MonoBehaviour
             GetComponent<NavMeshAgent>().speed = walkSpeed;
         }
         
+        lightWarning.SetActive(false);
         hunting.SetActive(false);
         if (playerInWarningRange) {
             warning.SetActive(true);
@@ -196,6 +201,7 @@ public class EnemyAi : MonoBehaviour
     private void ChasePlayer()
     {
         GetComponent<NavMeshAgent>().speed = runSpeed;
+        lightWarning.SetActive(false);
         hunting.SetActive(true);
         warning.SetActive(false);
         
@@ -212,13 +218,10 @@ public class EnemyAi : MonoBehaviour
         lookingThroughGlass = true;
         walkPointSet = false;
         hunted = true;
-        
+
+        lightWarning.SetActive(true);
         hunting.SetActive(false);
-        if (playerInWarningRange) {
-            warning.SetActive(true);
-        } else {
-            warning.SetActive(false);
-        }
+        warning.SetActive(false);
 
         RaycastHit hit;
         glassRay.origin = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
@@ -248,6 +251,7 @@ public class EnemyAi : MonoBehaviour
         walkPointSet = false;
         hunted = true;
 
+        lightWarning.SetActive(false);
         hunting.SetActive(false);
         if (playerInWarningRange) {
             warning.SetActive(true);
