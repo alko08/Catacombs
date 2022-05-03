@@ -21,7 +21,7 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
-  m_AmbientEquatorColor: {r: 0.1400125, g: 0.15449657, b: 0.16415259, a: 1}
+  m_AmbientEquatorColor: {r: 0.22738336, g: 0.2495671, b: 0.2662049, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
@@ -2771,6 +2771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 1
+  currMission: 0
 --- !u!95 &282679880
 Animator:
   serializedVersion: 3
