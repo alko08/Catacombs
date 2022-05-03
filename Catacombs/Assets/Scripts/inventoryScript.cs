@@ -69,10 +69,15 @@ public class inventoryScript : MonoBehaviour
     public bool hasKey;
     private TextMeshProUGUI batteryCountText, speakerCountText;
 
+    // Keeping track of books.
+    public TextMeshProUGUI points;
+    public int numBooks;
+
     // Other.
     private int testTotal;
     public TextMeshProUGUI goalTextMeshPro;
     public bool dialogue_open;
+    public int currMission;
 
     /*********************************************************************\
         FUNCTIONS
@@ -119,6 +124,12 @@ public class inventoryScript : MonoBehaviour
         inventoryUI.SetActive(false);
         tasksUI.SetActive(false);
         selectorUI.SetActive(false);
+
+        // Book tracking.
+        if (currMission == 1) {
+            points = GameObject.Find("Points").GetComponent<TextMeshProUGUI>();
+        }
+        numBooks = 0;
 
         // Other.
         testTotal = 0;
@@ -272,18 +283,26 @@ public class inventoryScript : MonoBehaviour
             if (firstBookFound == false) {
                 firstBookFound = true;
             }
-        } else if (bookName.Contains("battery")) {
+        } 
+        
+        // For non-books, we want to cancel out the numBooks++ down below.
+        else if (bookName.Contains("battery")) {
             batteryCount++;
             batteryCountText.SetText("" + batteryCount);
+            numBooks--;
         } else if (bookName.Contains("speaker")) {
             speakerCount++;
             speakerCountText.SetText("" + speakerCount);
+            numBooks--;
         } else if (bookName.Contains("keyring")) {
             hasKey = true;
             inventoryList.Add(new Book() 
                 { m_name = "A Ring of Keys", 
                   m_sprite = keyRing });
-        } else if (bookName.Contains("pickup_hint")) {
+            numBooks--;
+        } 
+        
+        else if (bookName.Contains("pickup_hint")) {
             inventoryList.Add(new Book()
                 { m_name = "A Hint",
                   m_sprite = book0});
@@ -346,6 +365,9 @@ public class inventoryScript : MonoBehaviour
         if (isOpen) {
             doOpen();
         }
+
+        numBooks++;
+        points.text = numBooks.ToString() + " / 10";
     }
 
     void displayItem(Book book, int index)
@@ -413,7 +435,14 @@ public class inventoryScript : MonoBehaviour
             itemsUI[inventoryList.Count].SetActive(false);
             hasKey = false;
             // Debug.Log("Cant remove:" + bookName);
-        } else {
+        } 
+
+        else if (bookName == "ALL_OF_THEM") {
+            inventoryList.Clear();
+        }
+        
+        
+        else {
             Debug.Log("Cant remove:" + bookName);
         }
         

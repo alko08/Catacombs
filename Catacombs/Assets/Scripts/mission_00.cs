@@ -61,6 +61,7 @@ public class mission_00 : MonoBehaviour
     {
         // Things outside of mission_00.
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
+            inventory.currMission = 0;
         // nextMission = gameObject.GetComponent<mission_01>();
         //     nextMission.enabled = false;
         dialogueBox = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
@@ -72,6 +73,7 @@ public class mission_00 : MonoBehaviour
         prevChoice = "";
         finalDialogueCode = 0;
         GameObject.Find("blythe").GetComponent<blythe>().currMission = 0;
+        GameObject.Find("exit_door").GetComponent<DoorLocked>().currMission = 0;
 
         // Tasks.
         initiateTasks();
@@ -219,6 +221,13 @@ public class mission_00 : MonoBehaviour
         dialogueBox.text = "You: I gotta find my friend!";
         // inventory.addTask(tasks[1]);
         timer1 = 120;
+        notClear = true;
+    }
+
+    public void print_doorMessage()
+    {
+        dialogueBox.text = "The door is locked. Maybe there's a key...";
+        timer1 = 180;
         notClear = true;
     }
 

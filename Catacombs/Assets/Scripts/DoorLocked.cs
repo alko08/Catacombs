@@ -14,6 +14,7 @@ public class DoorLocked : MonoBehaviour
     public bool isExit = false;
     private inventoryScript inventory;
     private FlashLight flashlight;
+    public int currMission;
 
 
     // Start by storing values in variables.
@@ -50,6 +51,8 @@ public class DoorLocked : MonoBehaviour
             crosshair.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Mouse0) && (!isLocked || inventory.hasKey)) {
                 ChangeDoor();
+            } else if (Input.GetKeyDown(KeyCode.Mouse0) && (isLocked || !(inventory.hasKey))) {
+                printLockedMessage();
             }
         }
     }
@@ -80,5 +83,14 @@ public class DoorLocked : MonoBehaviour
         inventory.updateVariables();
         yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void printLockedMessage()
+    {
+        if (currMission == 0) {
+            GameObject.Find("missionManager").GetComponent<mission_00>().print_doorMessage();
+        } else if (currMission == 1) {
+            GameObject.Find("missionManager").GetComponent<mission_01>().print_doorMessage();
+        }
     }
 }
