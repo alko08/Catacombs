@@ -284,8 +284,8 @@ public class mission_01 : MonoBehaviour
         // Player said: "It was terrible! It can't follow me, right?"
         if (dialogueRound == 0) {
             dialogueRound = 100;
-            dialogueBox.text = "Giant Bug: Nope! It found its own way down. " +
-                               "You can find it downstairs!";
+            dialogueBox.text = "Giant Bug: Nope! It's not in this room, but you can find " +
+                               "it again in the chamber downstairs!";
             updateDialogueBoxes(/* 100 */);
         } 
 
@@ -340,7 +340,7 @@ public class mission_01 : MonoBehaviour
         if (dialogueRound == 0) {
             dialogueRound = 101;
             dialogueBox.text = "Giant Bug: Don't worry about it! You should be " +
-                               "more concerned about the monster! It's downstairs!";
+                               "more concerned about the monster! It's in the room downstairs!";
             updateDialogueBoxes(/* 101 */);
         } 
         
