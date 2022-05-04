@@ -4460,6 +4460,10 @@ PrefabInstance:
       propertyPath: flashlight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1397043086753896178, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1397266288631447670, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4470,6 +4474,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1397266288631447670, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730429324393664034, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129171029203512446, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3216430049949617372, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
