@@ -78,6 +78,7 @@ public class inventoryScript : MonoBehaviour
     public TextMeshProUGUI goalTextMeshPro;
     public bool dialogue_open;
     public int currMission;
+    private GameObject sprintBarObject;
 
     /*********************************************************************\
         FUNCTIONS
@@ -134,6 +135,8 @@ public class inventoryScript : MonoBehaviour
         // Other.
         testTotal = 0;
         dialogue_open = false;
+
+        sprintBarObject = GameObject.FindWithTag("SprintCharge");
     }
 
     // This function should grab all the item GameObjects in the UI and store
@@ -169,7 +172,10 @@ public class inventoryScript : MonoBehaviour
     // of the inventory. Don't open if dialogue is open.
     void Update()
     {
-        dialogue_open = GameObject.Find("missionManager").GetComponent<mission_00>().isOpen_dialogue;
+        dialogue_open = GameObject.Find("missionManager").GetComponent<mission_00>().isOpen_dialogue
+        || GameObject.Find("missionManager").GetComponent<mission_01>().isOpen_dialogue
+        || GameObject.Find("missionManager").GetComponent<mission_02>().isOpen_dialogue
+        || GameObject.Find("missionManager").GetComponent<mission_03>().isOpen_dialogue;
         
         if ((Input.GetButtonDown("Inventory")) && (!dialogue_open)) {
             // Code that opens the selector. 
@@ -270,6 +276,9 @@ public class inventoryScript : MonoBehaviour
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = NonUI_status;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = !NonUI_status;
+        if (!NonUI_status) {
+            sprintBarObject.SetActive(false);
+        }
     }
 
     // Function for adding books to inventory.
@@ -319,12 +328,6 @@ public class inventoryScript : MonoBehaviour
             inventoryList.Add(new Book() 
                 { m_name = randomBookName(), 
                   m_sprite = book3 });
-            testTotal++;
-            goalTextMeshPro.SetText(testTotal + " / 10");
-            if (testTotal >= 10) {
-                SceneManager.LoadScene("WinScene");
-            }
-        
         } else if (bookName.Contains("turn back")) {
             inventoryList.Add(new Book()
                 { m_name = "Turn Back",

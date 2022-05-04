@@ -63,7 +63,7 @@ public class mission_01 : MonoBehaviour
         initiateBoxes();
         dialogueRound = 0;
         GameObject.Find("blythe").GetComponent<blythe>().currMission = 1;
-        GameObject.Find("locked_door").GetComponent<DoorLocked>().currMission = 1;
+        GameObject.Find("LockedDoor").GetComponent<DoorLocked>().currMission = 1;
 
         timer = 120;    // Small delay before opening is printed.
 

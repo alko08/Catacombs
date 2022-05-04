@@ -58,12 +58,12 @@ public class FlashLight : MonoBehaviour
                 lightSource.SetActive(true);
                 clickSound.Play();
                 isOn = true;
-                RenderSettings.fogDensity = 0.04f;
+                RenderSettings.fogDensity = 0.03f;
             } else if (isOn) {
                 lightSource.SetActive(false);
                 clickSound.Play();
                 isOn = false;
-                RenderSettings.fogDensity = 0.08f;
+                RenderSettings.fogDensity = 0.06f;
             }
         }
 
