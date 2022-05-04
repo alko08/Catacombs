@@ -20,6 +20,9 @@ TagManager:
   - FadeToBlack
   - SpeakerCount
   - Instructions
+  - hunting
+  - warning
+  - lightWarning
   layers:
   - Default
   - TransparentFX

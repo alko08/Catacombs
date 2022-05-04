@@ -49,7 +49,7 @@ public class blythe : MonoBehaviour
             GameObject.Find("missionManager").GetComponent<mission_01>().print_noticeBlythe();
         }
 
-        if ( (!inventoryOpen) && (!dialogueOpen) ) {
+        if ( (!inventoryOpen) && (!dialogueOpen) && (Time.timeScale != 0)) {
             crosshair.SetActive(true);
             talkText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Mouse0)) {

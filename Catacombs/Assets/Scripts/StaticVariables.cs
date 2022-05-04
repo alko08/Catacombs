@@ -22,7 +22,7 @@ public static class StaticVariables
         interact = false;
         flashlight = false;
         flashlight2 = false;
-        inventory = false;
+        inventory = true;
         crouch = false;
         crouch2 = false;
         sprint = false;

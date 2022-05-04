@@ -49,6 +49,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
         private Slider sprintBarSlider;
+        private GameObject sprintBarObject;
         private float sprintBar;
         public bool hiding, sprinting;
         public BoxCollider headChecker;
@@ -70,8 +71,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
 
-            sprintBarSlider = GameObject.FindWithTag("SprintCharge").GetComponent<Slider>();
-            sprintBar = 200f;
+            sprintBarObject = GameObject.FindWithTag("SprintCharge");
+            sprintBarSlider = sprintBarObject.GetComponent<Slider>();
+            sprintBar = 250f;
         }
 
 
@@ -100,7 +102,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-                sprintBarSlider.value = sprintBar/200f;
+                if (sprintBar == 250f) {
+                    sprintBarObject.SetActive(false);
+                } else {
+                    sprintBarObject.SetActive(true);
+                    sprintBarSlider.value = sprintBar/250f;
+                }
+            } else {
+                sprintBarObject.SetActive(false);
             }
         }
 
@@ -134,11 +143,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     speed = 4f;
                     OutOfBreath.Play();
                 }
-            } else if (sprintBar < 200f) {
+            } else if (sprintBar < 250f) {
                 if (desiredMove.magnitude == 0) sprintBar += .6f;
                 sprintBar += .3f;
             } else {
-                sprintBar = 200f;
+                sprintBar = 250f;
             }
 
             // get a normal for the surface that is being touched to move along it

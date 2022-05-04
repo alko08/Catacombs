@@ -17,7 +17,8 @@ public class ControlMenu : MonoBehaviour
         transform.GetChild(0).GetChild(11).gameObject.GetComponent<Toggle>().isOn = StaticVariables.interact;
         transform.GetChild(0).GetChild(12).gameObject.GetComponent<Toggle>().isOn = StaticVariables.flashlight;
         transform.GetChild(0).GetChild(13).gameObject.GetComponent<Toggle>().isOn = StaticVariables.flashlight2;
-        transform.GetChild(0).GetChild(14).gameObject.GetComponent<Toggle>().isOn = StaticVariables.speaker;
+        transform.GetChild(0).GetChild(14).gameObject.GetComponent<Toggle>().isOn = StaticVariables.inventory;
+        transform.GetChild(0).GetChild(15).gameObject.GetComponent<Toggle>().isOn = StaticVariables.speaker;
     }
 
     public void updateControls (bool c) {
