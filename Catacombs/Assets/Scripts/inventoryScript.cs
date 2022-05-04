@@ -367,7 +367,9 @@ public class inventoryScript : MonoBehaviour
         }
 
         numBooks++;
-        points.text = numBooks.ToString() + " / 10";
+        if (currMission == 1) {
+            points.text = numBooks.ToString() + " / 10";
+        }
     }
 
     void displayItem(Book book, int index)
