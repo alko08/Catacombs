@@ -74,7 +74,7 @@ public class inventoryScript : MonoBehaviour
     public int numBooks;
 
     // Other.
-    private int testTotal;
+    private int testTotal, repeats;
     public TextMeshProUGUI goalTextMeshPro;
     public bool dialogue_open;
     public int currMission;
@@ -326,7 +326,7 @@ public class inventoryScript : MonoBehaviour
         
         } else if (bookName.Contains("test_pickup")) {
             inventoryList.Add(new Book() 
-                { m_name = randomBookName(), 
+                { m_name = randomBookName(-1), 
                   m_sprite = book3 });
         } else if (bookName.Contains("turn back")) {
             inventoryList.Add(new Book()
@@ -335,7 +335,7 @@ public class inventoryScript : MonoBehaviour
         } else if (bookName.Contains("midas project 1")) {
             inventoryList.Add(new Book()
                 { m_name = "Midas Project 1",
-                  m_sprite = book0 });
+                  m_sprite = book1 });
         } else if (bookName.Contains("midas project 2")) {
             inventoryList.Add(new Book()
                 { m_name = "Midas Project 2",
@@ -480,11 +480,20 @@ public class inventoryScript : MonoBehaviour
         }
     }
 
-    string randomBookName()
+    string randomBookName(int index)
     {
-        System.Random rnd = new System.Random();
-        int index = rnd.Next(6);
         string text = "";
+        if (index == -1) {
+            repeats = 0;
+            System.Random rnd = new System.Random();
+            index = rnd.Next(10);
+        } else {
+            repeats++;
+            index++;
+            if (index > 9) {
+                index = 0;
+            }
+        }
 
         if (index == 0) {
             text = "Rats";
@@ -510,8 +519,97 @@ public class inventoryScript : MonoBehaviour
             text = "The Meldon Archives: Vol 1";
         }
 
-        return text;
+        else if (index == 6) {
+            text = "The Final Hours";
+        }
+
+        else if (index == 7) {
+            text = "Pebble Ghosts";
+        }
+
+        else if (index == 8) {
+            text = "Pots, Pots, and Nude Sculptures?!";
+        }
+
+        else if (index == 9) {
+            text = "Milod Quotes 1";
+        }
+
+        Debug.Log("Index:" + index);
+        bool exists = false;
+        for (int i = 0; i < inventoryList.Count; i++) {
+            if (text == inventoryList[i].m_name && repeats < 10) {
+                exists = true;
+            }
+        }
+
+        if (exists) {
+            return randomBookName(index);
+        } else {
+            return text;
+        }
     }
+
+    // string randomBookName2()
+    // {
+    //     System.Random rnd = new System.Random();
+    //     int index = rnd.Next(10);
+    //     string text = "";
+
+    //     if (index == 0) {
+    //         text = "Rats";
+    //     }
+
+    //     else if (index == 1) {
+    //         text = "A Poem";
+    //     }
+
+    //     else if (index == 2) {
+    //         text = "The Wretch";
+    //     }
+
+    //     else if (index == 3) {
+    //         text = "Notes 1";
+    //     }
+
+    //     else if (index == 4) {
+    //         text = "Notes 2";
+    //     }
+
+    //     else if (index == 5) {
+    //         text = "The Meldon Archives: Vol 1";
+    //     }
+
+    //     else if (index == 6) {
+    //         text = "The Final Hours";
+    //     }
+
+    //     else if (index == 7) {
+    //         text = "Pebble Ghosts";
+    //     }
+
+    //     else if (index == 8) {
+    //         text = "Pots, Pots, and Nude Sculptures?!";
+    //     }
+
+    //     else if (index == 9) {
+    //         text = "Milod Quotes";
+    //     }
+
+        
+    //     bool exists = false;
+    //     for (int i = 0; i < inventoryList.Count; i++) {
+    //         if (text == inventoryList[i].m_name) {
+    //             exists = true;
+    //         }
+    //     }
+
+    //     if (exists) {
+    //         return randomBookName();
+    //     } else {
+    //         return text;
+    //     }
+    // }
 
     // Wrapper functions used by SelectorGlowScript to quickly switch from
     // the selector screen to one of the other UI screens.

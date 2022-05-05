@@ -51,7 +51,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Slider sprintBarSlider;
         private GameObject sprintBarObject;
         private float sprintBar;
-        public bool hiding, sprinting;
+        public bool hiding, sprinting, isGOD;
         public BoxCollider headChecker;
 
         // Use this for initialization
@@ -132,7 +132,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
             sprinting = !m_IsWalking;
-            if (!m_IsWalking && sprintBar > 0) {
+            if (!m_IsWalking && (sprintBar > 0 || isGOD)) {
                 if (desiredMove.magnitude > 0) sprintBar -= 1f;
                 m_RunSpeed = 8f;
             } else if (!m_IsWalking) {

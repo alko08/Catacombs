@@ -155,6 +155,32 @@ public class itemDetailsScript : MonoBehaviour
         else if (itemName.Contains("Stay Hidden")) {
             bio = "Hide under desks to avoid its sight.";
         }
+
+        else if (itemName.Contains("The Final Hours")) {
+            bio = "\"Joey, a student at Tuft University, is in his last round of" +
+            " finals when he realizes a killer is after him. Will Joey be able to" +
+            " finish finals, or will something finish him first? Spoilers: it's both\"" +
+            " THE FINAL HOURS, coming to a tufts bookstore near you";
+        }
+
+        else if (itemName.Contains("Pebble Ghosts")) {
+            bio = "Pebbles (or stones) that have had a constitiuant removed by" +
+            " chemical weathering so that the pebble has lower density";
+        }
+
+        else if (itemName.Contains("Pots, Pots, and Nude Sculptures?!")) {
+            bio = "A historical analysis of the progression of scultpure carvings" +
+            " and pots iconography from the Neolithic Greek Period to the Imperium" +
+            " Romanum Justinian Dynasty. These times show the evolution of the greek" +
+            " and roman culture over time with their shifts in ideals over elite" +
+            " iconography, the proper spending of money, and what makes a pot popular.";
+        }
+
+        else if (itemName.Contains("Milod Quotes 1")) {
+            bio = "- \"You don't need to understand my code. C++ library go brrrr\"\n" +
+            "- \"Self plagiarism is BEAUTIFUL\"\n" + 
+            "- \"You played with sticks. Now here's a machete. Go have fun\"";
+        }
         
         else {
             bio = "ITEM UNKNOWN";
