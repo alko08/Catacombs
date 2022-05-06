@@ -331,7 +331,7 @@ public class inventoryScript : MonoBehaviour
         } else if (bookName.Contains("turn back")) {
             inventoryList.Add(new Book()
                 { m_name = "Turn Back",
-                  m_sprite = book1 });
+                  m_sprite = book2 });
         } else if (bookName.Contains("midas project 1")) {
             inventoryList.Add(new Book()
                 { m_name = "Midas Project 1",
@@ -347,7 +347,7 @@ public class inventoryScript : MonoBehaviour
         } else if (bookName.Contains("final warning")) {
             inventoryList.Add(new Book()
                 { m_name = "A Warning",
-                  m_sprite = book1 });
+                  m_sprite = book2 });
         }
 
         else if (bookName.Contains("tutorialBook")) {
@@ -528,7 +528,7 @@ public class inventoryScript : MonoBehaviour
         }
 
         else if (index == 8) {
-            text = "Pots, Pots, and Nude Sculptures?!";
+            text = "Blythe The Bug";
         }
 
         else if (index == 9) {

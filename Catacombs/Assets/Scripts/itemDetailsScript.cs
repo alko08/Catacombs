@@ -158,8 +158,7 @@ public class itemDetailsScript : MonoBehaviour
 
         else if (itemName.Contains("The Final Hours")) {
             bio = "\"Joey, a student at Tuft University, is in his last round of" +
-            " finals when he realizes a killer is after him. Will Joey be able to" +
-            " finish finals, or will something finish him first? Spoilers: it's both\"" +
+            " finals when he realizes a killer is after him.\"" + 
             " THE FINAL HOURS, coming to a tufts bookstore near you";
         }
 
@@ -168,18 +167,49 @@ public class itemDetailsScript : MonoBehaviour
             " chemical weathering so that the pebble has lower density";
         }
 
-        else if (itemName.Contains("Pots, Pots, and Nude Sculptures?!")) {
+        else if (itemName.Contains("Pots & Sculptures")) {
             bio = "A historical analysis of the progression of scultpure carvings" +
             " and pots iconography from the Neolithic Greek Period to the Imperium" +
-            " Romanum Justinian Dynasty. These times show the evolution of the greek" +
-            " and roman culture over time with their shifts in ideals over elite" +
-            " iconography, the proper spending of money, and what makes a pot popular.";
+            " Romanum Justinian Dynasty...";
         }
 
         else if (itemName.Contains("Milod Quotes 1")) {
             bio = "- \"You don't need to understand my code. C++ library go brrrr\"\n" +
             "- \"Self plagiarism is BEAUTIFUL\"\n" + 
             "- \"You played with sticks. Now here's a machete. Go have fun\"";
+        }
+
+        else if (itemName.Contains("Pots & Sculptures 2")) {
+            bio = "These times show the evolution of the greek" +
+            " and roman culture over time with their shifts in ideals over elite" +
+            " iconography, the proper spending of money, and what makes a pot popular.";
+        }
+
+        else if (itemName.Contains("The Final Hours 2")) {
+            bio =  "Will Joey be able to finish finals, or will something find" +
+            " him first? Spoilers: it's both";
+        }
+
+        else if (itemName.Contains("It Is Hunting You")) {
+            bio = "Its always listening. Always patrolling. The only place safe" +
+            " from its search is to leave this library. Its protecting something, " +
+            " but what is it?";
+        }
+
+        else if (itemName.Contains("IT FOUND ME")) {
+            bio = "The Wretch, it found me. I... I got away but not unharmed." +
+            " I noticed its attracted to sound like the bug told me. I should have" +
+            " listened to him more and kept slient...";
+        }
+
+        else if (itemName.Contains("Blythe The Bug")) {
+            bio = "While searching through the library, I found this bug and get this," + 
+            " HE CAN TALK. I don't know how or why, but atleast he is friendly." +
+            " He told me his name is Blythe...";
+        }
+
+        else if (itemName.Contains("Technology & Magic")) {
+            bio = "\"Any sufficiently advanced technology is indistinguishable from magic\" - Arthur C. Clarke";
         }
         
         else {
