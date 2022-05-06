@@ -273,11 +273,16 @@ public class inventoryScript : MonoBehaviour
     // Pass false for opening a UI element, true when closing it. 
     void setNonUI(bool NonUI_status)
     {
+        
         GameObject.Find("FPSController").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = NonUI_status;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = !NonUI_status;
+
         if (!NonUI_status) {
+            Time.timeScale = 0f;
             sprintBarObject.SetActive(false);
+        } else {
+            Time.timeScale = 1f;
         }
     }
 
@@ -381,7 +386,17 @@ public class inventoryScript : MonoBehaviour
                   m_sprite = book1});
         } else if (bookName.Contains("randomBook3")) {
             inventoryList.Add(new Book()
-                { m_name = randomBookName2(-1),
+                { m_name = randomBookName3(-1),
+                  m_sprite = book3});
+        }
+
+        else if (bookName.Contains("tutorialBook6")) {
+            inventoryList.Add(new Book()
+                { m_name = "The Catacombs",
+                  m_sprite = book1});
+        } else if (bookName.Contains("randomBook4")) {
+            inventoryList.Add(new Book()
+                { m_name = randomBookName4(-1),
                   m_sprite = book3});
         }
 
@@ -389,8 +404,8 @@ public class inventoryScript : MonoBehaviour
             doOpen();
         }
 
-        numBooks++;
         if (currMission == 1) {
+            numBooks++;
             points.text = numBooks.ToString() + " / 10";
         }
     }
@@ -656,7 +671,7 @@ public class inventoryScript : MonoBehaviour
         }
 
         else if (index == 5) {
-            text = "Looking For Lab Assitants";
+            text = "Lab Assitants";
         }
 
         Debug.Log("Index:" + index);
@@ -669,6 +684,60 @@ public class inventoryScript : MonoBehaviour
 
         if (exists) {
             return randomBookName3(index);
+        } else {
+            return text;
+        }
+    }
+
+    string randomBookName4(int index)
+    {
+        string text = "";
+        if (index == -1) {
+            repeats = 0;
+            System.Random rnd = new System.Random();
+            index = rnd.Next(6);
+        } else {
+            repeats++;
+            index++;
+            if (index > 5) {
+                index = 0;
+            }
+        }
+
+        if (index == 0) {
+            text = "Chronicles of Big Sash 1";
+        }
+
+        else if (index == 1) {
+            text = "Chronicles of Big Sash 2";
+        }
+
+        else if (index == 2) {
+            text = "Chronicles of Big Sash 3";
+        }
+
+        else if (index == 3) {
+            text = "Chronicles of Big Sash 4";
+        }
+
+        else if (index == 4) {
+            text = "Chronicles of Big Sash 5";
+        }
+
+        else if (index == 5) {
+            text = "Who Wrote These Books?";
+        }
+
+        Debug.Log("Index:" + index);
+        bool exists = false;
+        for (int i = 0; i < inventoryList.Count; i++) {
+            if (text == inventoryList[i].m_name && repeats < 6) {
+                exists = true;
+            }
+        }
+
+        if (exists) {
+            return randomBookName4(index);
         } else {
             return text;
         }

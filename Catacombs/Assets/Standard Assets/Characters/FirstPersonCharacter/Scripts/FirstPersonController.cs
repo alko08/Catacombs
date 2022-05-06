@@ -74,7 +74,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             sprintBarObject = GameObject.FindWithTag("SprintCharge");
             sprintBarSlider = sprintBarObject.GetComponent<Slider>();
-            sprintBar = 250f;
+            sprintBar = 300f;
         }
 
 
@@ -103,11 +103,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-                if (sprintBar == 250f) {
+                if (sprintBar == 300f) {
                     sprintBarObject.SetActive(false);
                 } else {
                     sprintBarObject.SetActive(true);
-                    sprintBarSlider.value = sprintBar/250f;
+                    sprintBarSlider.value = sprintBar/300f;
                 }
             } else {
                 sprintBarObject.SetActive(false);
@@ -144,11 +144,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     speed = m_WalkSpeed;
                     OutOfBreath.Play();
                 }
-            } else if (sprintBar < 250f) {
-                if (desiredMove.magnitude == 0) sprintBar += .6f;
-                sprintBar += .3f;
+            } else if (sprintBar < 300f) {
+                if (desiredMove.magnitude == 0) sprintBar += .9f;
+                sprintBar += .45f;
             } else {
-                sprintBar = 250f;
+                sprintBar = 300f;
             }
 
             // get a normal for the surface that is being touched to move along it

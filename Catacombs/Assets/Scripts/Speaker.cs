@@ -9,7 +9,7 @@ public class Speaker : MonoBehaviour
     private Rigidbody rb;
     private EnemyAi monster;
     private Animator monsterAnim;
-    private int count;
+    // private int count;
     private bool canThrow;
     private inventoryScript inventory;
 
@@ -17,7 +17,7 @@ public class Speaker : MonoBehaviour
     void Start()
     {
         canThrow = true;
-        count = 0;
+        // count = 0;
         monster = GameObject.FindWithTag("Enemy").GetComponent<EnemyAi>();
         monsterAnim = GameObject.FindWithTag("Enemy").transform.GetChild(1).gameObject.GetComponent<Animator>();
         player = GameObject.FindWithTag("MainCamera").transform;
@@ -53,19 +53,19 @@ public class Speaker : MonoBehaviour
 
     IEnumerator despawnCoroutine(GameObject c) {
         yield return new WaitForSeconds(10f);
-        if(!monster.destroySpeaker(0)) {
+        if(!monster.destroySpeaker()) {
             StartCoroutine(destroyCoroutine(c));
         } else {
-            count = 0;
+            // count = 0;
             StartCoroutine(waitCoroutine(c));
         }
     }
     IEnumerator waitCoroutine(GameObject c) {
         yield return new WaitForSeconds(1f);
-        if(!monster.destroySpeaker(count)) {
+        if(!monster.destroySpeaker()) {
             StartCoroutine(destroyCoroutine(c));
         } else {
-            count++;
+            // count++;
             StartCoroutine(waitCoroutine(c));
         }
     }

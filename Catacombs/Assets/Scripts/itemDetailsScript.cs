@@ -242,12 +242,56 @@ public class itemDetailsScript : MonoBehaviour
             " right job for you! ";
         }
 
-        else if (itemName.Contains("Looking For Lab Assitants")) {
+        else if (itemName.Contains("Lab Assitants")) {
             bio = "Come work on the Midas project with top Tuft's proffesors!" +
             "\nRequirements:" +
             "\n - Has nobody who will look for them if they go missing." +
-            "\n Doesn't care about silly things such as safety...";
+            "\n - Doesn't care about silly things such as safety...";
         }
+
+        else if (itemName.Contains("Chronicles of Big Sash 1")) {
+            bio = "Whoops I Committed Vehicular Man Slaughter:\n" +
+            "As Big Sash put pulled out of the Taco Bell parking lot at 2am," +
+            " he thought everything would be fine, until he heard a thud and scream...";
+        }
+
+        else if (itemName.Contains("Chronicles of Big Sash 2")) {
+            bio = "Big Sash and the Taco Bell Incident:\n" +
+            "Big Sash thought the police had forgotten about his 2am shenanigans," +
+            " until officer dikenbal asked him where he was that night...";
+        }
+
+        else if (itemName.Contains("Chronicles of Big Sash 3")) {
+            bio = "Big Sash on Death Row:\n" +
+            "Big Sash thought his alibi of playing league at 2am was flawless," +
+            " until he saw the horrified faces of the judge and jury...";
+        }
+
+        else if (itemName.Contains("Chronicles of Big Sash 4")) {
+            bio = "The Second Coming of Big Sash:\n" +
+            "The prison guards may have thought killing Big Sash would be easy," +
+            " boy were they wrong. Next time they should have destroyed his bed first...";
+        }
+
+        else if (itemName.Contains("Chronicles of Big Sash 5")) {
+            bio = "Big Sash vs the Irs:\n" +
+            "The good thing about being dead is you don't need to pay your taxes," +
+            " or so big sash thought... until the tax monster showed up outside his house...";
+        }
+
+        else if (itemName.Contains("Who Wrote These Books?")) {
+            bio = "Guest Writers:\n" +
+            "- \"The Final Hours\" by Amanda\n" +
+            "- \"Pebble Ghosts\" & \"Pots & Sculptures\" by Anna\n" +
+            "- \"Chronicles of Big Sash\" by Sasha";
+        }
+
+        else if (itemName.Contains("The Catacombs")) {
+            bio = "This is it, the Catacombs. Every secret of the Midas Project" +
+            " is located here.\n Be careful...";
+        }
+
+        
         
         else {
             bio = "ITEM UNKNOWN";

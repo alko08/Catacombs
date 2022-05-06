@@ -270,10 +270,11 @@ public class EnemyAi : MonoBehaviour
         agent.SetDestination(speaker.position);
     }
 
-    public bool destroySpeaker(int count)
+    public bool destroySpeaker()
     {
         Vector3 distanceToWalkPoint = transform.position - speaker.position;
-        seeSpeaker = distanceToWalkPoint.magnitude > 3f && count <= 20;
+        // seeSpeaker = distanceToWalkPoint.magnitude > 3f && count <= 20;
+        seeSpeaker = distanceToWalkPoint.magnitude > 3f;
         if (!seeSpeaker) {
             speaker = null;
             monsterAnimator.SetTrigger("stomp");

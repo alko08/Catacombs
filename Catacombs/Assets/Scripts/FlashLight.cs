@@ -9,6 +9,7 @@ public class FlashLight : MonoBehaviour
     public GameObject lightSource;
     public AudioSource clickSound;
     public AudioSource beepSound;
+    public float lowFog = 0.03f, highFog = 0.06f;
     // private TextMeshProUGUI textMeshPro;
     private GameObject chargeBar;
     private GameObject charge00, charge10, charge20, charge30, charge40, 
@@ -58,12 +59,12 @@ public class FlashLight : MonoBehaviour
                 lightSource.SetActive(true);
                 clickSound.Play();
                 isOn = true;
-                RenderSettings.fogDensity = 0.03f;
+                RenderSettings.fogDensity = lowFog;
             } else if (isOn) {
                 lightSource.SetActive(false);
                 clickSound.Play();
                 isOn = false;
-                RenderSettings.fogDensity = 0.06f;
+                RenderSettings.fogDensity = highFog;
             }
         }
 
