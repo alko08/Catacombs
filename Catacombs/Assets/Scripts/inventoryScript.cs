@@ -350,19 +350,29 @@ public class inventoryScript : MonoBehaviour
                   m_sprite = book2 });
         }
 
-        else if (bookName.Contains("tutorialBook")) {
+        else if (bookName.Contains("tutorialBook1")) {
             inventoryList.Add(new Book()
                 { m_name = "It Listens",
                   m_sprite = book1});
             addTask("Find the key and go deeper into Tisch.");
-        } else if (bookName.Contains("tutorialBook (1)")) {
+        } else if (bookName.Contains("tutorialBook2")) {
             inventoryList.Add(new Book()
                 { m_name = "Tread Softly",
                   m_sprite = book1});
-        } else if (bookName.Contains("tutorialBook (2)")) {
+        } else if (bookName.Contains("tutorialBook3")) {
             inventoryList.Add(new Book()
                 { m_name = "Stay Hidden",
                   m_sprite = book1});
+        }
+
+        else if (bookName.Contains("tutorialBook4")) {
+            inventoryList.Add(new Book()
+                { m_name = "Loud Sounds",
+                  m_sprite = book1});
+        } else if (bookName.Contains("randomBook2")) {
+            inventoryList.Add(new Book()
+                { m_name = randomBookName2(-1),
+                  m_sprite = book3});
         }
 
         if (isOpen) {
@@ -532,7 +542,7 @@ public class inventoryScript : MonoBehaviour
         }
 
         else if (index == 9) {
-            text = "Milod Quotes 1";
+            text = "The Final Hours 2";
         }
 
         Debug.Log("Index:" + index);
@@ -550,66 +560,55 @@ public class inventoryScript : MonoBehaviour
         }
     }
 
-    // string randomBookName2()
-    // {
-    //     System.Random rnd = new System.Random();
-    //     int index = rnd.Next(10);
-    //     string text = "";
+    string randomBookName2(int index)
+    {
+        string text = "";
+        if (index == -1) {
+            repeats = 0;
+            System.Random rnd = new System.Random();
+            index = rnd.Next(5);
+        } else {
+            repeats++;
+            index++;
+            if (index > 4) {
+                index = 0;
+            }
+        }
 
-    //     if (index == 0) {
-    //         text = "Rats";
-    //     }
+        if (index == 0) {
+            text = "Pots & Sculptures";
+        }
 
-    //     else if (index == 1) {
-    //         text = "A Poem";
-    //     }
+        else if (index == 1) {
+            text = "Pots & Sculptures 2";
+        }
 
-    //     else if (index == 2) {
-    //         text = "The Wretch";
-    //     }
+        else if (index == 2) {
+            text = "Milod Quotes 1";
+        }
 
-    //     else if (index == 3) {
-    //         text = "Notes 1";
-    //     }
+        else if (index == 3) {
+            text = "It Is Hunting You";
+        }
 
-    //     else if (index == 4) {
-    //         text = "Notes 2";
-    //     }
+        else if (index == 4) {
+            text = "Technology & Magic";
+        }
 
-    //     else if (index == 5) {
-    //         text = "The Meldon Archives: Vol 1";
-    //     }
+        Debug.Log("Index:" + index);
+        bool exists = false;
+        for (int i = 0; i < inventoryList.Count; i++) {
+            if (text == inventoryList[i].m_name && repeats < 10) {
+                exists = true;
+            }
+        }
 
-    //     else if (index == 6) {
-    //         text = "The Final Hours";
-    //     }
-
-    //     else if (index == 7) {
-    //         text = "Pebble Ghosts";
-    //     }
-
-    //     else if (index == 8) {
-    //         text = "Pots, Pots, and Nude Sculptures?!";
-    //     }
-
-    //     else if (index == 9) {
-    //         text = "Milod Quotes";
-    //     }
-
-        
-    //     bool exists = false;
-    //     for (int i = 0; i < inventoryList.Count; i++) {
-    //         if (text == inventoryList[i].m_name) {
-    //             exists = true;
-    //         }
-    //     }
-
-    //     if (exists) {
-    //         return randomBookName();
-    //     } else {
-    //         return text;
-    //     }
-    // }
+        if (exists) {
+            return randomBookName2(index);
+        } else {
+            return text;
+        }
+    }
 
     // Wrapper functions used by SelectorGlowScript to quickly switch from
     // the selector screen to one of the other UI screens.

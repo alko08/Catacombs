@@ -6296,7 +6296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980959296637844265, guid: 6810071b262e7984f87e422f61bcf890, type: 3}
       propertyPath: m_Name
-      value: tutorialBook (2)
+      value: tutorialBook3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6810071b262e7984f87e422f61bcf890, type: 3}
@@ -10822,7 +10822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980959296637844265, guid: 6810071b262e7984f87e422f61bcf890, type: 3}
       propertyPath: m_Name
-      value: tutorialBook (1)
+      value: tutorialBook2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6810071b262e7984f87e422f61bcf890, type: 3}
@@ -13896,7 +13896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980959296637844265, guid: 6810071b262e7984f87e422f61bcf890, type: 3}
       propertyPath: m_Name
-      value: tutorialBook
+      value: tutorialBook1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6810071b262e7984f87e422f61bcf890, type: 3}
