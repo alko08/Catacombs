@@ -50,7 +50,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Slider sprintBarSlider;
         private GameObject sprintBarObject;
-        private float sprintBar;
+        private float sprintBar, startRunSpeed;
         public bool hiding, sprinting, isGOD;
         public BoxCollider headChecker;
 
@@ -59,6 +59,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             hiding = false;
             sprinting = false;
+            startRunSpeed = m_RunSpeed;
             
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
@@ -134,13 +135,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             sprinting = !m_IsWalking;
             if (!m_IsWalking && (sprintBar > 0 || isGOD)) {
                 if (desiredMove.magnitude > 0) sprintBar -= 1f;
-                m_RunSpeed = 8f;
+                m_RunSpeed = startRunSpeed;
             } else if (!m_IsWalking) {
                 sprinting = false;
                 sprintBar = 0f;
-                if(m_RunSpeed != 4f) {
-                    m_RunSpeed = 4f;
-                    speed = 4f;
+                if(m_RunSpeed != m_WalkSpeed) {
+                    m_RunSpeed = m_WalkSpeed;
+                    speed = m_WalkSpeed;
                     OutOfBreath.Play();
                 }
             } else if (sprintBar < 250f) {

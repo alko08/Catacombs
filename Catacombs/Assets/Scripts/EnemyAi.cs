@@ -282,7 +282,8 @@ public class EnemyAi : MonoBehaviour
         return seeSpeaker;
     }
 
-    IEnumerator notMovingCoroutine() {
+    IEnumerator notMovingCoroutine() 
+    {
         moving = false;
         monsterAnimator.SetBool("walking", false);
         yield return new WaitUntil(() => monsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("StartWalk"));
@@ -298,5 +299,10 @@ public class EnemyAi : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void reset() 
+    {
+        walkPointSet = false;
     }
 }

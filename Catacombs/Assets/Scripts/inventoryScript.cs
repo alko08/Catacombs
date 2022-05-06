@@ -375,6 +375,16 @@ public class inventoryScript : MonoBehaviour
                   m_sprite = book3});
         }
 
+        else if (bookName.Contains("tutorialBook5")) {
+            inventoryList.Add(new Book()
+                { m_name = "The Maze",
+                  m_sprite = book1});
+        } else if (bookName.Contains("randomBook3")) {
+            inventoryList.Add(new Book()
+                { m_name = randomBookName2(-1),
+                  m_sprite = book3});
+        }
+
         if (isOpen) {
             doOpen();
         }
@@ -598,13 +608,67 @@ public class inventoryScript : MonoBehaviour
         Debug.Log("Index:" + index);
         bool exists = false;
         for (int i = 0; i < inventoryList.Count; i++) {
-            if (text == inventoryList[i].m_name && repeats < 10) {
+            if (text == inventoryList[i].m_name && repeats < 5) {
                 exists = true;
             }
         }
 
         if (exists) {
             return randomBookName2(index);
+        } else {
+            return text;
+        }
+    }
+
+    string randomBookName3(int index)
+    {
+        string text = "";
+        if (index == -1) {
+            repeats = 0;
+            System.Random rnd = new System.Random();
+            index = rnd.Next(6);
+        } else {
+            repeats++;
+            index++;
+            if (index > 5) {
+                index = 0;
+            }
+        }
+
+        if (index == 0) {
+            text = "IT FOUND ME";
+        }
+
+        else if (index == 1) {
+            text = "HELP ME";
+        }
+
+        else if (index == 2) {
+            text = "Dogs and Cats";
+        }
+
+        else if (index == 3) {
+            text = "Among Us Car";
+        }
+
+        else if (index == 4) {
+            text = "Computer Science";
+        }
+
+        else if (index == 5) {
+            text = "Looking For Lab Assitants";
+        }
+
+        Debug.Log("Index:" + index);
+        bool exists = false;
+        for (int i = 0; i < inventoryList.Count; i++) {
+            if (text == inventoryList[i].m_name && repeats < 6) {
+                exists = true;
+            }
+        }
+
+        if (exists) {
+            return randomBookName3(index);
         } else {
             return text;
         }

@@ -211,10 +211,42 @@ public class itemDetailsScript : MonoBehaviour
             " Throw it far away either when in danger or when trying to sneak past it.";
         }
 
+        else if (itemName.Contains("The Maze")) {
+            bio = "To go deeper you are going to have to find the key at the center of the maze." +
+            " Good luck, you are going to need it.\nThe monster is growing restless...";
+        }
+
         else if (itemName.Contains("IT FOUND ME")) {
             bio = "The Wretch, it found me. I... I got away but not unharmed." +
             " I noticed its attracted to sound like the bug told me. I should have" +
             " listened to him more and kept slient...";
+        }
+
+        else if (itemName.Contains("HELP ME")) {
+            bio = "THE NOISE.... IT WON'T GO AWAY... PLEASE... PUT A STOP TO THIS...";
+        }
+
+        else if (itemName.Contains("Dogs and Cats")) {
+            bio = "Who doesn't want a pet? This book will" +
+            " tell you how to acquire and raise the two most common pets there are," +
+            " dogs and cats! First acquire a dog or cat...";
+        }
+
+        else if (itemName.Contains("Among Us Car")) {
+            bio = "All hail Among Us Car.\nFound beneath the stairs.\n♡";
+        }
+
+        else if (itemName.Contains("Computer Science")) {
+            bio = "Ever wanted to spend hours stairing at a computer screen?" +
+            " Well then a job in the massive field of computer science is the" +
+            " right job for you! ";
+        }
+
+        else if (itemName.Contains("Looking For Lab Assitants")) {
+            bio = "Come work on the Midas project with top Tuft's proffesors!" +
+            "\nRequirements:" +
+            "\n - Has nobody who will look for them if they go missing." +
+            "\n Doesn't care about silly things such as safety...";
         }
         
         else {

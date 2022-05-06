@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/library.unity
     guid: 8a0971d1ff77427429b75a81182fc984
   - enabled: 1
+    path: Assets/Scenes/SpeakerLevel.unity
+    guid: e7d6ad752c093774580a9c9dd9c3a430
+  - enabled: 1
+    path: Assets/Scenes/MazeLevel.unity
+    guid: 53bec63205bc2b64aaf640ebc17badfb
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 65dc438ec24e16b4fbf7a9993a8d970e
   - enabled: 1
