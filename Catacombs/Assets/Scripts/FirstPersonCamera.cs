@@ -28,7 +28,9 @@ public class FirstPersonCamera : MonoBehaviour
         RaycastHit hit;        
         int layerMask = 1 << 3;
         layerMask = ~layerMask;
+
         if (Physics.Raycast(ray, out hit, 7, layerMask)) {
+            Debug.DrawLine(ray.origin, hit.point, Color.white);
             // print("I'm looking at " + hit.transform.name);
             if (hit.transform.tag == "pickup") {
                 pickedUp = false;
@@ -44,12 +46,14 @@ public class FirstPersonCamera : MonoBehaviour
             if (last != hit.transform && (last.tag == "npc" ||
                                           last.tag == "door"))
                 last.SendMessage("ExitByRay");
+            
             last = hit.transform;
         } else {
             if (last.tag == "pickup" && !pickedUp) {
                 last.SendMessage("ExitByRay");
                 last = this.transform;
             }
+
             if (last.tag == "npc" ||
                 last.tag == "door") {
                 last.SendMessage("ExitByRay");
