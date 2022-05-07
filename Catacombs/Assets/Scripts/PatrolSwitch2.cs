@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PatrolSwitch2 : MonoBehaviour
 {
+    public Transform[] patrolPoints;
     private EnemyAi monster;
-    public Transform[] patrolPoints, newPatrolPoints;
 
     void Start()
     {
@@ -15,9 +15,9 @@ public class PatrolSwitch2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "Player") {
-           for (int i = 0; i < patrolPoints.Length; i++) {
-               patrolPoints[i].position = newPatrolPoints[i].position;
-           }
+            for (int i = 0; i < patrolPoints.Length; i++) {
+               patrolPoints[i].position = transform.GetChild(i).position;
+            }
         } 
     }
 }
