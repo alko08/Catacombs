@@ -23,6 +23,7 @@ TagManager:
   - hunting
   - warning
   - lightWarning
+  - Notifications
   layers:
   - Default
   - TransparentFX

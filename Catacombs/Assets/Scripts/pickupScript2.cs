@@ -40,7 +40,7 @@ public class pickupScript2 : MonoBehaviour
     void HitByRay() {
         if (!nearPlayer) {
             ExitByRay();
-        }else if (inventory.isOpen == false) {
+        }else if (!inventory.isOpen) {
             crosshair.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 doPickup();

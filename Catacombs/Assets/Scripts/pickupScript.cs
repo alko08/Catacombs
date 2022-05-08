@@ -55,7 +55,7 @@ public class pickupScript : MonoBehaviour
     void HitByRay() {
         if (!nearPlayer) {
             ExitByRay();
-        }else if (inventory.isOpen == false) {
+        }else if (!inventory.isOpen) {
             crosshair.SetActive(true);
             m_Renderer.material.color = greenTexture;
             if (Input.GetKeyDown(KeyCode.Mouse0) && nearPlayer) {
