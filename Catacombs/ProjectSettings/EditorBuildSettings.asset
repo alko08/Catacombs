@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MazeLevel.unity
     guid: 53bec63205bc2b64aaf640ebc17badfb
   - enabled: 1
+    path: Assets/Scenes/Catacombs.unity
+    guid: d31eca01eacd6c144aa1f824335b5389
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 65dc438ec24e16b4fbf7a9993a8d970e
   - enabled: 1

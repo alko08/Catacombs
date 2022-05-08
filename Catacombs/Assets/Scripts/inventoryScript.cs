@@ -25,7 +25,8 @@ public class inventoryScript : MonoBehaviour
     
     // Inventory UI vars. 
     public bool isOpen;
-
+    
+    public bool isOpen_inven;
     private GameObject inventoryUI;  // Refers to the parent containing all
                                     // inventory elements.
 
@@ -101,7 +102,7 @@ public class inventoryScript : MonoBehaviour
         speakerCountText.SetText("" + speakerCount);
 
         // Initializing inventoryUI.
-        isOpen = false;
+        isOpen_inven = false;
         inventoryUI = GameObject.Find("inventoryUI");
         initiateItemsUI();
 
@@ -135,6 +136,7 @@ public class inventoryScript : MonoBehaviour
         // Other.
         testTotal = 0;
         dialogue_open = false;
+        isOpen = false;
 
         sprintBarObject = GameObject.FindWithTag("SprintCharge");
     }
@@ -172,6 +174,8 @@ public class inventoryScript : MonoBehaviour
     // of the inventory. Don't open if dialogue is open.
     void Update()
     {
+        isOpen = isOpen_select || isOpen_inven || isOpen_tasks;
+
         dialogue_open = GameObject.Find("missionManager").GetComponent<mission_00>().isOpen_dialogue
         || GameObject.Find("missionManager").GetComponent<mission_01>().isOpen_dialogue
         || GameObject.Find("missionManager").GetComponent<mission_02>().isOpen_dialogue
@@ -179,9 +183,9 @@ public class inventoryScript : MonoBehaviour
         
         if ((Input.GetButtonDown("Inventory")) && (!dialogue_open)) {
             // Code that opens the selector. 
-            if ( (!isOpen_select) && (!isOpen) && (!isOpen_tasks) ){
+            if ( (!isOpen_select) && (!isOpen_inven) && (!isOpen_tasks) ){
                 doOpen_select();
-            } else if (isOpen) {
+            } else if (isOpen_inven) {
                 doClose();
             } else if (isOpen_tasks) {
                 doClose_tasks();
@@ -208,7 +212,7 @@ public class inventoryScript : MonoBehaviour
         // Cursor.visible = true;
         setNonUI(false);
 
-        isOpen = !isOpen;
+        isOpen_inven = !isOpen_inven;
     }
 
     void doClose()
@@ -217,7 +221,7 @@ public class inventoryScript : MonoBehaviour
 
         setNonUI(true);
 
-        isOpen = !isOpen;
+        isOpen_inven = !isOpen_inven;
     }
 
     // tasksUI
@@ -264,7 +268,7 @@ public class inventoryScript : MonoBehaviour
 
         isOpen_select = !isOpen_select;
 
-        if (isOpen) {
+        if (isOpen_inven) {
             doClose();
         }
     }
@@ -400,7 +404,7 @@ public class inventoryScript : MonoBehaviour
                   m_sprite = book3});
         }
 
-        if (isOpen) {
+        if (isOpen_inven) {
             doOpen();
         }
 
@@ -486,7 +490,7 @@ public class inventoryScript : MonoBehaviour
             Debug.Log("Cant remove:" + bookName);
         }
         
-        if (isOpen) {
+        if (isOpen_inven) {
             doOpen();
         }
     }

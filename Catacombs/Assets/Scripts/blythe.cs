@@ -34,14 +34,14 @@ public class blythe : MonoBehaviour
         nearPlayer = (dist < 5f);
 
         inventoryOpen = (GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen_select 
-                       | GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen
-                       | GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen_tasks);
+                       || GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen_inven
+                       || GameObject.Find("EventSystem").GetComponent<inventoryScript>().isOpen_tasks);
 
         dialogueOpen = GameObject.Find("missionManager").GetComponent<mission_00>().isOpen_dialogue;
     }
 
     void HitByRay() {
-        if ((!nearPlayer) | (inventoryOpen)) {
+        if ((!nearPlayer) || (inventoryOpen)) {
             ExitByRay();
         }
 
