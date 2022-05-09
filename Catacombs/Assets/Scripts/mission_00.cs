@@ -41,11 +41,11 @@ public class mission_00 : MonoBehaviour
 
     // Bools
     bool opening_done;
-    bool blytheTalk_done;
+    // bool blytheTalk_done;
     bool notClear;
     bool pause;
     public bool isOpen_dialogue;
-    bool blytheTalk_done1;
+    // bool blytheTalk_done1;
     bool checker1;
 
     // Tasks.
@@ -83,10 +83,10 @@ public class mission_00 : MonoBehaviour
 
         // Bools.
         opening_done = false;
-        blytheTalk_done = false;
+        // blytheTalk_done = false;
         pause = false;
         isOpen_dialogue = false;
-        blytheTalk_done1 = false;
+        // blytheTalk_done1 = false;
         checker1 = false;
     }
 
@@ -202,7 +202,7 @@ public class mission_00 : MonoBehaviour
                            "around. In case ya couldn't tell, we're in Tisch " +
                            "library right now. Read a book!";
         timer1 = 300;
-        blytheTalk_done1 = true;
+        // blytheTalk_done1 = true;
     }
 
     void print_task1Dialogue()
@@ -265,7 +265,7 @@ public class mission_00 : MonoBehaviour
         exitButton.gameObject.SetActive(false);
         dialogueRound = 0;  // Resetting dialogue round.
 
-        blytheTalk_done1 = false;
+        // blytheTalk_done1 = false;
 
         timer1 = 60;
         notClear = true;

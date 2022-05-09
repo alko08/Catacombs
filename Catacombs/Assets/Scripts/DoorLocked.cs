@@ -91,6 +91,10 @@ public class DoorLocked : MonoBehaviour
             GameObject.Find("missionManager").GetComponent<mission_00>().print_doorMessage();
         } else if (currMission == 1) {
             GameObject.Find("missionManager").GetComponent<mission_01>().print_doorMessage();
+        } else if (currMission == 2) {
+            GameObject.Find("missionManager").GetComponent<mission_02>().print_doorMessage();
+        } else if (currMission == 3) {
+            GameObject.Find("missionManager").GetComponent<mission_03>().print_doorMessage();
         }
     }
 }
