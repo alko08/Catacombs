@@ -180,6 +180,13 @@ public class mission_03 : MonoBehaviour
         openDialogueOptions();
     }
 
+    public void print_doorMessage()
+    {
+        dialogueBox.text = "The door is locked. Maybe there's a key...";
+        timer = 180;
+        doClear = true;
+    }
+
     // DIALOGUE TREE HELPERS
     void openDialogueOptions()
     {
