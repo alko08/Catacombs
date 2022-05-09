@@ -15,6 +15,7 @@ public class EndGame : MonoBehaviour
     FirstPersonCamera FPCam;
     UnityStandardAssets.Characters.FirstPerson.FirstPersonController FPC;
     CharacterController CControler;
+    FlashLight flashlight;
 
     // Start by storing values in variables.
     void Start()
@@ -34,6 +35,7 @@ public class EndGame : MonoBehaviour
         FPC = player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
         CControler = player.GetComponent<CharacterController>();
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
+        flashlight = GameObject.FindWithTag("Flashlight").GetComponent<FlashLight>();
         
         GameObject fadeToBlack = GameObject.FindWithTag("FadeToBlack");
         black = fadeToBlack.transform.GetChild(0).gameObject;
@@ -82,6 +84,7 @@ public class EndGame : MonoBehaviour
 
         FPC.enabled = false;
         CControler.enabled = false;
+        flashlight.enabled = false;
 
         crosshair.SetActive(false);
         endText.SetActive(false);

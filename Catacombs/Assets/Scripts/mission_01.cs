@@ -315,8 +315,7 @@ public class mission_01 : MonoBehaviour
 
         // Player said: "Fine. I'll get you the books."
         else if ( (dialogueRound == 200) || (dialogueRound == 300) ) {
-            dialogueBox.text = "Giant Bug: Awesome! See you in a bit! I left a tool to help " +
-                               "you deal with the monster at the bottom of the stairs!";
+            dialogueBox.text = "Giant Bug: Awesome! See you in a bit!";
             doTaskAdd();
         }
 

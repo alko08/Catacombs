@@ -127,7 +127,7 @@ public class mission_03 : MonoBehaviour
         tasks = new string[NUM_TASKS];
 
         tasks[0] = "Explore Tisch and find your friend.";
-        tasks[1] = "";
+        tasks[1] = "Talk to the giant bug.";
 
         inventory.addTask(tasks[0]);
     }
@@ -165,7 +165,7 @@ public class mission_03 : MonoBehaviour
 
     public void print_noticeBlythe()
     {
-        dialogueBox.text = "You: Is that the Giant Bug again?";
+        dialogueBox.text = "You: The bug! Thank goodness they're here.";
         inventory.addTask(tasks[1]);
         timer = 300;
         doClear = true;
@@ -174,10 +174,17 @@ public class mission_03 : MonoBehaviour
     public void print_blytheTalk()
     {
         inventory.removeTask(tasks[1]);
-        dialogueBox.text = "";
+        dialogueBox.text = "Giant Bug: Howdy! It's pretty creepy down here, isn't it?";
         timer = 0;
         doClear = false;
         openDialogueOptions();
+    }
+
+    public void print_doorMessage()
+    {
+        dialogueBox.text = "The door is locked. Maybe there's a key...";
+        timer = 180;
+        doClear = true;
     }
 
     // DIALOGUE TREE HELPERS
@@ -277,8 +284,34 @@ public class mission_03 : MonoBehaviour
 
     void updateDialogueBoxes()
     {
-        // ROUND 0;
+        // ROUND 0.
         if (dialogueRound == 0) {
+            choices[0].text = "Yeah, what's up with that?";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+
+        // ROUND 1. 
+        else if (dialogueRound == 100) {
+            choices[0].text = "";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+        else if (dialogueRound == 101) {
+            choices[0].text = "";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+        else if (dialogueRound == 102) {
+            choices[0].text = "";
+            choices[1].text = "";
+            choices[2].text = "";
+            choices[3].text = "";
+        }
+        else if (dialogueRound == 103) {
             choices[0].text = "";
             choices[1].text = "";
             choices[2].text = "";
