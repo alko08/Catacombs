@@ -29,6 +29,10 @@ public class DoorLocked : MonoBehaviour
         nearPlayer = false;
         doorAnimator = gameObject.GetComponent<Animator>();
         doorCollider = gameObject.GetComponent<BoxCollider>();
+
+        if (currMission == 4) {
+            inventory.addTask("Read the book beside the table.");
+        }
     }
 
     void Update()
@@ -73,8 +77,14 @@ public class DoorLocked : MonoBehaviour
         crosshair.SetActive(false);
         doorAnimator.SetTrigger("ChangeDoorState");
         doorCollider.enabled = false;
+        
         if (isExit) {
             StartCoroutine(NextSceneCoroutine());
+        }
+
+        if (currMission == 4) {
+            inventory.removeTask("Find the key at the center of the maze.");
+            inventory.addTask("Get to the door and move onto the next level.");
         }
     }
 

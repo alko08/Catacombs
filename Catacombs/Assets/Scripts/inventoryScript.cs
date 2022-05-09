@@ -388,6 +388,8 @@ public class inventoryScript : MonoBehaviour
             inventoryList.Add(new Book()
                 { m_name = "The Maze",
                   m_sprite = book1});
+            removeTask("Read the book beside the table.");
+            addTask("Find the key at the center of the maze.");
         } else if (bookName.Contains("randomBook3")) {
             inventoryList.Add(new Book()
                 { m_name = randomBookName3(-1),

@@ -174,7 +174,7 @@ public class itemDetailsScript : MonoBehaviour
 
         else if (itemName.Contains("Blythe The Bug")) {
             bio = "While searching through the library, I found this bug and get this," + 
-            " HE CAN TALK. I don't know how or why, but atleast he is friendly." +
+            " HE CAN TALK. I don't know how or why, but at least he is friendly." +
             " He told me his name is Blythe...";
         }
 
