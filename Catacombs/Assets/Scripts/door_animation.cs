@@ -42,6 +42,11 @@ public class door_animation : MonoBehaviour
             crosshair.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 ChangeDoor();
+
+                Debug.Log("DoorName == '" + this.gameObject.name + "'");
+                if (this.gameObject.name == "BottomDoor") {
+                    GameObject.Find("missionManager").GetComponent<mission_03>().setWeirdTimer();
+                }
             }
         }
     }
