@@ -4628,8 +4628,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1730429324393664034, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730429324393664034, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129171029203512446, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2129171029203512446, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
       propertyPath: m_Enabled
