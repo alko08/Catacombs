@@ -53,6 +53,7 @@ public class mission_02 : MonoBehaviour
     {
         inventory = GameObject.Find("EventSystem").GetComponent<inventoryScript>();
         dialogueBox = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
+        dialogyeBox.text = "";
 
         initiateBoxes();
         dialogueRound = 0;
@@ -165,7 +166,7 @@ public class mission_02 : MonoBehaviour
 
     public void print_noticeBlythe()
     {
-        dialogueBox.text = "You: Is that the Giant Bug again?";
+        dialogueBox.text = "You: It's that giant bug again!";
         inventory.addTask(tasks[1]);
         timer = 300;
         doClear = true;

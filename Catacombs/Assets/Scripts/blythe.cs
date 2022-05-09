@@ -47,6 +47,8 @@ public class blythe : MonoBehaviour
 
         if (currMission == 1) {
             GameObject.Find("missionManager").GetComponent<mission_01>().print_noticeBlythe();
+        } else if (currMission == 2) {
+            GameObject.Find("missionManager").GetComponent<mission_02>().print_noticeBlythe();
         }
 
         if ( (!inventoryOpen) && (!dialogueOpen) && (Time.timeScale != 0)) {
