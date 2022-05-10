@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class GameHandler : MonoBehaviour {
 
@@ -26,7 +27,10 @@ public class GameHandler : MonoBehaviour {
 
     void Start (){
         pauseMenuUI = GameObject.FindWithTag("PauseMenu").transform.GetChild(0).gameObject;
-        instructMenu = GameObject.FindWithTag("Instructions").transform.GetChild(0).gameObject;
+        instructMenu = GameObject.FindWithTag("Instructions");
+        if (Application.platform == RuntimePlatform.WebGLPlayer) {
+            GameObject.FindWithTag("keyboard").SetActive(false);
+        }
 
         menu = SceneManager.GetActiveScene().name == "MainMenu" ||
         SceneManager.GetActiveScene().name == "LoseScene" || 
@@ -90,7 +94,7 @@ public class GameHandler : MonoBehaviour {
     public void SetLevel (float sliderValue){
         mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
         volumeLevel = sliderValue;
-        Debug.Log("Volume: " + (volumeLevel * 20));
+        // Debug.Log("Volume: " + (volumeLevel * 20));
     }
 
     public void StartGame() {

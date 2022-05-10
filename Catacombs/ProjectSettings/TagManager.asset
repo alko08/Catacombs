@@ -24,6 +24,7 @@ TagManager:
   - warning
   - lightWarning
   - Notifications
+  - keyboard
   layers:
   - Default
   - TransparentFX
