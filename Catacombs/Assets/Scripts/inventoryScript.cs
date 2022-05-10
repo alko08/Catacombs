@@ -112,6 +112,8 @@ public class inventoryScript : MonoBehaviour
         // Initializing objectives menu.
         isOpen_tasks = false;
         tasksUI = GameObject.Find("objectivesUI");
+        inventory_exit = GameObject.Find("objective_exit").GetComponent<Button>();
+        inventory_exit.onClick.AddListener(ObjectiveExit_Clicked);
         initiateTasksUI();
 
         // Initializing selector.
@@ -774,5 +776,11 @@ public class inventoryScript : MonoBehaviour
     void InventoryExit_Clicked()
     {
         doClose();
+    }
+
+    // Function for the objective exit button
+    void ObjectiveExit_Clicked()
+    {
+        doClose_tasks();
     }
 }
