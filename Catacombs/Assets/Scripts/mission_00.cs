@@ -253,7 +253,7 @@ public class mission_00 : MonoBehaviour
         choices[0].text = "AAHHHHH! GIANT BUG! AAHHHHH!";
         choices[1].text = "Where am I? Who are you? How are you talking?";
         choices[2].text = "Am I dead?";
-        choices[3].text = "What was that thing that just walked by?";
+        choices[3].text = "What's that thing behind the glass?";
     }
 
     void closeDialogueOptions()
@@ -489,13 +489,13 @@ public class mission_00 : MonoBehaviour
         }
 
         // Player said: "I don't have time for this... (Leave)"
-        else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
+        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
             dialogueBox.text = "Hey! Where're you going?";
             closeDialogueOptions();
         }
 
         // Player said: "Are you sure we're safe?"
-        else if ( (dialogueRound == 3) && (prevChoice == "RT") ) {
+        else if ( (dialogueRound == 3) && (prevChoice == "RB") ) {
             dialogueBox.text = "Giant Bug: Yup! Don't worry, his eyesight " +
                                "isn't all that great, so he mainly finds things by " +
                                "listening.";
