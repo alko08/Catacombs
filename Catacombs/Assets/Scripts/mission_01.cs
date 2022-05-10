@@ -354,7 +354,7 @@ public class mission_01 : MonoBehaviour
         if (dialogueRound == 0) {
             dialogueRound = 102;
             dialogueBox.text = "Giant Bug: Hmm, well I saw someone going through " +
-                               "that exit door to my right. Thing is, the door's " +
+                               "that exit door behind me. Thing is, the door's " +
                                "locked.";
             updateDialogueBoxes(/* 102 */);
         } 
