@@ -190,7 +190,9 @@ MonoBehaviour:
   OutOfBreath: {fileID: 2191918613960654048}
   hiding: 0
   sprinting: 0
+  isGOD: 0
   headChecker: {fileID: 4247564139246849364}
+  audioMixer: {fileID: 24300002, guid: 09dc5988f087a054ab2beec53b9afd92, type: 2}
 --- !u!54 &54275937503739054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -588,6 +590,8 @@ MonoBehaviour:
   lightSource: {fileID: 8080258339697149145}
   clickSound: {fileID: 2573608480916717562}
   beepSound: {fileID: 3739245388944474694}
+  lowFog: 0.03
+  highFog: 0.06
   charge: 0
 --- !u!1 &3860347657578044398
 GameObject:

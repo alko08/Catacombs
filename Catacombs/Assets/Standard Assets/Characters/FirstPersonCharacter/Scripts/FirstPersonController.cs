@@ -4,6 +4,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -53,6 +54,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float sprintBar, startRunSpeed;
         public bool hiding, sprinting, isGOD;
         public BoxCollider headChecker;
+        public AudioMixerGroup audioMixer;
 
         // Use this for initialization
         private void Start()
@@ -75,8 +77,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             sprintBarObject = GameObject.FindWithTag("SprintCharge");
             sprintBarSlider = sprintBarObject.GetComponent<Slider>();
             sprintBar = 300f;
-        }
 
+            m_AudioSource.outputAudioMixerGroup = audioMixer;
+        }
 
         // Update is called once per frame
         private void Update()

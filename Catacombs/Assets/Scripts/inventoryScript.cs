@@ -75,7 +75,7 @@ public class inventoryScript : MonoBehaviour
     public int numBooks;
 
     // Other.
-    private int testTotal, repeats;
+    private int repeats;
     public TextMeshProUGUI goalTextMeshPro;
     public bool dialogue_open;
     public int currMission;
@@ -134,7 +134,6 @@ public class inventoryScript : MonoBehaviour
         numBooks = 0;
 
         // Other.
-        testTotal = 0;
         dialogue_open = false;
         isOpen = false;
 

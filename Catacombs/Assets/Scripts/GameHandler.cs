@@ -90,6 +90,7 @@ public class GameHandler : MonoBehaviour {
     public void SetLevel (float sliderValue){
         mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
         volumeLevel = sliderValue;
+        Debug.Log("Volume: " + (volumeLevel * 20));
     }
 
     public void StartGame() {
