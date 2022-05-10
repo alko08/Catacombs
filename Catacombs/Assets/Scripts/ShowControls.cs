@@ -79,7 +79,7 @@ public class ShowControls : MonoBehaviour
                 num += 1;
             }
             if (speaker) {
-                str += "Press [f] to throw a music-maker.\n";
+                str += "Press [r] to throw a music-maker.\n";
                 num += 1;
             }
 
