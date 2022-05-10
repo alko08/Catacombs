@@ -83,6 +83,7 @@ public class inventoryScript : MonoBehaviour
     public bool dialogue_open;
     public int currMission;
     private GameObject sprintBarObject;
+    private bool hasBattery, hasSpeaker;
 
     /*********************************************************************\
         FUNCTIONS
@@ -143,7 +144,8 @@ public class inventoryScript : MonoBehaviour
         // Other.
         dialogue_open = false;
         isOpen = false;
-
+        hasBattery = false;
+        hasSpeaker = false;
         sprintBarObject = GameObject.FindWithTag("SprintCharge");
     }
 
@@ -313,19 +315,21 @@ public class inventoryScript : MonoBehaviour
         else if (bookName.Contains("battery")) {
             batteryCount++;
             batteryCountText.SetText("" + batteryCount);
-            if (batteryCount == 1) {
+            if (!hasBattery) {
                 inventoryList.Add(new Book() 
                 { m_name = "A Battery", 
                   m_sprite = batteyTexture });
+                hasBattery = true;
             }
             numBooks--;
         } else if (bookName.Contains("speaker")) {
             speakerCount++;
             speakerCountText.SetText("" + speakerCount);
-            if (speakerCount == 1) {
+            if (!hasSpeaker) {
                 inventoryList.Add(new Book() 
                 { m_name = "A Music-Maker", 
                   m_sprite = speakerTexture });
+                hasBattery = true;
             }
             numBooks--;
         } else if (bookName.Contains("keyring")) {
@@ -505,11 +509,13 @@ public class inventoryScript : MonoBehaviour
                 inventoryList.Add(new Book() 
                 { m_name = "A Battery", 
                   m_sprite = batteyTexture });
+                hasBattery = true;
             }
             if (speakerCount > 0) {
                 inventoryList.Add(new Book() 
                 { m_name = "A Music-Maker", 
                   m_sprite = speakerTexture });
+                hasSpeaker = true;
             }
         }
         
@@ -534,11 +540,12 @@ public class inventoryScript : MonoBehaviour
             batteryCountText.SetText("" + batteryCount);
         }
 
-        if (batteryCount == 0) {
+        if (batteryCount == 0 && hasBattery) {
             inventoryList.Remove(new Book()
                 { m_name = "A Battery", 
                   m_sprite = batteyTexture });
             itemsUI[inventoryList.Count].SetActive(false);
+            hasBattery = false;
             if (isOpen_inven) {
                 doOpen();
             }
@@ -556,11 +563,12 @@ public class inventoryScript : MonoBehaviour
             speakerCountText.SetText("" + speakerCount);
         }
 
-        if (speakerCount == 0) {
+        if (speakerCount == 0 && hasSpeaker) {
             inventoryList.Remove(new Book()
                 { m_name = "A Music-Maker", 
                 m_sprite = speakerTexture });
             itemsUI[inventoryList.Count].SetActive(false);
+            hasSpeaker = false;
             if (isOpen_inven) {
                 doOpen();
             }
@@ -812,6 +820,18 @@ public class inventoryScript : MonoBehaviour
     public void updateVariables() {
         StaticVariables.batteryNum = batteryCount;
         StaticVariables.speakerNum = speakerCount;
+        if (batteryCount > 0) {
+            inventoryList.Add(new Book() 
+            { m_name = "A Battery", 
+                m_sprite = batteyTexture });
+            hasBattery = true;
+        }
+        if (speakerCount > 0) {
+            inventoryList.Add(new Book() 
+            { m_name = "A Music-Maker", 
+                m_sprite = speakerTexture });
+            hasSpeaker = true;
+        }
     }
 
     // Function for the inventory exit button
