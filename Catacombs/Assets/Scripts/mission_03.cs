@@ -195,7 +195,7 @@ public class mission_03 : MonoBehaviour
 
     public void print_blytheTalk()
     {
-        if (!inventory.hasKey) {
+        if ( (!inventory.hasKey) && (!isOpen_dialogue) ) {
             inventory.removeTask(tasks[1]);
             dialogueBox.text = "Giant Bug: Howdy! It's pretty creepy down here, isn't it?";
             timer = 0;
