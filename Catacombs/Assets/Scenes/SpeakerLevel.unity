@@ -2142,7 +2142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 1
-  currMission: 0
+  currMission: 3
 --- !u!95 &254070118
 Animator:
   serializedVersion: 3
@@ -17432,7 +17432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132147710737582, guid: 61f8fa430235ded4b97eee01f8aa0042, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4941573304572691506, guid: 61f8fa430235ded4b97eee01f8aa0042, type: 3}
       propertyPath: m_RootOrder

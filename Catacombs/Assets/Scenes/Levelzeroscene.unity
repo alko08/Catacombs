@@ -6086,7 +6086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 1
-  currMission: 0
+  currMission: -1
 --- !u!4 &944504485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1834072548412230577, guid: e1641ea9ee17587478bba54f476162dc, type: 3}
