@@ -56,9 +56,13 @@ public class itemDetailsScript : MonoBehaviour
             bio = "Nothing to see here. Just a test.";
         } 
         
-        else if (itemName.Contains("Battery")) {
+        else if (itemName.Contains("A Battery")) {
             bio = "Charges the flashlight an extra 50%.";
-        } 
+        }
+
+        else if (itemName.Contains("A Music-Maker")) {
+            bio = "Produces loud music and distracts anything nearby.";
+        }
 
         else if (itemName.Contains("A Ring of Keys")) {
             bio = "A ring of keys. Unlocks locked doors.";

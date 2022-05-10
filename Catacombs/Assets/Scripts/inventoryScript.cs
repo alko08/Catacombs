@@ -65,6 +65,8 @@ public class inventoryScript : MonoBehaviour
     public Texture2D book2;
     public Texture2D book3;
     public Texture2D keyRing;
+    public Texture2D batteyTexture;
+    public Texture2D speakerTexture;
 
     // Batteries, Speakers, and Keys
     private int batteryCount, speakerCount;
@@ -311,10 +313,20 @@ public class inventoryScript : MonoBehaviour
         else if (bookName.Contains("battery")) {
             batteryCount++;
             batteryCountText.SetText("" + batteryCount);
+            if (batteryCount == 1) {
+                inventoryList.Add(new Book() 
+                { m_name = "A Battery", 
+                  m_sprite = batteyTexture });
+            }
             numBooks--;
         } else if (bookName.Contains("speaker")) {
             speakerCount++;
             speakerCountText.SetText("" + speakerCount);
+            if (speakerCount == 1) {
+                inventoryList.Add(new Book() 
+                { m_name = "A Music-Maker", 
+                  m_sprite = speakerTexture });
+            }
             numBooks--;
         } else if (bookName.Contains("keyring")) {
             hasKey = true;
@@ -489,6 +501,16 @@ public class inventoryScript : MonoBehaviour
 
         else if (bookName == "ALL_OF_THEM") {
             inventoryList.Clear();
+            if (batteryCount > 0) {
+                inventoryList.Add(new Book() 
+                { m_name = "A Battery", 
+                  m_sprite = batteyTexture });
+            }
+            if (speakerCount > 0) {
+                inventoryList.Add(new Book() 
+                { m_name = "A Music-Maker", 
+                  m_sprite = speakerTexture });
+            }
         }
         
         
@@ -511,6 +533,16 @@ public class inventoryScript : MonoBehaviour
             batteryCount--;
             batteryCountText.SetText("" + batteryCount);
         }
+
+        if (batteryCount == 0) {
+            inventoryList.Remove(new Book()
+                { m_name = "A Battery", 
+                  m_sprite = batteyTexture });
+            itemsUI[inventoryList.Count].SetActive(false);
+            if (isOpen_inven) {
+                doOpen();
+            }
+        }
     }
 
     public bool containsSpeaker() {
@@ -522,6 +554,16 @@ public class inventoryScript : MonoBehaviour
         if (speakerCount > 0) {
             speakerCount--;
             speakerCountText.SetText("" + speakerCount);
+        }
+
+        if (speakerCount == 0) {
+            inventoryList.Remove(new Book()
+                { m_name = "A Music-Maker", 
+                m_sprite = speakerTexture });
+            itemsUI[inventoryList.Count].SetActive(false);
+            if (isOpen_inven) {
+                doOpen();
+            }
         }
     }
 

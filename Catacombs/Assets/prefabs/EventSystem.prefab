@@ -80,11 +80,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
-  inventoryUI: {fileID: 0}
+  isOpen_inven: 0
+  inventory_exit: {fileID: 0}
   isOpen_tasks: 0
-  tasksUI: {fileID: 0}
   isOpen_select: 0
-  selectorUI: {fileID: 0}
   firstBookFound: 0
   firstBookRead: 0
   purpleBookFound: 0
@@ -96,6 +95,11 @@ MonoBehaviour:
   book2: {fileID: 2800000, guid: 46baa691d9d754195b59d23f2403968c, type: 3}
   book3: {fileID: 2800000, guid: f920c67c0fbf14492a1196afb7be5f1b, type: 3}
   keyRing: {fileID: 2800000, guid: aa5987bf30304fb4d9a4cbf53af0cf90, type: 3}
-  batteryCount: 0
+  batteyTexture: {fileID: 2800000, guid: 6a0a5bf250ce4ff4fa79fcb46524bdd8, type: 3}
+  speakerTexture: {fileID: 2800000, guid: f0fd6dde95417e84db41c9d3681af544, type: 3}
   hasKey: 0
+  points: {fileID: 0}
+  numBooks: 0
   goalTextMeshPro: {fileID: 0}
+  dialogue_open: 0
+  currMission: 0
