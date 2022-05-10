@@ -187,13 +187,15 @@ public class mission_00 : MonoBehaviour
 
     public void print_blytheTalk1()
     {
-        inventory.removeTask(tasks[0]);
-        dialogueBox.text = "Giant Bug: Oh hey there! How're you doing?";
-        timer1 = 0;
-        pause = true;   // Pausing text change to open talking menu.
-        notClear = false;   // Setting to false to prevent dialogue from getting erased instantly.
-        dialogueRound = 1;  // Setting dialogue round to start mode.
-        openDialogueOptions();
+        if (!isOpen_dialogue) {
+            inventory.removeTask(tasks[0]);
+            dialogueBox.text = "Giant Bug: Oh hey there! How're you doing?";
+            timer1 = 0;
+            pause = true;   // Pausing text change to open talking menu.
+            notClear = false;   // Setting to false to prevent dialogue from getting erased instantly.
+            dialogueRound = 1;  // Setting dialogue round to start mode.
+            openDialogueOptions();
+        }
     }
 
     void print_blytheTalk2()

@@ -208,11 +208,13 @@ public class mission_02 : MonoBehaviour
 
     public void print_blytheTalk()
     {
-        inventory.removeTask(tasks[1]);
-        dialogueBox.text = "Giant Bug: Long time no see! Ready for another challenge?";
-        timer = 0;
-        doClear = false;
-        openDialogueOptions();
+        if (!isOpen_dialogue) {
+            inventory.removeTask(tasks[1]);
+            dialogueBox.text = "Giant Bug: Long time no see! Ready for another challenge?";
+            timer = 0;
+            doClear = false;
+            openDialogueOptions();
+        }
     }
 
     public void print_doorMessage()

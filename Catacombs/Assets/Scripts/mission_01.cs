@@ -213,7 +213,7 @@ public class mission_01 : MonoBehaviour
 
     public void print_blytheTalk()
     {
-        if (!doneTalking) {
+        if ( (!doneTalking) && (!isOpen_dialogue) ) {
             inventory.removeTask(tasks[1]);
             dialogueBox.text = "Giant Bug: Hey, it's you again! I hope the monster " +
                            "wasn't too bad!";
