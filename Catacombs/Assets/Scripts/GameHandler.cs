@@ -94,7 +94,7 @@ public class GameHandler : MonoBehaviour {
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene("Levelzeroscene");
     }
 
     public void RestartGame() {
