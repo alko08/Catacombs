@@ -29,6 +29,7 @@ public class inventoryScript : MonoBehaviour
     public bool isOpen_inven;
     private GameObject inventoryUI;  // Refers to the parent containing all
                                     // inventory elements.
+    public Button inventory_exit;
 
     // Objectives UI vars.
     public bool isOpen_tasks;
@@ -104,6 +105,8 @@ public class inventoryScript : MonoBehaviour
         // Initializing inventoryUI.
         isOpen_inven = false;
         inventoryUI = GameObject.Find("inventoryUI");
+        inventory_exit = GameObject.Find("inventory_exit").GetComponent<Button>();
+        inventory_exit.onClick.AddListener(InventoryExit_Clicked);
         initiateItemsUI();
 
         // Initializing objectives menu.
@@ -765,5 +768,11 @@ public class inventoryScript : MonoBehaviour
     public void updateVariables() {
         StaticVariables.batteryNum = batteryCount;
         StaticVariables.speakerNum = speakerCount;
+    }
+
+    // Function for the inventory exit button
+    void InventoryExit_Clicked()
+    {
+        doClose();
     }
 }
