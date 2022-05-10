@@ -7,7 +7,7 @@ public class ShowControls : MonoBehaviour
 {
     private TextMeshProUGUI controlText;
     private string str;
-    public bool walkWASD, walkARROW, jump, interact, flashlight, flashlight2, 
+    public bool walkWASD, jump, interact, flashlight, 
         inventory, crouch, crouch2, sprint, speaker, changed, controls;
     private int num;
     private RectTransform myRectTransform;
@@ -17,7 +17,7 @@ public class ShowControls : MonoBehaviour
     {
         num = 0;
         myRectTransform = GetComponent<RectTransform>();
-        str = "Press [esc] for settings.\n";
+        str = "Press [q] or [esc] for settings.\n";
         controlText = GetComponent<TextMeshProUGUI>();
         controlText.SetText(str);
     }
@@ -32,11 +32,9 @@ public class ShowControls : MonoBehaviour
             num = 0;
 
             walkWASD = StaticVariables.walkWASD; 
-            walkARROW = StaticVariables.walkARROW; 
             jump = StaticVariables.jump; 
             interact = StaticVariables.interact;
             flashlight = StaticVariables.flashlight;
-            flashlight2 = StaticVariables.flashlight2;
             inventory = StaticVariables.inventory;
             crouch = StaticVariables.crouch;
             crouch2 = StaticVariables.crouch2;
@@ -45,25 +43,21 @@ public class ShowControls : MonoBehaviour
             controls = StaticVariables.controls;
 
             if (controls) {
-                str = "Press [esc] for settings.\n";
+                str = "Press [q] or [esc] for settings.\n";
                 num += 1;
             }
             if (walkWASD) {
                 str += "Press [w,a,s,d] to move.\n";
                 num += 1;
             }
-            if (walkARROW) {
-                str += "Press [arrow keys] to move.\n";
-                num += 1;
-            }
             if (crouch) {
                 str += "Press [c] to crouch.\n";
                 num += 1;
             }
-            // if (crouch2) {
-            //     str += "Press [ctrl] to crouch.\n";
-            //     num += 1;
-            // }
+            if (crouch2) {
+                str += "Press [ctrl] to crouch.\n";
+                num += 1;
+            }
             if (sprint) {
                 str += "Press [shift] to run.\n";
                 num += 1;
@@ -80,16 +74,12 @@ public class ShowControls : MonoBehaviour
                 str += "Press [right click] for flashlight.\n";
                 num += 1;
             }
-            if (flashlight2) {
-                str += "Press [left alt] for flashlight.\n";
-                num += 1;
-            }
             if (inventory) {
                 str += "Press [e] for inventory.\n";
                 num += 1;
             }
             if (speaker) {
-                str += "Press [f] to throw a speaker.\n";
+                str += "Press [f] to throw a music-maker.\n";
                 num += 1;
             }
 

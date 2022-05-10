@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public static class StaticVariables
 {
     public static int batteryNum;
     public static float batteryVal;
     public static int speakerNum;
-    public static bool walkWASD, walkARROW, jump, interact, flashlight, flashlight2, 
+    public static bool walkWASD, jump, interact, flashlight, 
         inventory, crouch, crouch2, sprint, speaker, changed, controls;
     
     static StaticVariables()
@@ -16,12 +17,10 @@ public static class StaticVariables
         batteryVal = 1f;
         speakerNum = 0;
 
-        walkWASD = false; 
-        walkARROW = false; 
+        walkWASD = false;
         jump = false; 
         interact = false;
         flashlight = false;
-        flashlight2 = false;
         inventory = true;
         crouch = false;
         crouch2 = false;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class ControlMenu : MonoBehaviour
 {
@@ -9,16 +10,19 @@ public class ControlMenu : MonoBehaviour
     {
         transform.GetChild(0).GetChild(4).gameObject.GetComponent<Toggle>().isOn = StaticVariables.controls;
         transform.GetChild(0).GetChild(5).gameObject.GetComponent<Toggle>().isOn = StaticVariables.walkWASD;
-        transform.GetChild(0).GetChild(6).gameObject.GetComponent<Toggle>().isOn = StaticVariables.walkARROW;
-        transform.GetChild(0).GetChild(7).gameObject.GetComponent<Toggle>().isOn = StaticVariables.crouch;
-        transform.GetChild(0).GetChild(8).gameObject.GetComponent<Toggle>().isOn = StaticVariables.crouch2;
-        transform.GetChild(0).GetChild(9).gameObject.GetComponent<Toggle>().isOn = StaticVariables.sprint;
-        transform.GetChild(0).GetChild(10).gameObject.GetComponent<Toggle>().isOn = StaticVariables.jump;
-        transform.GetChild(0).GetChild(11).gameObject.GetComponent<Toggle>().isOn = StaticVariables.interact;
-        transform.GetChild(0).GetChild(12).gameObject.GetComponent<Toggle>().isOn = StaticVariables.flashlight;
-        transform.GetChild(0).GetChild(13).gameObject.GetComponent<Toggle>().isOn = StaticVariables.flashlight2;
-        transform.GetChild(0).GetChild(14).gameObject.GetComponent<Toggle>().isOn = StaticVariables.inventory;
-        transform.GetChild(0).GetChild(15).gameObject.GetComponent<Toggle>().isOn = StaticVariables.speaker;
+        transform.GetChild(0).GetChild(6).gameObject.GetComponent<Toggle>().isOn = StaticVariables.sprint;
+        transform.GetChild(0).GetChild(7).gameObject.GetComponent<Toggle>().isOn = StaticVariables.jump;
+        transform.GetChild(0).GetChild(8).gameObject.GetComponent<Toggle>().isOn = StaticVariables.crouch;
+        if (Application.platform != RuntimePlatform.WebGLPlayer) {
+            transform.GetChild(0).GetChild(9).gameObject.GetComponent<Toggle>().isOn = StaticVariables.crouch2;
+        } else {
+            transform.GetChild(0).GetChild(9).gameObject.SetActive(false);
+        }
+        
+        transform.GetChild(0).GetChild(10).gameObject.GetComponent<Toggle>().isOn = StaticVariables.interact;
+        transform.GetChild(0).GetChild(11).gameObject.GetComponent<Toggle>().isOn = StaticVariables.flashlight;
+        transform.GetChild(0).GetChild(12).gameObject.GetComponent<Toggle>().isOn = StaticVariables.inventory;
+        transform.GetChild(0).GetChild(13).gameObject.GetComponent<Toggle>().isOn = StaticVariables.speaker;
     }
 
     public void updateControls (bool c) {
@@ -27,10 +31,6 @@ public class ControlMenu : MonoBehaviour
     }
     public void updateWalkWASD (bool w) {
         StaticVariables.walkWASD = w;
-        StaticVariables.changed = true;
-    }
-    public void updateWalkARROW (bool w) {
-        StaticVariables.walkARROW = w;
         StaticVariables.changed = true;
     }
     public void updateJump (bool j) {
@@ -45,10 +45,6 @@ public class ControlMenu : MonoBehaviour
         StaticVariables.flashlight = f;
         StaticVariables.changed = true;
     }
-    public void updateFlashlight2 (bool f) {
-        StaticVariables.flashlight2 = f;
-        StaticVariables.changed = true;
-    }
     public void updateInventory (bool i) {
         StaticVariables.inventory = i;
         StaticVariables.changed = true;
@@ -57,10 +53,10 @@ public class ControlMenu : MonoBehaviour
         StaticVariables.crouch = c;
         StaticVariables.changed = true;
     }
-    public void updateCrouch2 (bool c) {
-        StaticVariables.crouch2 = c;
-        StaticVariables.changed = true;
-    }
+    // public void updateCrouch2 (bool c) {
+    //     StaticVariables.crouch2 = c;
+    //     StaticVariables.changed = true;
+    // }
     public void updateSprint (bool s) {
         StaticVariables.sprint = s;
         StaticVariables.changed = true;

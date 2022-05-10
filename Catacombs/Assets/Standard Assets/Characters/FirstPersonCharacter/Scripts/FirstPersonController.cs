@@ -5,6 +5,7 @@ using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -289,9 +290,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
-            m_IsCrouched = Input.GetKey(KeyCode.C);
-            // m_IsCrouched = Input.GetKey(KeyCode.LeftControl) || 
-            //     Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.C);
+
+            if (Application.platform == RuntimePlatform.WebGLPlayer) {
+                m_IsCrouched = Input.GetKey(KeyCode.C); // WEBGL CROUCHING ONLY
+            } else {
+                m_IsCrouched = Input.GetKey(KeyCode.LeftControl) || 
+                Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.C);
+            }
 #endif
             // set the desired speed to be walking or running
             if ((m_IsCrouched && m_IsWalking) || hiding) {
