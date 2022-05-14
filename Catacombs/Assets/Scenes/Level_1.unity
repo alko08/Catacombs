@@ -4493,18 +4493,6 @@ PrefabInstance:
       propertyPath: flashlight
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 648043248477208690, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
-      propertyPath: m_Color.b
-      value: 0.08018869
-      objectReference: {fileID: 0}
-    - target: {fileID: 648043248477208690, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
-      propertyPath: m_Color.g
-      value: 0.6649082
-      objectReference: {fileID: 0}
-    - target: {fileID: 648043248477208690, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1203537470571176053, guid: 4953e14640136449d87b7f9d3d35567e, type: 3}
       propertyPath: m_Color.a
       value: 0.44705883

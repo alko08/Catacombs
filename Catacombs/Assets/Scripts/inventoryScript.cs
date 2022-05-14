@@ -147,6 +147,19 @@ public class inventoryScript : MonoBehaviour
         hasBattery = false;
         hasSpeaker = false;
         sprintBarObject = GameObject.FindWithTag("SprintCharge");
+
+        if (batteryCount > 0) {
+            inventoryList.Add(new Book() 
+            { m_name = "A Battery", 
+                m_sprite = batteyTexture });
+            hasBattery = true;
+        }
+        if (speakerCount > 0) {
+            inventoryList.Add(new Book() 
+            { m_name = "A Music-Maker", 
+                m_sprite = speakerTexture });
+            hasSpeaker = true;
+        }
     }
 
     // This function should grab all the item GameObjects in the UI and store
@@ -329,7 +342,7 @@ public class inventoryScript : MonoBehaviour
                 inventoryList.Add(new Book() 
                 { m_name = "A Music-Maker", 
                   m_sprite = speakerTexture });
-                hasBattery = true;
+                hasSpeaker = true;
             }
             numBooks--;
         } else if (bookName.Contains("keyring")) {
@@ -820,18 +833,6 @@ public class inventoryScript : MonoBehaviour
     public void updateVariables() {
         StaticVariables.batteryNum = batteryCount;
         StaticVariables.speakerNum = speakerCount;
-        if (batteryCount > 0) {
-            inventoryList.Add(new Book() 
-            { m_name = "A Battery", 
-                m_sprite = batteyTexture });
-            hasBattery = true;
-        }
-        if (speakerCount > 0) {
-            inventoryList.Add(new Book() 
-            { m_name = "A Music-Maker", 
-                m_sprite = speakerTexture });
-            hasSpeaker = true;
-        }
     }
 
     // Function for the inventory exit button

@@ -379,7 +379,7 @@ public class mission_02 : MonoBehaviour
         else if (dialogueRound == 102) {
             dialogueRound = 202;
             dialogueBox.text = "Giant Bug: A music-maker! It makes music, silly " +
-                               "goose! You press [f] to throw it, and its music " +
+                               "goose! You press [r] to throw it, and its music " +
                                "will distract the monster!";
             updateDialogueBoxes(/* 202 */);
         }
@@ -403,7 +403,7 @@ public class mission_02 : MonoBehaviour
         // Player said: "I didn't catch all that. Can you explain the music-maker again?"
         else if (dialogueRound == 300) {
             dialogueRound = 400;
-            dialogueBox.text = "Giant Bug: Yup! You throw it by pressing [f]. The " +
+            dialogueBox.text = "Giant Bug: Yup! You throw it by pressing [r]. The " +
                                "music-maker will then distract the monster for a moment. " +
                                "While it's distracted, get to the door.";
             updateDialogueBoxes(/* 400 */);
